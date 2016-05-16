@@ -14,6 +14,6 @@ import fr.s2re.iuc.IUcAssociation;
 public class UcAssociation implements IUcAssociation {
     @Override
     public List<EnvieDto> consulterSaListeDeSouhaits(AssociationDto paramAssociationDto) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

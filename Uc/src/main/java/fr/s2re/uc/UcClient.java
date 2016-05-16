@@ -61,27 +61,27 @@ public class UcClient implements IUcClient {
 
     @Override
     public DonDto faireUnDon(ClientDto paramClientDto, ProduitDto paramProduitDto) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<DonDto> consulterListDons(ClientDto paramParaClientDto) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public EnvieDto ajouterUnSouhait(EnvieDto paramEnvieDto) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public EnvieDto supprimerUnSouhait(EnvieDto paramEnvieDto) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<EnvieDto> consulterSaListeDeSouhaits(ClientDto paramClientDto) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
@@ -130,7 +130,7 @@ public class UcClient implements IUcClient {
 
     @Override
     public List<LigneDeCommandeDto> effectuerRetour(List<LigneDeCommandeDto> paramList) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override

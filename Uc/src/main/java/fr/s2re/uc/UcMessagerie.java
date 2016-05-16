@@ -16,21 +16,21 @@ import fr.s2re.iuc.IUcMessagerie;
 public class UcMessagerie implements IUcMessagerie {
     @Override
     public MessagerieDto envoyerMessage(ClientDto paramClientDto, ProduitDto paramProduitDto) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public MessagerieDto deleteMessage(MessageInboxDto paramMessageInboxDto) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<MessagerieDto> consuleterListeMessagerie(ClientDto paramClientDto) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<MessageInboxDto> consulterMessagerie(MessagerieDto paramMessagerieDto) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

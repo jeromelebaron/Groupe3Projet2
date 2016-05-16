@@ -30,16 +30,12 @@ public class UcVendeur implements IUcVendeur {
 
     @Override
     public List<CommandeDto> voirHistoriqueVentes(ClientDto paramClientDto) {
-        List<CommandeDto> liste = bProduit.getHistoriqueVente(paramClientDto);
-
-        return liste;
+        return bProduit.getHistoriqueVente(paramClientDto);
     }
 
     @Override
     public List<CommandeDto> voirVentesEnPreparation(ClientDto paramClientDto) {
-        List<CommandeDto> liste = bCommande.getCommandeDesVendeur(paramClientDto);
-
-        return liste;
+        return bCommande.getCommandeDesVendeur(paramClientDto);
     }
 
     @Override
@@ -56,19 +52,16 @@ public class UcVendeur implements IUcVendeur {
 
     @Override
     public ProduitDto vendre(ProduitDto paramProduitDto) {
-
         return bProduit.addProduit(paramProduitDto);
     }
 
     @Override
     public List<ProduitDto> afficherSaListeDeProduits(ClientDto paramClientDto) {
-        List<ProduitDto> liste = bProduit.getByClient(paramClientDto);
-        return liste;
+        return bProduit.getByClient(paramClientDto);
     }
 
     @Override
     public ProduitDto modifier(ProduitDto paramProduitDto) {
-
         return bProduit.update(paramProduitDto);
     }
 
@@ -81,7 +74,6 @@ public class UcVendeur implements IUcVendeur {
     public List<ProduitDto> getProduits(ProduitDto paramProduitDto) {
         List<ProduitDto> list = new ArrayList<>();
         for (ProduitDto p : bProduit.getAll()) {
-
             p.setImages(bProduit.getImage(p));
             list.add(p);
         }

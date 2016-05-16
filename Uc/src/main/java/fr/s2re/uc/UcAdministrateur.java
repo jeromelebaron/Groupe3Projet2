@@ -11,7 +11,7 @@ import fr.s2re.iuc.IUcAdministrateur;
 public class UcAdministrateur implements IUcAdministrateur {
     @Override
     public ModerateurDto addModerateur(ModerateurDto paramModerateurDto) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override

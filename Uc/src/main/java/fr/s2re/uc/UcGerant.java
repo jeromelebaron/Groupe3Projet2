@@ -13,16 +13,16 @@ import fr.s2re.iuc.IUcGerant;
 public class UcGerant implements IUcGerant {
     @Override
     public ProduitDto addProduit(ProduitDto paramProduitDto) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<ProduitDto> consulterStock() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public ProduitDto deleteProduitCatalog(ProduitDto paramProduitDto) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

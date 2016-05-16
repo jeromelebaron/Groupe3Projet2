@@ -14,31 +14,31 @@ import fr.s2re.iuc.IUcModerateur;
 public class UcModerateur implements IUcModerateur {
     @Override
     public ProduitDto gererPublicationProduit(ProduitDto paramProduitDto) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public ProduitDto deleteProduitClientcatalog(ProduitDto paramProduitDto) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public ProduitDto deleteProduitlisteAlerte(ProduitDto paramProduitDto) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public ClientDto demandeBlacklisterClient(ClientDto paramClientDto) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public NoteProduitDto deleteNoteProduit(ProduitDto paramProduitDto) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public NoteClientDto deleteNoteClient(ClientDto paramNoteClient) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

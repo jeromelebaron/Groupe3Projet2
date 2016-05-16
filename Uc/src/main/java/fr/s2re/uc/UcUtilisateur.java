@@ -108,17 +108,17 @@ public class UcUtilisateur implements IUcUtilisateur {
 
     @Override
     public ProduitDto ajouterProduitPanier(ProduitDto paramProduitDto) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public ProduitDto retirerProduitPanier(ProduitDto paramProduitDto) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<ProduitDto> consulterPanier(ProduitDto paramProduitDto) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
@@ -128,7 +128,7 @@ public class UcUtilisateur implements IUcUtilisateur {
 
     @Override
     public List<AlerteCommentaireDto> alerteSurCommentaire(NoteProduitDto paramNoteProduitDto) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
