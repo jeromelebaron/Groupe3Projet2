@@ -8,7 +8,6 @@ import fr.s2re.dto.AlerteProduitDto;
 import fr.s2re.dto.CategorieDto;
 import fr.s2re.dto.CouleurDto;
 import fr.s2re.dto.MarqueDto;
-import fr.s2re.dto.NoteDto;
 import fr.s2re.dto.NoteProduitDto;
 import fr.s2re.dto.ProduitDto;
 import fr.s2re.dto.UtilisateurDto;
@@ -21,7 +20,7 @@ public interface IUcUtilisateur {
 	//Recherche Produit
 	List<CategorieDto> getCatgByCatg (CategorieDto paraCategorieDto);
 	List<CategorieDto> getAllCatg();
-	List<ProduitDto> getAllProduit();//pour le back sinon au niveau client on recup par catégorie ??
+	List<ProduitDto> getAllProduit();//pour le back sinon au niveau client on recup par catÃ©gorie ??
 	List<ProduitDto> getProduitByCatg (int paramCategorieDto);
 	List<ProduitDto> getProduitByMarque(MarqueDto paramMarque);
 	List<ProduitDto> getProduitByCouleur(CouleurDto paramCouleur);

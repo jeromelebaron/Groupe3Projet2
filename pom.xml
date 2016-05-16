@@ -9,7 +9,7 @@
 		<groupId>fr.s2re</groupId>
 		<artifactId>Parent</artifactId>
 		<version>0.1</version>
-		<relativePath>../Parent/pom.xml</relativePath>
+		<relativePath>Parent/pom.xml</relativePath>
 	</parent>
 
 	<modules>
