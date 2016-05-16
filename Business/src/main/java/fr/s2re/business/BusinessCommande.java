@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import javax.ejb.EJB;
@@ -60,7 +61,7 @@ public class BusinessCommande implements IBusinessCommande {
     public CommandeDto addCommande(ClientDto paramClientDto, List<LigneDeCommandeDto> paramList, CommandeDto paramCommandeDto) {
         // traitement pour creer commande et sous commande en fct de notre liste de ligne de commande, fiesta on
         List<LigneDeCommande> ldcs = AssembleurDto.listLigneCmdFromListLigneCmdDto(paramList);
-        HashMap<Integer, List<LigneDeCommande>> mapLigneCmd = new HashMap<>();
+        Map<Integer, List<LigneDeCommande>> mapLigneCmd = new HashMap<>();
         List<LigneDeCommande> ldcParVendeur = new ArrayList<>();
         Double total = 0d;
         for (LigneDeCommande ldc : ldcs) {
@@ -84,7 +85,7 @@ public class BusinessCommande implements IBusinessCommande {
         }
         // ajout prix livraison
         total += paramCommandeDto.getMethodeLivraison().getPrix();
-        if (mapLigneCmd.size() != 0) {
+        if (!mapLigneCmd.isEmpty()) {
             if (mapLigneCmd.size() == 1) {
                 // cas un vendeur, donc une commande unique sans sous commande
                 Integer idVendeur = null;

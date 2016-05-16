@@ -93,13 +93,13 @@ import fr.s2re.entity.Utilisateur;
 import fr.s2re.entity.Ville;
 
 public class AssembleurDto {
-    
+
     /**
      * Constructeur privé.
      */
     private AssembleurDto() {
     }
-    
+
     public static AdministrateurDto adminDtoFromAdmin(Administrateur paramAdmin) {
         AdministrateurDto adminDto = new AdministrateurDto();
         if (paramAdmin.getCivilite() != null) {
@@ -485,11 +485,9 @@ public class AssembleurDto {
 
     public static NoteDto noteDtoFromNote(Note paramNote) {
         if (paramNote.getClass() == NoteClient.class) {
-            NoteClientDto noteClientDto = noteClientDtoFromNoteClient((NoteClient) paramNote);
-            return noteClientDto;
+            return noteClientDtoFromNoteClient((NoteClient) paramNote);
         } else if (paramNote.getClass() == NoteProduit.class) {
-            NoteProduitDto noteProduitDto = noteProduitDtoFromNoteProduit((NoteProduit) paramNote);
-            return noteProduitDto;
+            return noteProduitDtoFromNoteProduit((NoteProduit) paramNote);
         } else {
             NoteDto noteDto = new NoteDto();
             noteDto.setId(paramNote.getId());
@@ -642,20 +640,15 @@ public class AssembleurDto {
     public static UtilisateurDto userDtoFromUser(Utilisateur paramUser) {
         if (paramUser != null) {
             if (paramUser.getClass() == Client.class) {
-                ClientDto clientDto = clientDtoFromClient((Client) paramUser);
-                return clientDto;
+                return clientDtoFromClient((Client) paramUser);
             } else if (paramUser.getClass() == Association.class) {
-                AssociationDto assoDto = assoDtoFromAsso((Association) paramUser);
-                return assoDto;
+                return assoDtoFromAsso((Association) paramUser);
             } else if (paramUser.getClass() == Moderateur.class) {
-                ModerateurDto moderateurDto = moderateurDtoFromModerateur((Moderateur) paramUser);
-                return moderateurDto;
+                return moderateurDtoFromModerateur((Moderateur) paramUser);
             } else if (paramUser.getClass() == Gerant.class) {
-                GerantDto gerantDto = gerantDtoFromGerant((Gerant) paramUser);
-                return gerantDto;
+                return gerantDtoFromGerant((Gerant) paramUser);
             } else if (paramUser.getClass() == Administrateur.class) {
-                AdministrateurDto admDto = adminDtoFromAdmin((Administrateur) paramUser);
-                return admDto;
+                return adminDtoFromAdmin((Administrateur) paramUser);
             } else {
                 UtilisateurDto userDto = new UtilisateurDto();
                 userDto.setId(paramUser.getId());
@@ -1117,11 +1110,9 @@ public class AssembleurDto {
 
     public static Note noteFromNoteDto(NoteDto paramNoteDto) {
         if (paramNoteDto.getClass() == NoteClientDto.class) {
-            NoteClient noteClient = noteClientFromNoteClientDto((NoteClientDto) paramNoteDto);
-            return noteClient;
+            return noteClientFromNoteClientDto((NoteClientDto) paramNoteDto);
         } else if (paramNoteDto.getClass() == NoteProduitDto.class) {
-            NoteProduit noteProduit = noteProduitFromNoteProduitDto((NoteProduitDto) paramNoteDto);
-            return noteProduit;
+            return noteProduitFromNoteProduitDto((NoteProduitDto) paramNoteDto);
         } else {
             Note note = new Note();
             note.setPublie(paramNoteDto.getPublie());
@@ -1281,20 +1272,15 @@ public class AssembleurDto {
 
     public static Utilisateur userFromUserDto(UtilisateurDto paramUserDto) {
         if (paramUserDto.getClass() == ClientDto.class) {
-            Client client = clientFromClientDto((ClientDto) paramUserDto);
-            return client;
+            return clientFromClientDto((ClientDto) paramUserDto);
         } else if (paramUserDto.getClass() == AssociationDto.class) {
-            Association asso = assoFromAssoDto((AssociationDto) paramUserDto);
-            return asso;
+            return assoFromAssoDto((AssociationDto) paramUserDto);
         } else if (paramUserDto.getClass() == ModerateurDto.class) {
-            Moderateur moderateur = moderateurFromModerateurDto((ModerateurDto) paramUserDto);
-            return moderateur;
+            return moderateurFromModerateurDto((ModerateurDto) paramUserDto);
         } else if (paramUserDto.getClass() == GerantDto.class) {
-            Gerant gerant = gerantFromGerantDto((GerantDto) paramUserDto);
-            return gerant;
+            return gerantFromGerantDto((GerantDto) paramUserDto);
         } else if (paramUserDto.getClass() == AdministrateurDto.class) {
-            Administrateur adm = adminFromAdminDto((AdministrateurDto) paramUserDto);
-            return adm;
+            return adminFromAdminDto((AdministrateurDto) paramUserDto);
         } else {
             Utilisateur user = new Utilisateur();
             user.setDateInscription(paramUserDto.getDateInscription());

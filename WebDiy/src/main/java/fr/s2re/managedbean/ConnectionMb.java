@@ -19,7 +19,10 @@ import fr.s2re.iuc.IUcUtilisateur;
 @ManagedBean
 @SessionScoped
 public class ConnectionMb {
+
     private static Logger log = Logger.getLogger(ConnectionMb.class);
+
+    private final static String URL_ACCUEIL = "/accueil.xhtml?faces-redirect=true";
 
     private UtilisateurDto user = null;
 
@@ -39,34 +42,36 @@ public class ConnectionMb {
                 return "/profilClient.xhtml?faces-redirect=true";
             }
             if (user.getClass() == AssociationDto.class) {
-                return "/accueil.xhtml?faces-redirect=true";
+                return URL_ACCUEIL;
             }
-            if (user.getClass() == ModerateurDto.class | user.getClass() == GerantDto.class | user.getClass() == AdministrateurDto.class) {
+            if (user.getClass() == ModerateurDto.class || user.getClass() == GerantDto.class
+                    || user.getClass() == AdministrateurDto.class) {
                 return "/profilModerateur.xhtml?faces-redirect=true";
             } else {
-                return "/accueil.xhtml?faces-redirect=true";
+                return URL_ACCUEIL;
             }
         }
     }
 
     public String afficherProfil() {
         if (user == null) {
-            return "/accueil.xhtml?faces-redirect=true";
+            return URL_ACCUEIL;
         } else {
             if (user.getClass() == ClientDto.class) {
                 return "/profilClient.xhtml?faces-redirect=true";
             }
-            if (user.getClass() == ModerateurDto.class | user.getClass() == GerantDto.class | user.getClass() == AdministrateurDto.class) {
+            if (user.getClass() == ModerateurDto.class || user.getClass() == GerantDto.class
+                    || user.getClass() == AdministrateurDto.class) {
                 return "/profilModerateur.xhtml?faces-redirect=true";
             } else {
-                return "/accueil.xhtml?faces-redirect=true";
+                return URL_ACCUEIL;
             }
         }
     }
 
     public String seDeconnecter() {
         ((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest()).getSession().invalidate();
-        return "accueil.xhtml?faces-redirect=true";
+        return URL_ACCUEIL;
     }
 
     /*

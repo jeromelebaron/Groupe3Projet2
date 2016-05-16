@@ -7,9 +7,9 @@ import java.util.List;
 public class ClientDto extends UtilisateurDto implements Serializable {
     private static final long serialVersionUID = 1L;
     private Boolean actif;
-    private List<CartePaiementDto> PaiementCartes;
-    private List<AdresseDto> FacturationAdresses;
-    private List<AdresseDto> LivraisonAdresses;
+    private List<CartePaiementDto> paiementCartes;
+    private List<AdresseDto> facturationAdresses;
+    private List<AdresseDto> livraisonAdresses;
     private List<NoteClientDto> notes;
     private List<ProduitDto> produits;
     private List<EnvieDto> envies;
@@ -35,9 +35,9 @@ public class ClientDto extends UtilisateurDto implements Serializable {
         super(paramId, paramNom, paramPrenom, paramMail, paramTelephone, paramDateInscription, paramForumMessages, paramAlertes,
                 paramCivilite);
         actif = paramActif;
-        PaiementCartes = paramPaiementCartes;
-        FacturationAdresses = paramFacturationAdresses;
-        LivraisonAdresses = paramLivraisonAdresses;
+        paiementCartes = paramPaiementCartes;
+        facturationAdresses = paramFacturationAdresses;
+        livraisonAdresses = paramLivraisonAdresses;
         notes = paramNotes;
         produits = paramProduits;
         envies = paramEnvies;
@@ -60,9 +60,9 @@ public class ClientDto extends UtilisateurDto implements Serializable {
         super(paramId, paramNom, paramPrenom, paramMail, paramPassword, paramTelephone, paramDateInscription, paramForumMessages,
                 paramAlertes, paramCivilite);
         actif = paramActif;
-        PaiementCartes = paramPaiementCartes;
-        FacturationAdresses = paramFacturationAdresses;
-        LivraisonAdresses = paramLivraisonAdresses;
+        paiementCartes = paramPaiementCartes;
+        facturationAdresses = paramFacturationAdresses;
+        livraisonAdresses = paramLivraisonAdresses;
         notes = paramNotes;
         produits = paramProduits;
         envies = paramEnvies;
@@ -84,9 +84,9 @@ public class ClientDto extends UtilisateurDto implements Serializable {
             List<MessagerieDto> paramMessageries, List<CommandeDto> paramCommandes, List<RibDto> paramRibs) {
         super(paramNom, paramPrenom, paramMail, paramTelephone, paramDateInscription, paramForumMessages, paramAlertes, paramCivilite);
         actif = paramActif;
-        PaiementCartes = paramPaiementCartes;
-        FacturationAdresses = paramFacturationAdresses;
-        LivraisonAdresses = paramLivraisonAdresses;
+        paiementCartes = paramPaiementCartes;
+        facturationAdresses = paramFacturationAdresses;
+        livraisonAdresses = paramLivraisonAdresses;
         notes = paramNotes;
         produits = paramProduits;
         envies = paramEnvies;
@@ -109,9 +109,9 @@ public class ClientDto extends UtilisateurDto implements Serializable {
         super(paramNom, paramPrenom, paramMail, paramPassword, paramTelephone, paramDateInscription, paramForumMessages, paramAlertes,
                 paramCivilite);
         actif = paramActif;
-        PaiementCartes = paramPaiementCartes;
-        FacturationAdresses = paramFacturationAdresses;
-        LivraisonAdresses = paramLivraisonAdresses;
+        paiementCartes = paramPaiementCartes;
+        facturationAdresses = paramFacturationAdresses;
+        livraisonAdresses = paramLivraisonAdresses;
         notes = paramNotes;
         produits = paramProduits;
         envies = paramEnvies;
@@ -129,27 +129,27 @@ public class ClientDto extends UtilisateurDto implements Serializable {
     }
 
     public List<CartePaiementDto> getPaiementCartes() {
-        return PaiementCartes;
+        return paiementCartes;
     }
 
     public void setPaiementCartes(List<CartePaiementDto> paramPaiementCartes) {
-        PaiementCartes = paramPaiementCartes;
+        paiementCartes = paramPaiementCartes;
     }
 
     public List<AdresseDto> getFacturationAdresses() {
-        return FacturationAdresses;
+        return facturationAdresses;
     }
 
     public void setFacturationAdresses(List<AdresseDto> paramFacturationAdresses) {
-        FacturationAdresses = paramFacturationAdresses;
+        facturationAdresses = paramFacturationAdresses;
     }
 
     public List<AdresseDto> getLivraisonAdresses() {
-        return LivraisonAdresses;
+        return livraisonAdresses;
     }
 
     public void setLivraisonAdresses(List<AdresseDto> paramLivraisonAdresses) {
-        LivraisonAdresses = paramLivraisonAdresses;
+        livraisonAdresses = paramLivraisonAdresses;
     }
 
     public List<NoteClientDto> getNotes() {

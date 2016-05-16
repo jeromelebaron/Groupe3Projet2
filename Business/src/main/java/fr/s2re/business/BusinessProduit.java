@@ -58,20 +58,18 @@ public class BusinessProduit implements IBusinessProduit {
     public List<ProduitDto> getByClient(ClientDto paramClient) {
         Client c = AssembleurDto.clientFromClientDto(paramClient);
         List<Produit> liste = daoProduit.getByClient(c);
-        List<ProduitDto> liste2 = AssembleurDto.listPdtDtoFromListPdt(liste);
-        return liste2;
+        return AssembleurDto.listPdtDtoFromListPdt(liste);
     }
 
     @Override
     public List<ProduitDto> getByCategorie(CategorieDto paramCategorie) {
-        List<ProduitDto> list = AssembleurDto
+        return AssembleurDto
                 .listPdtDtoFromListPdt(daoProduit.getByCategorie(AssembleurDto.categorieFromCategorieDto(paramCategorie)));
-        return list;
     }
 
     @Override
     public List<ProduitDto> getByAlerte(AlerteProduitDto paramAlerte) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
@@ -81,8 +79,7 @@ public class BusinessProduit implements IBusinessProduit {
 
     @Override
     public List<ProduitDto> getByLibelle(String paramLibelle) {
-        List<ProduitDto> list = AssembleurDto.listPdtDtoFromListPdt(daoProduit.getByLibelle(paramLibelle));
-        return list;
+        return AssembleurDto.listPdtDtoFromListPdt(daoProduit.getByLibelle(paramLibelle));
     }
 
     @Override
@@ -116,7 +113,7 @@ public class BusinessProduit implements IBusinessProduit {
             // + celles du pdt en question si elles existent
             list.addAll(AssembleurDto.listImageDtoFromListImage(daoProduit.getImage(AssembleurDto.produitFromProduitDto(paramProduit))));
             // si pdt n'a pas d'image on lui passe notre image not found
-            if (list.size() == 0) {
+            if (list.isEmpty()) {
                 list.add(null);
                 log.info("pas d'image notre position 0 dans la liste d'image = " + list.get(0));
             }
@@ -127,7 +124,7 @@ public class BusinessProduit implements IBusinessProduit {
             List<ImageDto> list = AssembleurDto
                     .listImageDtoFromListImage(daoProduit.getImage(AssembleurDto.produitFromProduitDto(paramProduit)));
             // si pdt n'a pas d'image on lui passe notre image not found
-            if (list.size() == 0) {
+            if (list.isEmpty()) {
                 list.add(null);
                 log.info("pas d'image notre position 0 dans la liste d'image = " + list.get(0));
             }

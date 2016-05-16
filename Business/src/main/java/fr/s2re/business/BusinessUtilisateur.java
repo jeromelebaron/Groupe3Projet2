@@ -47,8 +47,7 @@ public class BusinessUtilisateur implements IBusinessUtilisateur {
 
     @Override
     public UtilisateurDto getByIdentifiant(String paramMail, String paramMdp) {
-        UtilisateurDto utilisateurDto = AssembleurDto.userDtoFromUser(daoUtilisateur.getByIdentifiant(paramMail, paramMdp));
-        return utilisateurDto;
+        return AssembleurDto.userDtoFromUser(daoUtilisateur.getByIdentifiant(paramMail, paramMdp));
     }
 
     @Override

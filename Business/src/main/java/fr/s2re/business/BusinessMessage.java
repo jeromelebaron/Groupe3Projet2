@@ -34,6 +34,7 @@ public class BusinessMessage implements IBusinessMessage {
 
     @Override
     public void delete(MessageDto paramMessage) {
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override

@@ -18,13 +18,13 @@ public class Client extends Utilisateur implements Serializable {
     private Boolean actif;
 
     @OneToMany(mappedBy = "client")
-    private List<CartePaiement> PaiementCartes;
+    private List<CartePaiement> paiementCartes;
 
     @OneToMany(mappedBy = "client")
-    private List<Adresse> FacturationAdresses;
+    private List<Adresse> facturationAdresses;
 
     @OneToMany(mappedBy = "client")
-    private List<Adresse> LivraisonAdresses;
+    private List<Adresse> livraisonAdresses;
 
     @OneToMany(mappedBy = "vendeur")
     private List<NoteClient> notes;
@@ -62,9 +62,9 @@ public class Client extends Utilisateur implements Serializable {
         super(paramId, paramNom, paramPrenom, paramMail, paramTelephone, paramDateInscription, paramForumMessages, paramAlertes,
                 paramCivilite);
         actif = paramActif;
-        PaiementCartes = paramPaiementCartes;
-        FacturationAdresses = paramFacturationAdresses;
-        LivraisonAdresses = paramLivraisonAdresses;
+        paiementCartes = paramPaiementCartes;
+        facturationAdresses = paramFacturationAdresses;
+        livraisonAdresses = paramLivraisonAdresses;
         notes = paramNotes;
         produits = paramProduits;
         envies = paramEnvies;
@@ -87,9 +87,9 @@ public class Client extends Utilisateur implements Serializable {
         super(paramId, paramNom, paramPrenom, paramMail, paramPassword, paramTelephone, paramDateInscription, paramForumMessages,
                 paramAlertes, paramCivilite);
         actif = paramActif;
-        PaiementCartes = paramPaiementCartes;
-        FacturationAdresses = paramFacturationAdresses;
-        LivraisonAdresses = paramLivraisonAdresses;
+        paiementCartes = paramPaiementCartes;
+        facturationAdresses = paramFacturationAdresses;
+        livraisonAdresses = paramLivraisonAdresses;
         notes = paramNotes;
         produits = paramProduits;
         envies = paramEnvies;
@@ -111,9 +111,9 @@ public class Client extends Utilisateur implements Serializable {
             List<Commande> paramCommandes, List<Rib> paramRibs) {
         super(paramNom, paramPrenom, paramMail, paramTelephone, paramDateInscription, paramForumMessages, paramAlertes, paramCivilite);
         actif = paramActif;
-        PaiementCartes = paramPaiementCartes;
-        FacturationAdresses = paramFacturationAdresses;
-        LivraisonAdresses = paramLivraisonAdresses;
+        paiementCartes = paramPaiementCartes;
+        facturationAdresses = paramFacturationAdresses;
+        livraisonAdresses = paramLivraisonAdresses;
         notes = paramNotes;
         produits = paramProduits;
         envies = paramEnvies;
@@ -136,9 +136,9 @@ public class Client extends Utilisateur implements Serializable {
         super(paramNom, paramPrenom, paramMail, paramPassword, paramTelephone, paramDateInscription, paramForumMessages, paramAlertes,
                 paramCivilite);
         actif = paramActif;
-        PaiementCartes = paramPaiementCartes;
-        FacturationAdresses = paramFacturationAdresses;
-        LivraisonAdresses = paramLivraisonAdresses;
+        paiementCartes = paramPaiementCartes;
+        facturationAdresses = paramFacturationAdresses;
+        livraisonAdresses = paramLivraisonAdresses;
         notes = paramNotes;
         produits = paramProduits;
         envies = paramEnvies;
@@ -156,27 +156,27 @@ public class Client extends Utilisateur implements Serializable {
     }
 
     public List<CartePaiement> getPaiementCartes() {
-        return PaiementCartes;
+        return paiementCartes;
     }
 
     public void setPaiementCartes(List<CartePaiement> paramPaiementCartes) {
-        PaiementCartes = paramPaiementCartes;
+        paiementCartes = paramPaiementCartes;
     }
 
     public List<Adresse> getFacturationAdresses() {
-        return FacturationAdresses;
+        return facturationAdresses;
     }
 
     public void setFacturationAdresses(List<Adresse> paramFacturationAdresses) {
-        FacturationAdresses = paramFacturationAdresses;
+        facturationAdresses = paramFacturationAdresses;
     }
 
     public List<Adresse> getLivraisonAdresses() {
-        return LivraisonAdresses;
+        return livraisonAdresses;
     }
 
     public void setLivraisonAdresses(List<Adresse> paramLivraisonAdresses) {
-        LivraisonAdresses = paramLivraisonAdresses;
+        livraisonAdresses = paramLivraisonAdresses;
     }
 
     public List<NoteClient> getNotes() {
