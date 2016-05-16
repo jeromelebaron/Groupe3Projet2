@@ -20,19 +20,30 @@ import fr.s2re.iuc.IUcUtilisateur;
 @SessionScoped
 public class PanierMb {
     private int totalProduits = 0;
+
     private int qte = 1;
+
     private String coupon;
+
     private Double totalPanier = 0.0;
+
     private Double panierFraisLivraison = 0.0;
+
     private UtilisateurDto user;
+
     private List<LigneDeCommandeDto> listLigneDeCommande = new ArrayList<>();
+
     private HashMap<LigneDeCommandeDto, Double> mapLigneCmd = new HashMap<>();
+
     @EJB
     private IUcUtilisateur ucUtilisateur;
+
     @EJB
     private IUcClient ucClient;
+
     @ManagedProperty(value = "#{connectionMb}")
     private ConnectionMb connectionMb;
+
     @ManagedProperty(value = "#{clientMb}")
     private ClientMb clientMb;
 

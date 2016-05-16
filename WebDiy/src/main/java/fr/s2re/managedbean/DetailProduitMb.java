@@ -15,8 +15,11 @@ import fr.s2re.iuc.IUcUtilisateur;
 @SessionScoped
 public class DetailProduitMb {
     private ProduitDto produit;
+
     private List<ProduitDto> listProduits;
+
     private Double noteMoyenne = 0.0;
+
     @EJB
     private IUcUtilisateur ucUtilisateur;
 

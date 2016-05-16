@@ -25,7 +25,9 @@ import fr.s2re.iuc.IUcVendeur;
 @SessionScoped
 public class HistoriqueVenteMb {
     private static Logger log = Logger.getLogger(HistoriqueCommandeMb.class);
+
     private EtatCommandeDto etatCommande;
+
     private String textBouton;
 
     public String getTextBouton() {
@@ -37,10 +39,15 @@ public class HistoriqueVenteMb {
     }
 
     private ProduitDto p = null;
+
     private List<ProduitDto> produits = null;
+
     private List<String> reference;
+
     private List<String> couleur;
+
     private List<String> marque;
+
     private int etat;
 
     public int getEtat() {
@@ -52,7 +59,9 @@ public class HistoriqueVenteMb {
     }
 
     private List<CommandeDto> lcommande = null;
+
     private List<CommandeDto> lventeEnCour = null;
+
     private List<LigneDeCommandeDto> lg = new ArrayList<>();
 
     public List<CommandeDto> getLventeEnCour() {
@@ -75,10 +84,14 @@ public class HistoriqueVenteMb {
 
     @ManagedProperty(value = "#{connectionMb}")
     private ConnectionMb connectionMb;
+
     private UtilisateurDto utilisateur;
+
     private ClientDto client;
+
     @EJB
     private IUcVendeur ucVendeur;
+
     @EJB
     private IUcClient ucClient;
 

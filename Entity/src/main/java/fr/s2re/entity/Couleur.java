@@ -11,38 +11,46 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="couleur",
-uniqueConstraints=@UniqueConstraint(columnNames={"libelle"}))
-public class Couleur implements Serializable{
-	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
+@Table(name = "couleur", uniqueConstraints = @UniqueConstraint(columnNames = { "libelle" }) )
+public class Couleur implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
-	@Column(name="libelle", length=20, nullable=false)
+
+    @Column(name = "libelle", length = 20, nullable = false)
     private String libelle;
-	public Couleur() {
-		super();
-	}
-	public Couleur(Integer paramId, String paramLibelle) {
-		super();
-		id = paramId;
-		libelle = paramLibelle;
-	}
-	public Couleur(String paramLibelle) {
-		super();
-		libelle = paramLibelle;
-	}
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer paramId) {
-		id = paramId;
-	}
-	public String getLibelle() {
-		return libelle;
-	}
-	public void setLibelle(String paramLibelle) {
-		libelle = paramLibelle;
-	}
+
+    public Couleur() {
+        super();
+    }
+
+    public Couleur(Integer paramId, String paramLibelle) {
+        super();
+        id = paramId;
+        libelle = paramLibelle;
+    }
+
+    public Couleur(String paramLibelle) {
+        super();
+        libelle = paramLibelle;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer paramId) {
+        id = paramId;
+    }
+
+    public String getLibelle() {
+        return libelle;
+    }
+
+    public void setLibelle(String paramLibelle) {
+        libelle = paramLibelle;
+    }
 }

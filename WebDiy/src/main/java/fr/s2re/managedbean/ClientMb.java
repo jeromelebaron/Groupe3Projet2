@@ -22,23 +22,39 @@ import fr.s2re.iuc.IUcUtilisateur;
 @SessionScoped
 public class ClientMb {
     private static Logger log = Logger.getLogger(ClientMb.class);
+
     private String cpL;
+
     private String villeL;
+
     private String cpF;
+
     private String villeF;
+
     private UtilisateurDto user;
+
     private AdresseDto adresseLCusto = new AdresseDto();
+
     private AdresseDto adresseFCusto = new AdresseDto();
+
     private List<AdresseDto> adressesLivraison = new ArrayList<>();
+
     private List<AdresseDto> adressesFacturation = new ArrayList<>();
+
     private List<AdresseDto> adresses = new ArrayList<>();
+
     private int adresseLivraisonChoisie;
+
     private int adresseFacturationChoisie;
+
     private AdresseDto adresseDisplay = new AdresseDto();
+
     @EJB
     private IUcClient ucClient;
+
     @EJB
     private IUcUtilisateur ucUtilisateur;
+
     @ManagedProperty(value = "#{connectionMb}")
     private ConnectionMb connectionMb;
 

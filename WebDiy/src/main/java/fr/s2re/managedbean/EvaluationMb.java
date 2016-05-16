@@ -23,18 +23,28 @@ import fr.s2re.iuc.IUcVendeur;
 @SessionScoped
 public class EvaluationMb {
     private static Logger log = Logger.getLogger(EvaluationMb.class);
+
     private Double valeurNote;
+
     private String commentaire;
+
     private ClientDto client;
+
     private ProduitDto produit;
+
     private ClientDto vendeur;
+
     private List<NoteDto> listNoteVendeur;
+
     @ManagedProperty(value = "#{connectionMb}")
     private ConnectionMb connectionMb;
+
     @EJB
     private IUcClient ucClient;
+
     @EJB
     private IUcUtilisateur ucUtilisateur;
+
     @EJB
     private IUcVendeur ucVendeur;
 

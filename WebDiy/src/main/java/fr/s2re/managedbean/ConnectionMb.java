@@ -20,9 +20,13 @@ import fr.s2re.iuc.IUcUtilisateur;
 @SessionScoped
 public class ConnectionMb {
     private static Logger log = Logger.getLogger(ConnectionMb.class);
+
     private UtilisateurDto user = null;
+
     private String mail;
+
     private String mdp;
+
     @EJB
     private IUcUtilisateur uc;
 

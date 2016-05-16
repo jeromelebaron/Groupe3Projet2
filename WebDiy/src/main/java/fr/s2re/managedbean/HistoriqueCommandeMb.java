@@ -21,14 +21,21 @@ import fr.s2re.iuc.IUcClient;
 @SessionScoped
 public class HistoriqueCommandeMb {
     private static Logger log = Logger.getLogger(HistoriqueCommandeMb.class);
+
     private List<CommandeDto> commandes = null; // la liste des commandes parentes
+
     private List<CommandeDto> commandeDetails = null; // liste d'une commande suivi de ses sous commandes
+
     private List<LigneDeCommandeDto> lignesDeCommande = new ArrayList<>(); // liste des ligne de commandes d'une commande et de ses sous
                                                                            // commandes
+
     private CommandeDto commandeRecherche = new CommandeDto();
+
     private ClientDto client;
+
     @EJB
     private IUcClient ucClient;
+
     @ManagedProperty(value = "#{connectionMb}")
     private ConnectionMb connectionMb;
 

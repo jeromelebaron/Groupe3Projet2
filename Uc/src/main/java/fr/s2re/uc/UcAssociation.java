@@ -12,9 +12,8 @@ import fr.s2re.iuc.IUcAssociation;
 @Remote(IUcAssociation.class)
 @Stateless
 public class UcAssociation implements IUcAssociation {
-	@Override
-	public List<EnvieDto> consulterSaListeDeSouhaits(
-			AssociationDto paramAssociationDto) {
-		return null;
-	}
+    @Override
+    public List<EnvieDto> consulterSaListeDeSouhaits(AssociationDto paramAssociationDto) {
+        return null;
+    }
 }
