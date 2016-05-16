@@ -14,7 +14,11 @@ import javax.persistence.OneToOne;
 @Entity
 @DiscriminatorValue(value = "ASSOCIATION")
 public class Association extends Utilisateur implements Serializable {
-    private static final long serialVersionUID = 1L;
+
+    /**
+     * Pour la sérialisation.
+     */
+    private static final long serialVersionUID = -4009525850157097272L;
 
     @Column(name = "document", length = 50, nullable = true)
     private String document;
