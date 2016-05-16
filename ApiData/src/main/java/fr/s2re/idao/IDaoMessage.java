@@ -11,12 +11,19 @@ import fr.s2re.entity.Messagerie;
 import fr.s2re.entity.Sujet;
 
 public interface IDaoMessage {
-	Message addMessage(Message paramMessage);
-	Message updateMessage(Message paramMessage);
-	Message getById (Integer paramId);
-	void delete(Message paramMessage);
-	List<Message> getByAlerte (Alerte paramAlerte);
-	List<MessageForum> getBySujet (Sujet paramSujet);
-	List<MessageInbox> getByMessagerie (Messagerie paramMessagerie);
-	List<AlerteMessage> getAlerte(Message paramMessage);
+    Message addMessage(Message paramMessage);
+
+    Message updateMessage(Message paramMessage);
+
+    Message getById(Integer paramId);
+
+    void delete(Message paramMessage);
+
+    List<Message> getByAlerte(Alerte paramAlerte);
+
+    List<MessageForum> getBySujet(Sujet paramSujet);
+
+    List<MessageInbox> getByMessagerie(Messagerie paramMessagerie);
+
+    List<AlerteMessage> getAlerte(Message paramMessage);
 }
