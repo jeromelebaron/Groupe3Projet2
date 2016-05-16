@@ -34,18 +34,25 @@ import fr.s2re.idao.IDaoTypeCB;
 @Stateless
 public class BusinessCommande implements IBusinessCommande {
     private static Logger log = Logger.getLogger(BusinessCommande.class);
+
     @EJB
     IDaoCommande daoCommande;
+
     @EJB
     IDaoProduit daoProduit;
+
     @EJB
     IDaoEtatCommande daoEtatCommande;
+
     @EJB
     IDaoAdresse daoAdresse;
+
     @EJB
     IDaoMethodeLivraison daoMethodeLivraison;
+
     @EJB
     IDaoTypeCB daoTypeCB;
+
     @EJB
     IDaoLigneDeCommande daoLigneDeCommande;
 
@@ -158,7 +165,7 @@ public class BusinessCommande implements IBusinessCommande {
                     sousCmd.setCodeReduction(cmdParente.getCodeReduction());
                     sousCmd.setRib(cmdParente.getRib());
                     sousCmd.setCommandeParente(cmdParente);
-                    // ins�rer !!
+                    // insérer !!
                     for (LigneDeCommande ldc : sousCmd.getLignesDeCommande()) {
                         log.info("ldc dans objet ssCmd : " + ldc.getProduit().getId() + " qté" + ldc.getQuantite());
                     }
@@ -197,7 +204,7 @@ public class BusinessCommande implements IBusinessCommande {
 
     @Override
     public CommandeDto getByNumero(String paramNumero) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override

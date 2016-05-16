@@ -46,7 +46,6 @@ public class BusinessProduit implements IBusinessProduit {
 
     @Override
     public ProduitDto addProduit(ProduitDto paramProduit) {
-
         return AssembleurDto.produitDtoFromProduit(daoProduit.addProduit(AssembleurDto.produitFromProduitDto(paramProduit)));
     }
 
@@ -139,25 +138,21 @@ public class BusinessProduit implements IBusinessProduit {
 
     @Override
     public void delete(ProduitDto paramProduitDto) {
-
         daoProduit.delete(AssembleurDto.produitFromProduitDto(paramProduitDto));
     }
 
     @Override
     public List<ProduitDto> getProduitEnVente(ClientDto paramClientDto) {
-
         return AssembleurDto.listPdtDtoFromListPdt(daoProduit.getProduitEnVente(AssembleurDto.clientFromClientDto(paramClientDto)));
     }
 
     @Override
     public List<CommandeDto> getHistoriqueVente(ClientDto paramClientDto) {
-
         return AssembleurDto.listCmdDtoFromListCmd(daoProduit.getHistoriqueVente(AssembleurDto.clientFromClientDto(paramClientDto)));
     }
 
     @Override
     public List<CommandeDto> getVentesEnPreparation(ClientDto paramClientDto) {
-
         return AssembleurDto.listCmdDtoFromListCmd(daoProduit.getVentesEnPreparation(AssembleurDto.clientFromClientDto(paramClientDto)));
     }
 

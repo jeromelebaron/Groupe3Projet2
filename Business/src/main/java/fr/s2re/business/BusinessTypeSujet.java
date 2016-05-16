@@ -13,11 +13,11 @@ import fr.s2re.ibusiness.IBusinessTypeSujet;
 public class BusinessTypeSujet implements IBusinessTypeSujet {
     @Override
     public List<TypeSujetDto> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public TypeSujetDto getByLibelle(String paramLibelle) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

@@ -13,16 +13,16 @@ import fr.s2re.ibusiness.IBusinessMarque;
 public class BusinessMarque implements IBusinessMarque {
     @Override
     public List<MarqueDto> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public MarqueDto getByLibelle(String paramLibelle) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public MarqueDto add(MarqueDto paramMarque) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

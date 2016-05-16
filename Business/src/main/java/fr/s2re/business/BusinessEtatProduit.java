@@ -13,16 +13,16 @@ import fr.s2re.ibusiness.IBusinessEtatProduit;
 public class BusinessEtatProduit implements IBusinessEtatProduit {
     @Override
     public List<EtatProduitDto> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public EtatProduitDto getById(Integer paramId) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public EtatProduitDto getByLibelle(String paramLibelle) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

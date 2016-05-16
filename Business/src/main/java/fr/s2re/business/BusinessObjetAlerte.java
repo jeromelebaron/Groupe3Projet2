@@ -13,11 +13,11 @@ import fr.s2re.ibusiness.IBusinessObjetAlerte;
 public class BusinessObjetAlerte implements IBusinessObjetAlerte {
     @Override
     public List<ObjetAlerteDto> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public ObjetAlerteDto getByLibelle(String paramLibelle) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

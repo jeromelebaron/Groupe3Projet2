@@ -32,31 +32,31 @@ public class BusinessNote implements IBusinessNote {
 
     @Override
     public NoteDto updateNote(NoteDto paramNote) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<NoteDto> getByClient(ClientDto paramClient) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<NoteDto> getByAlerte(AlerteCommentaireDto paramAlerte) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<NoteProduitDto> getByProduit(ProduitDto paramProduit) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<NoteClientDto> getByVendeur(ClientDto paramVendeur) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<AlerteCommentaireDto> getAlerte(NoteDto paramNote) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

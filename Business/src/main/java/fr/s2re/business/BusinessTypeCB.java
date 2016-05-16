@@ -24,6 +24,6 @@ public class BusinessTypeCB implements IBusinessTypeCB {
 
     @Override
     public TypeCBDto getByLibelle(String paramLibelle) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

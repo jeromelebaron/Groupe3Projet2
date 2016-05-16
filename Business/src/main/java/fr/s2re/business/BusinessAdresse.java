@@ -40,7 +40,7 @@ public class BusinessAdresse implements IBusinessAdresse {
 
     @Override
     public List<AdresseDto> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
@@ -51,6 +51,6 @@ public class BusinessAdresse implements IBusinessAdresse {
 
     @Override
     public AdresseDto getByCoordonnees(BigDecimal paramLongitude, BigDecimal paramLatitude) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

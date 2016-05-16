@@ -21,12 +21,12 @@ public class BusinessLigneDeCommande implements IBusinessLigneDeCommande {
 
     @Override
     public LigneDeCommandeDto addLigneDeCmd(LigneDeCommandeDto paramLigneDeCmd) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public LigneDeCommandeDto getById(Integer paramId) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override

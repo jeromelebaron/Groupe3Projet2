@@ -13,16 +13,16 @@ import fr.s2re.ibusiness.IBusinessEtatCommande;
 public class BusinessEtatCommande implements IBusinessEtatCommande {
     @Override
     public List<EtatCommandeDto> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public EtatCommandeDto getById(Integer paramId) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<EtatCommandeDto> getByLibelle(String paramLibelle) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

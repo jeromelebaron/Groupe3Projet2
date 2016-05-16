@@ -13,11 +13,11 @@ import fr.s2re.ibusiness.IBusinessTypeReduction;
 public class BusinessTypeReduction implements IBusinessTypeReduction {
     @Override
     public List<TypeReductionDto> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public TypeReductionDto getByLibelle(String paramLibelle) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

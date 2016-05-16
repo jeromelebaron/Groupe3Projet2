@@ -34,7 +34,7 @@ public class BusinessVille implements IBusinessVille {
 
     @Override
     public VilleDto getByNom(String paramNom) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override

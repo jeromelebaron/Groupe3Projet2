@@ -19,17 +19,17 @@ import fr.s2re.ibusiness.IBusinessMessage;
 public class BusinessMessage implements IBusinessMessage {
     @Override
     public MessageDto addMessage(MessageDto paramMessage) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public MessageDto updateMessage(MessageDto paramMessage) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public MessageDto getById(Integer paramId) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
@@ -38,21 +38,21 @@ public class BusinessMessage implements IBusinessMessage {
 
     @Override
     public List<MessageDto> getByAlerte(AlerteDto paramAlerte) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<MessageForumDto> getBySujet(SujetDto paramSujet) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<MessageInboxDto> getByMessagerie(MessagerieDto paramMessagerie) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<AlerteMessageDto> getAlerte(MessageDto paramMessage) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

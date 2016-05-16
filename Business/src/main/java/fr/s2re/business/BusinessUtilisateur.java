@@ -22,27 +22,27 @@ public class BusinessUtilisateur implements IBusinessUtilisateur {
 
     @Override
     public UtilisateurDto addUser(UtilisateurDto paramUtilisateur) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public UtilisateurDto updateUser(UtilisateurDto paramUtilisateur) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<UtilisateurDto> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public UtilisateurDto getById(Integer paramId) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public UtilisateurDto getByNom(String paramNom) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
@@ -53,7 +53,7 @@ public class BusinessUtilisateur implements IBusinessUtilisateur {
 
     @Override
     public List<NoteClientDto> getNote(ClientDto paramClient) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override

@@ -14,16 +14,16 @@ import fr.s2re.ibusiness.IBusinessCodeReduction;
 public class BusinessCodeReduction implements IBusinessCodeReduction {
     @Override
     public List<CodeReductionDto> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<CodeReductionDto> getByType(TypeReductionDto paramTypeReduc) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public CodeReductionDto add(CodeReductionDto paramCodeReduction) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

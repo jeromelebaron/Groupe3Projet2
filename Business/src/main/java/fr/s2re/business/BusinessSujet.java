@@ -15,41 +15,41 @@ import fr.s2re.ibusiness.IBusinessSujet;
 public class BusinessSujet implements IBusinessSujet {
     @Override
     public SujetDto addSujet(SujetDto paramSujet) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public SujetDto updateSujet(SujetDto paramSujet) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public SujetDto closeSujet(SujetDto paramSujet) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public SujetDto getById(Integer paramId) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<SujetDto> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<SujetDto> getByType(TypeSujetDto paramTypeSujet) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<SujetDto> getByRubrique(RubriqueDto paramRubrique) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<SujetDto> getByPublication(Boolean paramBoolean) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

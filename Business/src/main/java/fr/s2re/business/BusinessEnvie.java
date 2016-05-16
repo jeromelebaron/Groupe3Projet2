@@ -14,26 +14,26 @@ import fr.s2re.ibusiness.IBusinessEnvie;
 public class BusinessEnvie implements IBusinessEnvie {
     @Override
     public EnvieDto addEnvie(EnvieDto paramEnvie) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public EnvieDto updateEnvie(EnvieDto paramEnvie) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public EnvieDto deleteEnvie(EnvieDto paramEnvie) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<EnvieDto> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<EnvieDto> getByClient(ClientDto paramClient) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

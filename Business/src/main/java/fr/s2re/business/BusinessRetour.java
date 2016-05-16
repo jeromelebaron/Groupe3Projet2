@@ -14,11 +14,11 @@ import fr.s2re.ibusiness.IBusinessRetour;
 public class BusinessRetour implements IBusinessRetour {
     @Override
     public RetourDto addRetour(RetourDto paramRetour) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<RetourDto> getByLigneCommande(LigneDeCommandeDto paramLigneDeCmd) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

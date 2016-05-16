@@ -13,11 +13,11 @@ import fr.s2re.ibusiness.IBusinessCivilite;
 public class BusinessCivilite implements IBusinessCivilite {
     @Override
     public List<CiviliteDto> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public CiviliteDto getByLibelle(String paramLibelle) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

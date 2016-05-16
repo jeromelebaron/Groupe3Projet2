@@ -14,21 +14,21 @@ import fr.s2re.ibusiness.IBusinessCartePaiement;
 public class BusinessCartePaiement implements IBusinessCartePaiement {
     @Override
     public CartePaiementDto addCarte(CartePaiementDto paramCartePaiement) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public CartePaiementDto deleteCarte(CartePaiementDto paramCartePaiement) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public CartePaiementDto getById(Integer paramId) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<CartePaiementDto> getByClient(ClientDto paramClient) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

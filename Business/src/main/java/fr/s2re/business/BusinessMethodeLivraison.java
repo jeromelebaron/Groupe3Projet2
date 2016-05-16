@@ -24,6 +24,6 @@ public class BusinessMethodeLivraison implements IBusinessMethodeLivraison {
 
     @Override
     public MethodeLivraisonDto getByLibelle(String paramLibelle) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

@@ -14,11 +14,11 @@ import fr.s2re.ibusiness.IBusinessMessagerie;
 public class BusinessMessagerie implements IBusinessMessagerie {
     @Override
     public List<MessagerieDto> getByClient(ClientDto paramClient) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<MessagerieDto> getByVendeur(ClientDto paramVendeur) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

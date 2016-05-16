@@ -14,11 +14,11 @@ import fr.s2re.ibusiness.IBusinessImage;
 public class BusinessImage implements IBusinessImage {
     @Override
     public List<ImageDto> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<ImageDto> getAll(ProduitDto paramProduit) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

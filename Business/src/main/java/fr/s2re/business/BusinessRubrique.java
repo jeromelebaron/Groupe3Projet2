@@ -13,26 +13,26 @@ import fr.s2re.ibusiness.IBusinessRubrique;
 public class BusinessRubrique implements IBusinessRubrique {
     @Override
     public RubriqueDto addRubrique(RubriqueDto paramRubrique) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public RubriqueDto updateRubrique(RubriqueDto paramRubrique) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<RubriqueDto> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<RubriqueDto> getSousRubrique(RubriqueDto paramRubrique) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public RubriqueDto getByLibelle(String paramLibelle) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

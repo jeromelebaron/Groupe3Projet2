@@ -13,11 +13,11 @@ import fr.s2re.ibusiness.IBusinessTypeRetour;
 public class BusinessTypeRetour implements IBusinessTypeRetour {
     @Override
     public List<TypeRetourDto> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public TypeRetourDto getByLibelle(String paramLibelle) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

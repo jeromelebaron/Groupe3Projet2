@@ -13,11 +13,11 @@ import fr.s2re.ibusiness.IBusinessCouleur;
 public class BusinessCouleur implements IBusinessCouleur {
     @Override
     public List<CouleurDto> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public CouleurDto getByLibelle(String paramLibelle) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

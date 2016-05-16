@@ -15,21 +15,21 @@ import fr.s2re.ibusiness.IBusinessDon;
 public class BusinessDon implements IBusinessDon {
     @Override
     public DonDto addDon(DonDto paramDon) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<DonDto> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<DonDto> getByAsso(AssociationDto paramAssociation) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<DonDto> getByClient(UtilisateurDto paramUtilisateur) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

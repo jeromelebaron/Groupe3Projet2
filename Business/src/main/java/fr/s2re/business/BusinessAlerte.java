@@ -14,36 +14,36 @@ import fr.s2re.ibusiness.IBusinessAlerte;
 public class BusinessAlerte implements IBusinessAlerte {
     @Override
     public AlerteDto addAlerte(AlerteDto paramAlerte) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public AlerteDto updateAlerte(AlerteDto paramAlerte) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<AlerteDto> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public AlerteDto getById(Integer paramId) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<AlerteDto> getByObjet(Object paramObject) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<AlerteDto> getByEmetteur(UtilisateurDto paramUtilisateur) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<AlerteDto> getByObject(Object paramObj) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }
