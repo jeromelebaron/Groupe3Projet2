@@ -12,22 +12,26 @@ import fr.s2re.dto.LigneDeCommandeDto;
 import fr.s2re.entity.LigneDeCommande;
 import fr.s2re.ibusiness.IBusinessLigneDeCommande;
 import fr.s2re.idao.IDaoLigneDeCommande;
+
 @Remote(IBusinessLigneDeCommande.class)
 @Stateless
-public class BusinessLigneDeCommande implements IBusinessLigneDeCommande{
-	@EJB
-	private IDaoLigneDeCommande daoLigneDeCommande;
-	@Override
-	public LigneDeCommandeDto addLigneDeCmd(LigneDeCommandeDto paramLigneDeCmd) {
-		return null;
-	}
-	@Override
-	public LigneDeCommandeDto getById(Integer paramId) {
-		return null;
-	}
-	@Override
-	public List<LigneDeCommandeDto> getByCommande(CommandeDto paramCommande) {
-		List<LigneDeCommande> list = daoLigneDeCommande.getByCommande(AssembleurDto.cmdFromCmdDto(paramCommande));
-		return AssembleurDto.listLigneCmdDtoFromListLigneCmd(list);
-	}
+public class BusinessLigneDeCommande implements IBusinessLigneDeCommande {
+    @EJB
+    private IDaoLigneDeCommande daoLigneDeCommande;
+
+    @Override
+    public LigneDeCommandeDto addLigneDeCmd(LigneDeCommandeDto paramLigneDeCmd) {
+        return null;
+    }
+
+    @Override
+    public LigneDeCommandeDto getById(Integer paramId) {
+        return null;
+    }
+
+    @Override
+    public List<LigneDeCommandeDto> getByCommande(CommandeDto paramCommande) {
+        List<LigneDeCommande> list = daoLigneDeCommande.getByCommande(AssembleurDto.cmdFromCmdDto(paramCommande));
+        return AssembleurDto.listLigneCmdDtoFromListLigneCmd(list);
+    }
 }

@@ -10,17 +10,20 @@ import fr.s2re.assembleur.AssembleurDto;
 import fr.s2re.dto.TypeCBDto;
 import fr.s2re.ibusiness.IBusinessTypeCB;
 import fr.s2re.idao.IDaoTypeCB;
+
 @Remote(IBusinessTypeCB.class)
 @Stateless
-public class BusinessTypeCB implements IBusinessTypeCB{
-	@EJB
-	private IDaoTypeCB daoTypeCB;
-	@Override
-	public List<TypeCBDto> getAll() {
-		return AssembleurDto.listTypeCbDtoFromListTypeCb(daoTypeCB.getAll());
-	}
-	@Override
-	public TypeCBDto getByLibelle(String paramLibelle) {
-		return null;
-	}
+public class BusinessTypeCB implements IBusinessTypeCB {
+    @EJB
+    private IDaoTypeCB daoTypeCB;
+
+    @Override
+    public List<TypeCBDto> getAll() {
+        return AssembleurDto.listTypeCbDtoFromListTypeCb(daoTypeCB.getAll());
+    }
+
+    @Override
+    public TypeCBDto getByLibelle(String paramLibelle) {
+        return null;
+    }
 }

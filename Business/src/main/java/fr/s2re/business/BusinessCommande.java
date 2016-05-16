@@ -35,19 +35,19 @@ import fr.s2re.idao.IDaoTypeCB;
 public class BusinessCommande implements IBusinessCommande {
     private static Logger log = Logger.getLogger(BusinessCommande.class);
     @EJB
-    IDaoCommande          daoCommande;
+    IDaoCommande daoCommande;
     @EJB
-    IDaoProduit           daoProduit;
+    IDaoProduit daoProduit;
     @EJB
-    IDaoEtatCommande      daoEtatCommande;
+    IDaoEtatCommande daoEtatCommande;
     @EJB
-    IDaoAdresse           daoAdresse;
+    IDaoAdresse daoAdresse;
     @EJB
-    IDaoMethodeLivraison  daoMethodeLivraison;
+    IDaoMethodeLivraison daoMethodeLivraison;
     @EJB
-    IDaoTypeCB            daoTypeCB;
+    IDaoTypeCB daoTypeCB;
     @EJB
-    IDaoLigneDeCommande   daoLigneDeCommande;
+    IDaoLigneDeCommande daoLigneDeCommande;
 
     @Override
     public CommandeDto addCommande(ClientDto paramClientDto, List<LigneDeCommandeDto> paramList, CommandeDto paramCommandeDto) {

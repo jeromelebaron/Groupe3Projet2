@@ -93,6 +93,13 @@ import fr.s2re.entity.Utilisateur;
 import fr.s2re.entity.Ville;
 
 public class AssembleurDto {
+    
+    /**
+     * Constructeur privé.
+     */
+    private AssembleurDto() {
+    }
+    
     public static AdministrateurDto adminDtoFromAdmin(Administrateur paramAdmin) {
         AdministrateurDto adminDto = new AdministrateurDto();
         if (paramAdmin.getCivilite() != null) {

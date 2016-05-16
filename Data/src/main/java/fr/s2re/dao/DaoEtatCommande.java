@@ -9,21 +9,25 @@ import javax.persistence.PersistenceContext;
 
 import fr.s2re.entity.EtatCommande;
 import fr.s2re.idao.IDaoEtatCommande;
+
 @Remote(IDaoEtatCommande.class)
 @Stateless
-public class DaoEtatCommande implements IDaoEtatCommande{
-	@PersistenceContext
-	private EntityManager em;
-	@Override
-	public List<EtatCommande> getAll() {
-		return null;
-	}
-	@Override
-	public EtatCommande getById(Integer paramId) {
-		return em.find(EtatCommande.class, paramId);
-	}
-	@Override
-	public List<EtatCommande> getByLibelle(String paramLibelle) {
-		return null;
-	}
+public class DaoEtatCommande implements IDaoEtatCommande {
+    @PersistenceContext
+    private EntityManager em;
+
+    @Override
+    public List<EtatCommande> getAll() {
+        return null;
+    }
+
+    @Override
+    public EtatCommande getById(Integer paramId) {
+        return em.find(EtatCommande.class, paramId);
+    }
+
+    @Override
+    public List<EtatCommande> getByLibelle(String paramLibelle) {
+        return null;
+    }
 }

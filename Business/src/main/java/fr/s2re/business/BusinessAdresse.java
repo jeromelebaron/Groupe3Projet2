@@ -15,35 +15,42 @@ import fr.s2re.dto.ClientDto;
 import fr.s2re.dto.UtilisateurDto;
 import fr.s2re.ibusiness.IBusinessAdresse;
 import fr.s2re.idao.IDaoAdresse;
+
 @Remote(IBusinessAdresse.class)
 @Stateless
-public class BusinessAdresse implements IBusinessAdresse{
-	private static Logger log = Logger.getLogger(BusinessAdresse.class);
-	@EJB
-	private IDaoAdresse daoAdresse;
-	@Override
-	public AdresseDto addAdresse(AdresseDto paramAdresse) {
-		return AssembleurDto.adresseDtoFromAdresse(daoAdresse.addAdresse(AssembleurDto.adresseFromAdresseDto(paramAdresse)));
-	}
-	@Override
-	public AdresseDto updateAdresse(AdresseDto paramAdresse) {
-		return AssembleurDto.adresseDtoFromAdresse(daoAdresse.updateAdresse(AssembleurDto.adresseFromAdresseDto(paramAdresse)));
-	}
-	@Override
-	public AdresseDto getById(Integer paramId) {
-		return AssembleurDto.adresseDtoFromAdresse(daoAdresse.getById(paramId));
-	}
-	@Override
-	public List<AdresseDto> getAll() {
-		return null;
-	}
-	@Override
-	public List<AdresseDto> getByUser(UtilisateurDto paramUtilisateur) {
-		return AssembleurDto.listAdresseDtoFromListAdresse(daoAdresse.getByUser(AssembleurDto.clientFromClientDto((ClientDto) paramUtilisateur)));
-	}
-	@Override
-	public AdresseDto getByCoordonnees(BigDecimal paramLongitude,
-			BigDecimal paramLatitude) {
-		return null;
-	}
+public class BusinessAdresse implements IBusinessAdresse {
+    private static Logger log = Logger.getLogger(BusinessAdresse.class);
+    @EJB
+    private IDaoAdresse daoAdresse;
+
+    @Override
+    public AdresseDto addAdresse(AdresseDto paramAdresse) {
+        return AssembleurDto.adresseDtoFromAdresse(daoAdresse.addAdresse(AssembleurDto.adresseFromAdresseDto(paramAdresse)));
+    }
+
+    @Override
+    public AdresseDto updateAdresse(AdresseDto paramAdresse) {
+        return AssembleurDto.adresseDtoFromAdresse(daoAdresse.updateAdresse(AssembleurDto.adresseFromAdresseDto(paramAdresse)));
+    }
+
+    @Override
+    public AdresseDto getById(Integer paramId) {
+        return AssembleurDto.adresseDtoFromAdresse(daoAdresse.getById(paramId));
+    }
+
+    @Override
+    public List<AdresseDto> getAll() {
+        return null;
+    }
+
+    @Override
+    public List<AdresseDto> getByUser(UtilisateurDto paramUtilisateur) {
+        return AssembleurDto
+                .listAdresseDtoFromListAdresse(daoAdresse.getByUser(AssembleurDto.clientFromClientDto((ClientDto) paramUtilisateur)));
+    }
+
+    @Override
+    public AdresseDto getByCoordonnees(BigDecimal paramLongitude, BigDecimal paramLatitude) {
+        return null;
+    }
 }

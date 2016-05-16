@@ -9,20 +9,21 @@ import javax.persistence.PersistenceContext;
 
 import fr.s2re.entity.TypeCB;
 import fr.s2re.idao.IDaoTypeCB;
+
 @Remote(IDaoTypeCB.class)
 @Stateless
-public class DaoTypeCB implements IDaoTypeCB{
-	@PersistenceContext
-	private EntityManager em;
-	@Override
-	public List<TypeCB> getAll() {
-		return em.createQuery("FROM TypeCB t", TypeCB.class)
-				.getResultList();
-	}
-	@Override
-	public TypeCB getByLibelle(String paramLibelle) {
-		return em.createQuery("FROM TypeCB t WHERE t.libelle LIKE :paramLibelle",TypeCB.class)
-				.setParameter("paramLibelle", paramLibelle)
-				.getSingleResult();
-	}
+public class DaoTypeCB implements IDaoTypeCB {
+    @PersistenceContext
+    private EntityManager em;
+
+    @Override
+    public List<TypeCB> getAll() {
+        return em.createQuery("FROM TypeCB t", TypeCB.class).getResultList();
+    }
+
+    @Override
+    public TypeCB getByLibelle(String paramLibelle) {
+        return em.createQuery("FROM TypeCB t WHERE t.libelle LIKE :paramLibelle", TypeCB.class).setParameter("paramLibelle", paramLibelle)
+                .getSingleResult();
+    }
 }

@@ -8,8 +8,11 @@ import fr.s2re.dto.MessagerieDto;
 import fr.s2re.dto.ProduitDto;
 
 public interface IUcMessagerie {
-	MessagerieDto envoyerMessage(ClientDto paramClientDto, ProduitDto paramProduitDto);
-	MessagerieDto deleteMessage(MessageInboxDto paramMessageInboxDto);
-	List<MessagerieDto> consuleterListeMessagerie(ClientDto paramClientDto);
-	List<MessageInboxDto> consulterMessagerie(MessagerieDto paramMessagerieDto);
+    MessagerieDto envoyerMessage(ClientDto paramClientDto, ProduitDto paramProduitDto);
+
+    MessagerieDto deleteMessage(MessageInboxDto paramMessageInboxDto);
+
+    List<MessagerieDto> consuleterListeMessagerie(ClientDto paramClientDto);
+
+    List<MessageInboxDto> consulterMessagerie(MessagerieDto paramMessagerieDto);
 }
