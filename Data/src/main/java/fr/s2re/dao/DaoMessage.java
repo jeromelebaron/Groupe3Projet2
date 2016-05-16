@@ -19,40 +19,41 @@ import fr.s2re.idao.IDaoMessage;
 public class DaoMessage implements IDaoMessage {
     @Override
     public Message addMessage(Message paramMessage) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public Message updateMessage(Message paramMessage) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public Message getById(Integer paramId) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public void delete(Message paramMessage) {
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<Message> getByAlerte(Alerte paramAlerte) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<MessageForum> getBySujet(Sujet paramSujet) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<MessageInbox> getByMessagerie(Messagerie paramMessagerie) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<AlerteMessage> getAlerte(Message paramMessage) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

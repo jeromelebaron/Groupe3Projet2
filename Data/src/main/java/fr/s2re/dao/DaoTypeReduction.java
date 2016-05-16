@@ -13,11 +13,11 @@ import fr.s2re.idao.IDaoTypeReduction;
 public class DaoTypeReduction implements IDaoTypeReduction {
     @Override
     public List<TypeReduction> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public TypeReduction getByLibelle(String paramLibelle) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

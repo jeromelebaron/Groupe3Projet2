@@ -14,26 +14,26 @@ import fr.s2re.idao.IDaoEnvie;
 public class DaoEnvie implements IDaoEnvie {
     @Override
     public Envie addEnvie(Envie paramEnvie) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public Envie updateEnvie(Envie paramEnvie) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public Envie deleteEnvie(Envie paramEnvie) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<Envie> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<Envie> getByClient(Client paramClient) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

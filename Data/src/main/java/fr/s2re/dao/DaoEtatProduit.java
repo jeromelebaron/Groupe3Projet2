@@ -13,16 +13,16 @@ import fr.s2re.idao.IDaoEtatProduit;
 public class DaoEtatProduit implements IDaoEtatProduit {
     @Override
     public List<EtatProduit> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public EtatProduit getById(Integer paramId) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public EtatProduit getByLibelle(String paramLibelle) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

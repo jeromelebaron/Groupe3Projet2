@@ -30,17 +30,17 @@ public class DaoNote implements IDaoNote {
 
     @Override
     public Note updateNote(Note paramNote) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<Note> getByClient(Client paramClient) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<Note> getByAlerte(AlerteCommentaire paramAlerte) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
@@ -51,11 +51,11 @@ public class DaoNote implements IDaoNote {
 
     @Override
     public List<NoteClient> getByVendeur(Client paramVendeur) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<AlerteCommentaire> getAlerte(Note paramNote) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

@@ -13,26 +13,26 @@ import fr.s2re.idao.IDaoRubrique;
 public class DaoRubrique implements IDaoRubrique {
     @Override
     public Rubrique addRubrique(Rubrique paramRubrique) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public Rubrique updateRubrique(Rubrique paramRubrique) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<Rubrique> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<Rubrique> getSousRubrique(Rubrique paramRubrique) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public Rubrique getByLibelle(String paramLibelle) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

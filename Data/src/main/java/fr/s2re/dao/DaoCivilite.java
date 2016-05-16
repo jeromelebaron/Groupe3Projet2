@@ -13,11 +13,11 @@ import fr.s2re.idao.IDaoCivilite;
 public class DaoCivilite implements IDaoCivilite {
     @Override
     public List<Civilite> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public Civilite getByLibelle(String paramLibelle) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

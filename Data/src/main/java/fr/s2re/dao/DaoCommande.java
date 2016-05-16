@@ -34,7 +34,7 @@ public class DaoCommande implements IDaoCommande {
 
     @Override
     public Commande getByNumero(String paramNumero) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
@@ -78,8 +78,7 @@ public class DaoCommande implements IDaoCommande {
 
     @Override
     public Commande modifierEtat(Commande cmdFromCmdDto) {
-        // TODO Auto-generated method stub
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
 }

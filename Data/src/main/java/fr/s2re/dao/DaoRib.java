@@ -12,16 +12,16 @@ import fr.s2re.idao.IDaoRib;
 public class DaoRib implements IDaoRib {
     @Override
     public Rib addRib(Rib paramRib) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public Rib updateRib(Rib paramRib) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public Rib getByClient(Client paramClient) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

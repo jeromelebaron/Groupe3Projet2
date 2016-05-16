@@ -15,41 +15,41 @@ import fr.s2re.idao.IDaoSujet;
 public class DaoSujet implements IDaoSujet {
     @Override
     public Sujet addSujet(Sujet paramSujet) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public Sujet updateSujet(Sujet paramSujet) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public Sujet closeSujet(Sujet paramSujet) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public Sujet getById(Integer paramId) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<Sujet> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<Sujet> getByType(TypeSujet paramTypeSujet) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<Sujet> getByRubrique(Rubrique paramRubrique) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<Sujet> getByPublication(Boolean paramBoolean) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

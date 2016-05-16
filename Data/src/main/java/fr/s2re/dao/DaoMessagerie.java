@@ -14,11 +14,11 @@ import fr.s2re.idao.IDaoMessagerie;
 public class DaoMessagerie implements IDaoMessagerie {
     @Override
     public List<Messagerie> getByClient(Client paramClient) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<Messagerie> getByVendeur(Client paramVendeur) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

@@ -14,11 +14,11 @@ import fr.s2re.idao.IDaoImage;
 public class DaoImage implements IDaoImage {
     @Override
     public List<Image> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<Image> getAll(Produit paramProduit) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

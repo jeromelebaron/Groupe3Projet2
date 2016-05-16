@@ -18,7 +18,7 @@ public class DaoEtatCommande implements IDaoEtatCommande {
 
     @Override
     public List<EtatCommande> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
@@ -28,6 +28,6 @@ public class DaoEtatCommande implements IDaoEtatCommande {
 
     @Override
     public List<EtatCommande> getByLibelle(String paramLibelle) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

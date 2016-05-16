@@ -26,7 +26,7 @@ public class DaoLigneDeCommande implements IDaoLigneDeCommande {
 
     @Override
     public LigneDeCommande getById(Integer paramId) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override

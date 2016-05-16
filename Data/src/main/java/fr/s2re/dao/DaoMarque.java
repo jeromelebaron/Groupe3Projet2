@@ -13,16 +13,16 @@ import fr.s2re.idao.IDaoMarque;
 public class DaoMarque implements IDaoMarque {
     @Override
     public List<Marque> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public Marque getByLibelle(String paramLibelle) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public Marque add(Marque paramMarque) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

@@ -14,16 +14,16 @@ import fr.s2re.idao.IDaoProduitCodeReduction;
 public class DaoProduitCodeReduction implements IDaoProduitCodeReduction {
     @Override
     public ProduitCodeReduction addPdtCodeReduc(ProduitCodeReduction paramPdtCodeReduc) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<ProduitCodeReduction> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<ProduitCodeReduction> getByProduit(Produit paramProduit) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

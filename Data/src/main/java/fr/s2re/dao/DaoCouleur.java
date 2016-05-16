@@ -13,11 +13,11 @@ import fr.s2re.idao.IDaoCouleur;
 public class DaoCouleur implements IDaoCouleur {
     @Override
     public List<Couleur> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public Couleur getByLibelle(String paramLibelle) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

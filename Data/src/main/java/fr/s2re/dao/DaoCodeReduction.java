@@ -14,16 +14,16 @@ import fr.s2re.idao.IDaoCodeReduction;
 public class DaoCodeReduction implements IDaoCodeReduction {
     @Override
     public List<CodeReduction> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<CodeReduction> getByType(TypeReduction paramTypeReduc) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public CodeReduction add(CodeReduction paramCodeReduction) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

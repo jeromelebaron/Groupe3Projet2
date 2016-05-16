@@ -13,11 +13,11 @@ import fr.s2re.idao.IDaoObjetAlerte;
 public class DaoObjetAlerte implements IDaoObjetAlerte {
     @Override
     public List<ObjetAlerte> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public ObjetAlerte getByLibelle(String paramLibelle) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

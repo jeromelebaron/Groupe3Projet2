@@ -14,11 +14,11 @@ import fr.s2re.idao.IDaoRetour;
 public class DaoRetour implements IDaoRetour {
     @Override
     public Retour addRetour(Retour paramRetour) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<Retour> getByLigneCommande(LigneDeCommande paramLigneDeCmd) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

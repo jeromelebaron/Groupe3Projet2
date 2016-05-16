@@ -13,11 +13,11 @@ import fr.s2re.idao.IDaoTypeSujet;
 public class DaoTypeSujet implements IDaoTypeSujet {
     @Override
     public List<TypeSujet> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public TypeSujet getByLibelle(String paramLibelle) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

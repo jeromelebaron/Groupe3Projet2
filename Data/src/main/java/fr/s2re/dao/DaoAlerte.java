@@ -14,36 +14,36 @@ import fr.s2re.idao.IDaoAlerte;
 public class DaoAlerte implements IDaoAlerte {
     @Override
     public Alerte addAlerte(Alerte paramAlerte) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public Alerte updateAlerte(Alerte paramAlerte) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<Alerte> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public Alerte getById(Integer paramId) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<Alerte> getByObjet(Object paramObject) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<Alerte> getByEmetteur(Utilisateur paramUtilisateur) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<Alerte> getByObject(Object paramObj) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

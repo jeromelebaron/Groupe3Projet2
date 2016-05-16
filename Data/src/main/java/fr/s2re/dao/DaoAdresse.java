@@ -41,7 +41,7 @@ public class DaoAdresse implements IDaoAdresse {
 
     @Override
     public List<Adresse> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
@@ -52,6 +52,6 @@ public class DaoAdresse implements IDaoAdresse {
 
     @Override
     public Adresse getByCoordonnees(BigDecimal paramLongitude, BigDecimal paramLatitude) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

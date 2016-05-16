@@ -15,21 +15,21 @@ import fr.s2re.idao.IDaoDon;
 public class DaoDon implements IDaoDon {
     @Override
     public Don addDon(Don paramDon) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<Don> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<Don> getByAsso(Association paramAssociation) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<Don> getByClient(Utilisateur paramUtilisateur) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

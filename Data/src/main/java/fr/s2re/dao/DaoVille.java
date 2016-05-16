@@ -29,7 +29,7 @@ public class DaoVille implements IDaoVille {
 
     @Override
     public Ville getByNom(String paramNom) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override

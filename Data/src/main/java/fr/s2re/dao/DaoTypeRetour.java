@@ -13,11 +13,11 @@ import fr.s2re.idao.IDaoTypeRetour;
 public class DaoTypeRetour implements IDaoTypeRetour {
     @Override
     public List<TypeRetour> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public TypeRetour getByLibelle(String paramLibelle) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 }

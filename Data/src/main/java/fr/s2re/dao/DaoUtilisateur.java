@@ -21,17 +21,17 @@ public class DaoUtilisateur implements IDaoUtilisateur {
 
     @Override
     public Utilisateur addUser(Utilisateur paramUtilisateur) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public Utilisateur updateUser(Utilisateur paramUtilisateur) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
     public List<Utilisateur> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
@@ -41,7 +41,7 @@ public class DaoUtilisateur implements IDaoUtilisateur {
 
     @Override
     public Utilisateur getByNom(String paramNom) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
@@ -57,7 +57,7 @@ public class DaoUtilisateur implements IDaoUtilisateur {
 
     @Override
     public List<NoteClient> getNote(Client paramClient) {
-        return null;
+        throw new UnsupportedOperationException("Non implémenté");
     }
 
     @Override
@@ -74,6 +74,6 @@ public class DaoUtilisateur implements IDaoUtilisateur {
     public List<Note> getNotesByNoteur(Client paramClient, Client paramVendeur) {
         List<Note> list = em.createQuery("From Note n where n.noteur.id = :paramIdClient and n.vendeur.id = :paramIdVendeur", Note.class)
                 .setParameter("paramIdClient", paramClient.getId()).getResultList();
-        return null;
+        return list;
     }
 }
