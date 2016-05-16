@@ -11,12 +11,19 @@ import fr.s2re.dto.MessagerieDto;
 import fr.s2re.dto.SujetDto;
 
 public interface IBusinessMessage {
-	MessageDto addMessage(MessageDto paramMessage);
-	MessageDto updateMessage(MessageDto paramMessage);
-	MessageDto getById (Integer paramId);
-	void delete(MessageDto paramMessage);
-	List<MessageDto> getByAlerte (AlerteDto paramAlerte);
-	List<MessageForumDto> getBySujet (SujetDto paramSujet);
-	List<MessageInboxDto> getByMessagerie (MessagerieDto paramMessagerie);
-	List<AlerteMessageDto> getAlerte(MessageDto paramMessage);
+    MessageDto addMessage(MessageDto paramMessage);
+
+    MessageDto updateMessage(MessageDto paramMessage);
+
+    MessageDto getById(Integer paramId);
+
+    void delete(MessageDto paramMessage);
+
+    List<MessageDto> getByAlerte(AlerteDto paramAlerte);
+
+    List<MessageForumDto> getBySujet(SujetDto paramSujet);
+
+    List<MessageInboxDto> getByMessagerie(MessagerieDto paramMessagerie);
+
+    List<AlerteMessageDto> getAlerte(MessageDto paramMessage);
 }
