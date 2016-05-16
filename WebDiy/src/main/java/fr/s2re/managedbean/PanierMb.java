@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -61,7 +62,7 @@ public class PanierMb {
         ligne.setQuantite(qte);
         ligne.setProduit(ucUtilisateur.getById(paramIdProduit));
         boolean produitDiff = true;
-        if (listLigneDeCommande.size() != 0) {
+        if (!listLigneDeCommande.isEmpty()) {
             for (LigneDeCommandeDto l : listLigneDeCommande) {
                 if (l.getProduit().getId() == ligne.getProduit().getId()) {
                     l.setQuantite(ligne.getQuantite() + l.getQuantite());
@@ -161,7 +162,7 @@ public class PanierMb {
 
     public Double getTotalPanier() {
         totalPanier = 0.0;
-        if (listLigneDeCommande.size() != 0) {
+        if (!listLigneDeCommande.isEmpty()) {
             for (LigneDeCommandeDto l : listLigneDeCommande) {
                 totalPanier += l.getProduit().getPrix() * l.getQuantite();
             }
@@ -176,7 +177,7 @@ public class PanierMb {
 
     public int getTotalProduits() {
         totalProduits = 0;
-        if (listLigneDeCommande.size() != 0) {
+        if (!listLigneDeCommande.isEmpty()) {
             for (LigneDeCommandeDto l : listLigneDeCommande) {
                 totalProduits += l.getQuantite();
             }
@@ -212,7 +213,7 @@ public class PanierMb {
         clientMb = paramClientMb;
     }
 
-    public HashMap<LigneDeCommandeDto, Double> getMapLigneCmd() {
+    public Map<LigneDeCommandeDto, Double> getMapLigneCmd() {
         return mapLigneCmd;
     }
 

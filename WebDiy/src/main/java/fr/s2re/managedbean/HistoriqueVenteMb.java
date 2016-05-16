@@ -26,17 +26,11 @@ import fr.s2re.iuc.IUcVendeur;
 public class HistoriqueVenteMb {
     private static Logger log = Logger.getLogger(HistoriqueCommandeMb.class);
 
+    private final static String URL_LOGIN = "login.xhtml?faces-redirect=true";
+
     private EtatCommandeDto etatCommande;
 
     private String textBouton;
-
-    public String getTextBouton() {
-        return textBouton;
-    }
-
-    public void setTextBouton(String textBouton) {
-        this.textBouton = textBouton;
-    }
 
     private ProduitDto p = null;
 
@@ -50,37 +44,11 @@ public class HistoriqueVenteMb {
 
     private int etat;
 
-    public int getEtat() {
-        return etat;
-    }
-
-    public void setEtat(int etat) {
-        this.etat = etat;
-    }
-
     private List<CommandeDto> lcommande = null;
 
     private List<CommandeDto> lventeEnCour = null;
 
     private List<LigneDeCommandeDto> lg = new ArrayList<>();
-
-    public List<CommandeDto> getLventeEnCour() {
-        return lventeEnCour;
-    }
-
-    public void setLventeEnCour(List<CommandeDto> lventeEnCour) {
-        this.lventeEnCour = lventeEnCour;
-    }
-
-    private Boolean tets = false;
-
-    public Boolean getTets() {
-        return tets;
-    }
-
-    public void setTets(Boolean tets) {
-        this.tets = tets;
-    }
 
     @ManagedProperty(value = "#{connectionMb}")
     private ConnectionMb connectionMb;
@@ -95,6 +63,40 @@ public class HistoriqueVenteMb {
     @EJB
     private IUcClient ucClient;
 
+    private Boolean tets = false;
+
+    public String getTextBouton() {
+        return textBouton;
+    }
+
+    public void setTextBouton(String textBouton) {
+        this.textBouton = textBouton;
+    }
+
+    public int getEtat() {
+        return etat;
+    }
+
+    public void setEtat(int etat) {
+        this.etat = etat;
+    }
+
+    public List<CommandeDto> getLventeEnCour() {
+        return lventeEnCour;
+    }
+
+    public void setLventeEnCour(List<CommandeDto> lventeEnCour) {
+        this.lventeEnCour = lventeEnCour;
+    }
+
+    public Boolean getTets() {
+        return tets;
+    }
+
+    public void setTets(Boolean tets) {
+        this.tets = tets;
+    }
+
     @PostConstruct
     public void init() {
         if (connectionMb.getUser() != null && connectionMb != null && connectionMb.getUser().getClass() == ClientDto.class) {
@@ -107,7 +109,7 @@ public class HistoriqueVenteMb {
     public String gererVente() {
         if (client == null) {
             log.info("Client non connecté");
-            return "login.xhtml?faces-redirect=true";
+            return URL_LOGIN;
         } else {
             log.info("Client connecté : " + client.getId() + " actif : " + client.getActif());
             return "/profilClient.xhtml?faces-redirect=true";
@@ -117,7 +119,7 @@ public class HistoriqueVenteMb {
     public String produitEnVente() {
         if (client == null) {
             log.info("Client non connecté");
-            return "login.xhtml?faces-redirect=true";
+            return URL_LOGIN;
         } else {
             log.info("Client connecté : " + client.getId() + " actif : " + client.getActif());
             produits = ucVendeur.voirVentesEnCours(client);
@@ -128,12 +130,12 @@ public class HistoriqueVenteMb {
     public String historiqueProduit() {
         if (client == null) {
             log.info("Client non connecté");
-            return "login.xhtml?faces-redirect=true";
+            return URL_LOGIN;
         } else {
             log.info("Client connecté : " + client.getId() + " actif : " + client.getActif());
             lcommande = ucVendeur.voirHistoriqueVentes(client);
             lventeEnCour = ucVendeur.voirVentesEnPreparation(client);
-            if (lventeEnCour.size() != 0) {
+            if (!lventeEnCour.isEmpty()) {
                 for (CommandeDto c : lventeEnCour) {
                     log.info("coucou");
                     c.setLignesDeCommande(ucClient.afficherLignesDeCommande(c));
@@ -145,10 +147,8 @@ public class HistoriqueVenteMb {
 
     public void validerCommande(CommandeDto commande) {
         commande.getEtat().setId(3);
-
         commande = ucVendeur.modifierCommande(commande);
         log.info(commande.getEtat().getLibelle());
-
     }
 
     public void supprimerProduit(ProduitDto p) {

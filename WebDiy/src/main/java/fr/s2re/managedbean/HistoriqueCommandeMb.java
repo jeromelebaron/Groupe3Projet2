@@ -64,7 +64,7 @@ public class HistoriqueCommandeMb {
         lignesDeCommande = new ArrayList<>();
         commandeRecherche = ucClient.rechercherParId(paramIdRecherche);
         commandeDetails = ucClient.afficherSsCommandes(commandeRecherche);
-        if (commandeDetails.size() != 0) {
+        if (!commandeDetails.isEmpty()) {
             for (CommandeDto c : commandeDetails) {
                 c.setLignesDeCommande(ucClient.afficherLignesDeCommande(c));
                 lignesDeCommande.addAll(c.getLignesDeCommande());

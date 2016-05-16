@@ -66,19 +66,19 @@ public class CommandeMb {
         }
         if (user != null && user.getClass() == ClientDto.class) {
             methodesLivraison = ucClient.retournerMethodeDeLivraison();
-            if (clientMb.getAdresses().size() == 0) {
+            if (clientMb.getAdresses().isEmpty()) {
                 clientMb.setAdresses(ucClient.retournerMesAdresses((ClientDto) user));
-                if (clientMb.getAdresses().size() != 0) {
+                if (!clientMb.getAdresses().isEmpty()) {
                     for (AdresseDto a : clientMb.getAdresses()) {
-                        if (a.getType().equals("livraison")) {
+                        if ("livraison".equals(a.getType())) {
                             clientMb.getAdressesLivraison().add(a);
-                        } else if (a.getType().equals("facturation")) {
+                        } else if ("facturation".equals(a.getType())) {
                             clientMb.getAdressesFacturation().add(a);
                         }
                     }
                 }
             }
-            if (clientMb.getAdressesLivraison().size() > 0)
+            if (!clientMb.getAdressesLivraison().isEmpty())
                 clientMb.setAdresseDisplay(clientMb.getAdressesLivraison().get(0));
             typesCb = ucClient.retournerTypeCb();
             return "paiement.xhtml?faces-redirect=true";

@@ -20,9 +20,9 @@ import fr.s2re.iuc.IUcUtilisateur;
 @SessionScoped
 public class ConnectionMb {
 
-    private static Logger log = Logger.getLogger(ConnectionMb.class);
-
     private final static String URL_ACCUEIL = "/accueil.xhtml?faces-redirect=true";
+
+    private static Logger log = Logger.getLogger(ConnectionMb.class);
 
     private UtilisateurDto user = null;
 

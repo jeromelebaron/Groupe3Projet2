@@ -49,7 +49,7 @@ public class DaoCommande implements IDaoCommande {
                 .createQuery("FROM Commande c WHERE c.commandeParente.id = :idCommandeParente AND c.client.id = :idClient", Commande.class)
                 .setParameter("idClient", paramCommande.getClient().getId()).setParameter("idCommandeParente", paramCommande.getId())
                 .getResultList();
-        if (list.size() != 0) {
+        if (!list.isEmpty()) {
         }
         return list;
     }
@@ -64,7 +64,7 @@ public class DaoCommande implements IDaoCommande {
         List<Commande> liste = em.createQuery(
                 "Select c FROM LigneDeCommande l , Commande c, Produit p WHERE c.id=l.commande.id AND l.produit.vendeur.id=:paramId and c.etat.id=2 GROUP BY c.id",
                 Commande.class).setParameter("paramId", c.getId()).getResultList();
-        if (liste.size() != 0) {
+        if (!liste.isEmpty()) {
         }
         return liste;
 
@@ -73,7 +73,6 @@ public class DaoCommande implements IDaoCommande {
     @Override
     public Commande modifierCommande(Commande cmd) {
         return em.merge(cmd);
-
     }
 
     @Override
