@@ -2,3 +2,5 @@ ApiBusiness/target/
 ApiData/target/
 ApiUc/target/
 */target/
+*.project
+*.classpath
