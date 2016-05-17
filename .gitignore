@@ -4,3 +4,14 @@ ApiUc/target/
 */target/
 *.project
 *.classpath
+*.prefs
+ApiBusiness/.settings/
+ApiData/.settings/
+ApiUc/.settings/
+Business/.settings/
+Data/.settings/
+Dto/.settings/
+EAR/.settings/
+Entity/.settings/
+Uc/.settings/
+WebDiy/.settings/
