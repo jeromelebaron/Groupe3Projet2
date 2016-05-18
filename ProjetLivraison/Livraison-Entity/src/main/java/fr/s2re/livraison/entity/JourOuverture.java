@@ -31,7 +31,7 @@ public class JourOuverture {
      * 
      */
     @ManyToOne
-    @JoinColumn(name = "id_service_livraison")
+    @JoinColumn(name = "id_service_livraison", nullable = false)
     private ServiceLivraison serviceLivraison;
 
     /**
@@ -44,7 +44,7 @@ public class JourOuverture {
      * 
      */
     @ManyToOne
-    @JoinColumn(name = "id_jour_semaine")
+    @JoinColumn(name = "id_jour_semaine", nullable = false)
     private JourSemaine jourSemaine;
 
     /**

@@ -37,7 +37,7 @@ public class ServiceLivraison {
      * 
      */
     @ManyToOne
-    @JoinColumn(name = "id_adresse_localisation")
+    @JoinColumn(name = "id_adresse_localisation", nullable = false)
     private Adresse adresseLocalisation;
 
     /**
@@ -56,7 +56,7 @@ public class ServiceLivraison {
      * 
      */
     @ManyToOne
-    @JoinColumn(name = "id_type_livraison")
+    @JoinColumn(name = "id_type_livraison", nullable = false)
     private TypeLivraison typeLivraison;
 
     /**
