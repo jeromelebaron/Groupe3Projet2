@@ -21,6 +21,7 @@
 		<module>Livraison-Business</module>
 		<module>Livraison-ApiWebService</module>
 		<module>Livraison-WebService</module>
+		<module>Livraison-EAR</module>
 	</modules>
 
 </project>

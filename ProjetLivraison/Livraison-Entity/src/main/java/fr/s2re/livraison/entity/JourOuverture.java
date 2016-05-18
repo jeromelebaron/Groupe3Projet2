@@ -37,7 +37,7 @@ public class JourOuverture {
     /**
      * 
      */
-    @OneToMany(mappedBy = "horaires")
+    @OneToMany(mappedBy = "jourOuverture")
     private List<Horaires> horaires;
 
     /**

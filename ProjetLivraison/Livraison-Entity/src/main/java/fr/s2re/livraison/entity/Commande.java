@@ -65,7 +65,7 @@ public class Commande {
      * 
      */
     @ManyToOne
-    @JoinColumn(name = "service_livraison")
+    @JoinColumn(name = "id_service_livraison")
     private ServiceLivraison serviceLivraison;
 
     /**
