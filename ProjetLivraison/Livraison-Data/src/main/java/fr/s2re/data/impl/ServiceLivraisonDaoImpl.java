@@ -35,11 +35,13 @@ public class ServiceLivraisonDaoImpl implements IServiceLivraisonDao {
     /**
      * La requête HQL pour récupérer les {@link ServiceLivraison} par ville.
      */
-    private static final String REQUETE_FIND_SERVICE_LIVRAISON_BY_VILLE = "FROM ServiceLivraison s WHERE s.adresseLocalisation.ville.id = :idVille";
+    private static final String REQUETE_FIND_SERVICE_LIVRAISON_BY_VILLE = "SELECT DISTINCT s FROM ServiceLivraison s "
+            + "JOIN FETCH s.jourOuvertures WHERE s.adresseLocalisation.ville.id = :idVille";
     /**
      * La requête HQL pour récupérer les {@link ServiceLivraison} par {@link TypeLivraison}.
      */
-    private static final String REQUETE_FIND_SERVICE_LIVRAISON_BY_TYPE_LIVRAISON = "FROM ServiceLivraison s WHERE s.typeLivraison.id = :idTypeLivraison";
+    private static final String REQUETE_FIND_SERVICE_LIVRAISON_BY_TYPE_LIVRAISON = "FROM ServiceLivraison s "
+            + "WHERE s.typeLivraison.id = :idTypeLivraison";
 
     /**
      * {@inheritDoc}

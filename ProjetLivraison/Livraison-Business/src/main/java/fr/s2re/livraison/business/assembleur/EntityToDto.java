@@ -3,13 +3,22 @@
  */
 package fr.s2re.livraison.business.assembleur;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import fr.s2re.livraison.dto.AdresseDto;
 import fr.s2re.livraison.dto.DepartementDto;
+import fr.s2re.livraison.dto.HorairesDto;
+import fr.s2re.livraison.dto.JourOuvertureDto;
+import fr.s2re.livraison.dto.JourSemaineDto;
 import fr.s2re.livraison.dto.ServiceLivraisonDto;
 import fr.s2re.livraison.dto.TypeLivraisonDto;
 import fr.s2re.livraison.dto.VilleDto;
 import fr.s2re.livraison.entity.Adresse;
 import fr.s2re.livraison.entity.Departement;
+import fr.s2re.livraison.entity.Horaires;
+import fr.s2re.livraison.entity.JourOuverture;
+import fr.s2re.livraison.entity.JourSemaine;
 import fr.s2re.livraison.entity.ServiceLivraison;
 import fr.s2re.livraison.entity.TypeLivraison;
 import fr.s2re.livraison.entity.Ville;
@@ -75,5 +84,68 @@ public class EntityToDto {
         typeLivraisonDto.setId(paramTypeLivraison.getId());
         typeLivraisonDto.setLibelle(paramTypeLivraison.getLibelle());
         return typeLivraisonDto;
+    }
+
+    public static List<ServiceLivraisonDto> fromListServiceLivraisonEntityToListLivraisonDto(
+            final List<ServiceLivraison> paramLesServiceLivraison) {
+        final List<ServiceLivraisonDto> lesServiceLivraisonDto = new ArrayList<>();
+        for (ServiceLivraison localServiceLivraison : paramLesServiceLivraison) {
+            final ServiceLivraisonDto serviceLivraisonDto = EntityToDto
+                    .fromServiceLivraisonEntityToServiceLivraisonDto(localServiceLivraison);
+            lesServiceLivraisonDto.add(serviceLivraisonDto);
+        }
+        return lesServiceLivraisonDto;
+    }
+
+    public static List<JourOuvertureDto> fromListeJourOuvertureEntityToJourOuvertureDto(
+            final List<JourOuverture> paramJourOuvertures) {
+        final List<JourOuvertureDto> lesJourOuvertureDto = new ArrayList<>();
+        for (JourOuverture localJourOuverture : paramJourOuvertures) {
+            final JourOuvertureDto jourOuvertureDto = EntityToDto
+                    .fromJourOuvertureEntityToJourOuvertureDto(localJourOuverture);
+            lesJourOuvertureDto.add(jourOuvertureDto);
+        }
+        return lesJourOuvertureDto;
+    }
+
+    public static JourOuvertureDto fromJourOuvertureEntityToJourOuvertureDto(
+            final JourOuverture paramJourOuverture) {
+        final JourOuvertureDto jourOuvertureDto = new JourOuvertureDto();
+        jourOuvertureDto.setId(paramJourOuverture.getId());
+        jourOuvertureDto.setJourSemaine(EntityToDto
+                .fromJourSemaineEntityToJourSemaineDto(paramJourOuverture.getJourSemaine()));
+        jourOuvertureDto.setServiceLivraison(EntityToDto
+                .fromServiceLivraisonEntityToServiceLivraisonDto(paramJourOuverture
+                        .getServiceLivraison()));
+        return jourOuvertureDto;
+    }
+
+    public static JourSemaineDto fromJourSemaineEntityToJourSemaineDto(
+            final JourSemaine paramJourSemaine) {
+        final JourSemaineDto jourSemaineDto = new JourSemaineDto();
+        jourSemaineDto.setId(paramJourSemaine.getId());
+        jourSemaineDto.setLibelle(paramJourSemaine.getLibelle());
+        return jourSemaineDto;
+    }
+
+    public static List<HorairesDto> fromListHorairesEntityToHorairesDto(
+            final List<Horaires> paramHoraires) {
+        final List<HorairesDto> lesHorairesDto = new ArrayList<>();
+        for (Horaires localHoraires : paramHoraires) {
+            final HorairesDto horairesDto = EntityToDto
+                    .fromHorairesEntityToHoraireDto(localHoraires);
+            lesHorairesDto.add(horairesDto);
+        }
+        return lesHorairesDto;
+    }
+
+    public static HorairesDto fromHorairesEntityToHoraireDto(final Horaires paramHoraires) {
+        final HorairesDto horairesDto = new HorairesDto();
+        horairesDto.setId(paramHoraires.getId());
+        horairesDto.setDebut(paramHoraires.getDebut());
+        horairesDto.setFin(paramHoraires.getFin());
+        horairesDto.setJourOuverture(EntityToDto
+                .fromJourOuvertureEntityToJourOuvertureDto(paramHoraires.getJourOuverture()));
+        return horairesDto;
     }
 }

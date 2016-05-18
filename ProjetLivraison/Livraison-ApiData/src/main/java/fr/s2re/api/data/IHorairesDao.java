@@ -21,6 +21,6 @@ public interface IHorairesDao {
      * @param paramIdJourOuverture l'id du {@link JourOuverture} pour lequel rechercher.
      * @return une liste d'{@link Horaires}.
      */
-    List<Horaires> getHorairesByJourOuverture(Integer paramIdJourOuverture);
+    List<Horaires> getHorairesByIdJourOuverture(Integer paramIdJourOuverture);
 
 }

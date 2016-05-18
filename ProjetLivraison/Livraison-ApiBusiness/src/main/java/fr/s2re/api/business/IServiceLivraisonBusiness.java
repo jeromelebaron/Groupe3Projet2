@@ -18,5 +18,5 @@ public interface IServiceLivraisonBusiness {
 
     List<ServiceLivraisonDto> getServiceLivraisonByIdVille(final Integer paramIdVille);
 
-    List<ServiceLivraisonDto> getServiceLivraisonByITypeLivraison(final Integer paramIdTypeLivraison);
+    List<ServiceLivraisonDto> getServiceLivraisonByIdTypeLivraison(final Integer paramIdTypeLivraison);
 }

@@ -37,14 +37,14 @@ public class Horaires implements Serializable {
     /**
      * 
      */
-    @Column(name = "debut")
+    @Column(name = "debut", nullable = false)
     @Temporal(TemporalType.TIME)
     private Date debut;
 
     /**
      * 
      */
-    @Column(name = "fin")
+    @Column(name = "fin", nullable = false)
     @Temporal(TemporalType.TIME)
     private Date fin;
 
@@ -52,7 +52,7 @@ public class Horaires implements Serializable {
      * 
      */
     @ManyToOne
-    @JoinColumn(name = "id_jour_ouverture")
+    @JoinColumn(name = "id_jour_ouverture", nullable = false)
     private JourOuverture jourOuverture;
 
     /**

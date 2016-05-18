@@ -48,7 +48,7 @@ public class ServiceLivraisonWebServiceImpl implements IServiceLivraisonWebServi
     public List<ServiceLivraisonDto> getServiceLivraisonByIdTypeLivraison(
             final Integer paramIdTypeLivraison) {
         logger.debug("Méthode Webservice getServiceLivraisonByIdTypeLivraison");
-        return serviceLivraisonBusiness.getServiceLivraisonByITypeLivraison(paramIdTypeLivraison);
+        return serviceLivraisonBusiness.getServiceLivraisonByIdTypeLivraison(paramIdTypeLivraison);
     }
 
 }
