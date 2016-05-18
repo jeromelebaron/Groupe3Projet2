@@ -11,4 +11,16 @@
 		<relativePath>/Livraison-Parent/pom.xml</relativePath>
 	</parent>
 
+	<modules>
+		<module>Livraison-Parent</module>
+		<module>Livraison-Entity</module>
+		<module>Livraison-ApiData</module>
+		<module>Livraison-Data</module>
+		<module>Livraison-Dto</module>
+		<module>Livraison-ApiBusiness</module>
+		<module>Livraison-Business</module>
+		<module>Livraison-ApiWebService</module>
+		<module>Livraison-WebService</module>
+	</modules>
+
 </project>
