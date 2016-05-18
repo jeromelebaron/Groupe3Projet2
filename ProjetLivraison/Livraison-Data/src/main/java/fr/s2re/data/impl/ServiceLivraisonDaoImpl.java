@@ -39,7 +39,7 @@ public class ServiceLivraisonDaoImpl implements IServiceLivraisonDao {
     /**
      * La requête HQL pour récupérer les {@link ServiceLivraison} par {@link TypeLivraison}.
      */
-    private static final String REQUETE_FIND_SERVICE_LIVRAISON_BY_TYPE_LIVRAISON = "FROM ServiceLivraison s WHERE s.typeLivraison..id = :idTypeLivraison";
+    private static final String REQUETE_FIND_SERVICE_LIVRAISON_BY_TYPE_LIVRAISON = "FROM ServiceLivraison s WHERE s.typeLivraison.id = :idTypeLivraison";
 
     /**
      * {@inheritDoc}
@@ -57,7 +57,7 @@ public class ServiceLivraisonDaoImpl implements IServiceLivraisonDao {
      * {@inheritDoc}
      */
     @Override
-    public List<ServiceLivraison> getServiceLivraisonByTypeLivraison(
+    public List<ServiceLivraison> getServiceLivraisonByIdTypeLivraison(
             final Integer paramIdTypeLivraison) {
         log.debug("Méthode dao getServiceLivraisonByTypeLivraison");
         final TypedQuery<ServiceLivraison> queryFindServiceLivraisonByTypeLivraison = entityManager

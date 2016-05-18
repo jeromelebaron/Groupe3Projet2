@@ -41,4 +41,14 @@ public class ServiceLivraisonWebServiceImpl implements IServiceLivraisonWebServi
         return serviceLivraisonBusiness.getServiceLivraisonByIdVille(paramIdVille);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List<ServiceLivraisonDto> getServiceLivraisonByIdTypeLivraison(
+            final Integer paramIdTypeLivraison) {
+        logger.debug("Méthode Webservice getServiceLivraisonByIdTypeLivraison");
+        return serviceLivraisonBusiness.getServiceLivraisonByITypeLivraison(paramIdTypeLivraison);
+    }
+
 }

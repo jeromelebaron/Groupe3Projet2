@@ -57,7 +57,15 @@ public class ServiceLivraisonBusinessImpl implements IServiceLivraisonBusiness {
     public List<ServiceLivraisonDto> getServiceLivraisonByITypeLivraison(
             Integer paramIdTypeLivraison) {
         log.debug("Méthode business getServiceLivraisonByITypeLivraison");
-        return null;
+        final List<ServiceLivraison> lesServiceLivraison = serviceLivraisonDao
+                .getServiceLivraisonByIdTypeLivraison(paramIdTypeLivraison);
+        final List<ServiceLivraisonDto> lesServiceLivraisonDto = new ArrayList<>();
+        for (ServiceLivraison localServiceLivraison : lesServiceLivraison) {
+            final ServiceLivraisonDto serviceLivraisonDto = EntityToDto
+                    .fromServiceLivraisonEntityToServiceLivraisonDto(localServiceLivraison);
+            lesServiceLivraisonDto.add(serviceLivraisonDto);
+        }
+        return lesServiceLivraisonDto;
     }
 
 }

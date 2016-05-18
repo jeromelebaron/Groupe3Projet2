@@ -29,6 +29,6 @@ public interface IServiceLivraisonDao {
      * @param paramIdTypeLivraison l'id de la {@link TypeLivraison} pour lequel rechercher.
      * @return une liste de {@link ServiceLivraison}.
      */
-    List<ServiceLivraison> getServiceLivraisonByTypeLivraison(Integer paramIdTypeLivraison);
+    List<ServiceLivraison> getServiceLivraisonByIdTypeLivraison(Integer paramIdTypeLivraison);
 
 }

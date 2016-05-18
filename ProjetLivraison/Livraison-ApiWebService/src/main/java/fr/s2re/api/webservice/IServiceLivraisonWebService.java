@@ -20,4 +20,9 @@ public interface IServiceLivraisonWebService {
     List<ServiceLivraisonDto> getServiceLivraisonByIdVille(
             @WebParam(name = "paramIdVille") Integer idVille);
 
+    @WebMethod(operationName = "getServiceLivraisonByIdTypeLivraison")
+    @WebResult(name = "listeResultatServiceLivraisonByIdTypeLivraison")
+    List<ServiceLivraisonDto> getServiceLivraisonByIdTypeLivraison(
+            @WebParam(name = "paramIdTypeLivraison") Integer idTypeLivraison);
+
 }
