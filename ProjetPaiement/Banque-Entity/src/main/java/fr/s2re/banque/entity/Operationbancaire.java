@@ -10,6 +10,8 @@ import java.util.Date;
  * 
  */
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type_operation")
 @NamedQuery(name="Operationbancaire.findAll", query="SELECT o FROM Operationbancaire o")
 public class Operationbancaire implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -76,4 +78,28 @@ public class Operationbancaire implements Serializable {
 		this.comptebancaire = comptebancaire;
 	}
 
+	public Operationbancaire(Date dateOperation, double montant,
+			Comptebancaire comptebancaire) {
+		super();
+		this.dateOperation = dateOperation;
+		this.montant = montant;
+		this.comptebancaire = comptebancaire;
+	}
+
+	public Operationbancaire(int idOperation, Date dateOperation,
+			double montant, Comptebancaire comptebancaire) {
+		super();
+		this.idOperation = idOperation;
+		this.dateOperation = dateOperation;
+		this.montant = montant;
+		this.comptebancaire = comptebancaire;
+	}
+
+	public Operationbancaire(double montant, Comptebancaire comptebancaire) {
+		super();
+		this.montant = montant;
+		this.comptebancaire = comptebancaire;
+	}
+
+	
 }

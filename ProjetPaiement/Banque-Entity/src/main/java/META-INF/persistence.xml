@@ -7,5 +7,7 @@
 		<class>fr.s2re.banque.entity.Comptebancaire</class>
 		<class>fr.s2re.banque.entity.Devise</class>
 		<class>fr.s2re.banque.entity.Operationbancaire</class>
+		<class>fr.s2re.banque.entity.Debit</class>
+		<class>fr.s2re.banque.entity.Credit</class>
 	</persistence-unit>
 </persistence>

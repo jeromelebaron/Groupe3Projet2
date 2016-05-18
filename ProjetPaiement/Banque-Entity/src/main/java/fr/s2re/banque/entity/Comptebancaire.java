@@ -127,4 +127,5 @@ public class Comptebancaire implements Serializable {
 		return operationbancaire;
 	}
 
+	
 }
