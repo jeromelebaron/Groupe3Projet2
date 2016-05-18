@@ -27,9 +27,6 @@ public class Operationbancaire implements Serializable {
 
 	private double montant;
 
-	@Column(name="type_operation")
-	private String typeOperation;
-
 	//bi-directional many-to-one association to Comptebancaire
 	@ManyToOne
 	@JoinColumn(name="id_compte")
@@ -62,13 +59,6 @@ public class Operationbancaire implements Serializable {
 		this.montant = montant;
 	}
 
-	public String getTypeOperation() {
-		return this.typeOperation;
-	}
-
-	public void setTypeOperation(String typeOperation) {
-		this.typeOperation = typeOperation;
-	}
 
 	public Comptebancaire getComptebancaire() {
 		return this.comptebancaire;

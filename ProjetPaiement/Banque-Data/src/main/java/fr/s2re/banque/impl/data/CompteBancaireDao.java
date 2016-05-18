@@ -14,7 +14,7 @@ import fr.s2re.banque.entity.Debit;
 @Remote(ICompteBancaireDao.class)
 @Stateless
 public class CompteBancaireDao implements ICompteBancaireDao {
-	@PersistenceContext(unitName="Banque-Entity")
+	@PersistenceContext(unitName="Banque-Data")
 	EntityManager em;
 
 	@Override

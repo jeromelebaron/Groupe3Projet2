@@ -1,9 +1,17 @@
 package fr.s2re.banque.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ClientDto {
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(namespace = "http://servicebanque.banque.s2re.fr")
+public class ClientDto implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int idClient;
 	private String adresseClient;
 	private String nomClient;

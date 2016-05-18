@@ -1,9 +1,16 @@
 package fr.s2re.banque.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlRootElement;
 
-public class OperationBancaireDto {
+@XmlRootElement(namespace = "http://servicebanque.banque.s2re.fr")
+public class OperationBancaireDto implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int idOperation;
 	private Date dateOperation;
 	private double montant;

@@ -1,9 +1,16 @@
 package fr.s2re.banque.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
 
-public class CompteBancaireDto {
+@XmlRootElement(namespace = "http://servicebanque.banque.s2re.fr")
+public class CompteBancaireDto implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int idCompte;
 	private String codeBic;
 	private String codeIban;

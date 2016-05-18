@@ -1,6 +1,14 @@
 package fr.s2re.banque.dto;
+import java.io.Serializable;
 
-public class DeviseDto {
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(namespace = "http://servicebanque.banque.s2re.fr")
+public class DeviseDto implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int idDevise;
 	private double change;
 	private String code;

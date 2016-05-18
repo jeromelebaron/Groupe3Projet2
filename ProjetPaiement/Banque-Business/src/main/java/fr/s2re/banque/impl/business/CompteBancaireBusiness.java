@@ -1,5 +1,6 @@
 package fr.s2re.banque.impl.business;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -17,26 +18,26 @@ import fr.s2re.banque.entity.Comptebancaire;
 @Remote(ICompteBancaireBusiness.class)
 @Stateless
 public class CompteBancaireBusiness implements ICompteBancaireBusiness{
-    @EJB
-    ICompteBancaireDao compteBancaireDao;
-	
-	
+	@EJB
+	ICompteBancaireDao compteBancaireDao;
+
+
 	@Override
 	public void crediter(String code, Double montant) {
 		compteBancaireDao.crediter(code, montant);
-		
+
 	}
 
 	@Override
 	public void debiter(String code, Double montant) {
 		compteBancaireDao.debiter(code, montant);
-		
+
 	}
 
 	@Override
 	public double getSolde(String code) {
 		return compteBancaireDao.getSolde(code);
-		
+
 	}
 
 	@Override
@@ -47,8 +48,15 @@ public class CompteBancaireBusiness implements ICompteBancaireBusiness{
 
 	@Override
 	public List<CompteBancaireDto> getCompteByClient(ClientDto client) {
-	return compteBancaireDao.getCompteByClient(DtoToEntity.fromClientDtoToClientEntity(client));
-		
+		final List<Comptebancaire> listeComptes = compteBancaireDao.getCompteByClient(DtoToEntity.fromClientDtoToClientEntity(client));
+		final List<CompteBancaireDto> listeComptesDto = new ArrayList<>();
+		for(Comptebancaire compteBancaire : listeComptes){
+			final CompteBancaireDto compteDto = EntityToDto.fromCompteBancaireEntityToCompteBancaireDto(compteBancaire);
+			listeComptesDto.add(compteDto);
+		}
+		return listeComptesDto;
+
+
 	}
 
 }
