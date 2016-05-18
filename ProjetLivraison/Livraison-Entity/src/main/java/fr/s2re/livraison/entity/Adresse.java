@@ -54,7 +54,7 @@ public class Adresse {
     /**
      * 
      */
-    @OneToMany(mappedBy = "adresse")
+    @OneToMany(mappedBy = "adresseLocalisation")
     private List<ServiceLivraison> serviceLivraisons;
 
     /**
@@ -67,7 +67,7 @@ public class Adresse {
     /**
      * 
      */
-    @OneToMany(mappedBy = "adresse")
+    @OneToMany(mappedBy = "adresseLivraison")
     private List<Commande> commandes;
 
     /**

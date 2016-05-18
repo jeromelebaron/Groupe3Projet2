@@ -13,12 +13,12 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>fr.s2re</groupId>
+			<groupId>${project.parent.groupId}</groupId>
 			<artifactId>Livraison-Entity</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>fr.s2re</groupId>
+			<groupId>${project.parent.groupId}</groupId>
 			<artifactId>Livraison-ApiData</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
