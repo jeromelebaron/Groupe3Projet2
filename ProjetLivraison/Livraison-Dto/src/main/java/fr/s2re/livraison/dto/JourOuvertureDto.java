@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * 
  */
-public class JourOuverture {
+public class JourOuvertureDto {
 
     /**
      * 
@@ -15,22 +15,22 @@ public class JourOuverture {
     /**
      * 
      */
-    private ServiceLivraison serviceLivraison;
+    private ServiceLivraisonDto serviceLivraison;
 
     /**
      * 
      */
-    private List<Horaires> horaires;
+    private List<HorairesDto> horaires;
 
     /**
      * 
      */
-    private JourSemaine jourSemaine;
+    private JourSemaineDto jourSemaine;
 
     /**
      * Default constructor
      */
-    public JourOuverture() {
+    public JourOuvertureDto() {
         // EMPTY
     }
 
@@ -54,7 +54,7 @@ public class JourOuverture {
      * Accesseur en lecture du champ <code>serviceLivraison</code>.
      * @return le champ <code>serviceLivraison</code>.
      */
-    public ServiceLivraison getServiceLivraison() {
+    public ServiceLivraisonDto getServiceLivraison() {
         return serviceLivraison;
     }
 
@@ -62,7 +62,7 @@ public class JourOuverture {
      * Accesseur en écriture du champ <code>serviceLivraison</code>.
      * @param paramServiceLivraison la valeur à écrire dans <code>serviceLivraison</code>.
      */
-    public void setServiceLivraison(ServiceLivraison paramServiceLivraison) {
+    public void setServiceLivraison(ServiceLivraisonDto paramServiceLivraison) {
         serviceLivraison = paramServiceLivraison;
     }
 
@@ -70,7 +70,7 @@ public class JourOuverture {
      * Accesseur en lecture du champ <code>horaires</code>.
      * @return le champ <code>horaires</code>.
      */
-    public List<Horaires> getHoraires() {
+    public List<HorairesDto> getHoraires() {
         return horaires;
     }
 
@@ -78,7 +78,7 @@ public class JourOuverture {
      * Accesseur en écriture du champ <code>horaires</code>.
      * @param paramHoraires la valeur à écrire dans <code>horaires</code>.
      */
-    public void setHoraires(List<Horaires> paramHoraires) {
+    public void setHoraires(List<HorairesDto> paramHoraires) {
         horaires = paramHoraires;
     }
 
@@ -86,7 +86,7 @@ public class JourOuverture {
      * Accesseur en lecture du champ <code>jourSemaine</code>.
      * @return le champ <code>jourSemaine</code>.
      */
-    public JourSemaine getJourSemaine() {
+    public JourSemaineDto getJourSemaine() {
         return jourSemaine;
     }
 
@@ -94,7 +94,7 @@ public class JourOuverture {
      * Accesseur en écriture du champ <code>jourSemaine</code>.
      * @param paramJourSemaine la valeur à écrire dans <code>jourSemaine</code>.
      */
-    public void setJourSemaine(JourSemaine paramJourSemaine) {
+    public void setJourSemaine(JourSemaineDto paramJourSemaine) {
         jourSemaine = paramJourSemaine;
     }
 

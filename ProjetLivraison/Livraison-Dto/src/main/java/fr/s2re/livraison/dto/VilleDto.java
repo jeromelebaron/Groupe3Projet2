@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * 
  */
-public class Ville {
+public class VilleDto {
 
     /**
      * 
@@ -25,17 +25,17 @@ public class Ville {
     /**
      * 
      */
-    private List<Adresse> adresses;
+    private List<AdresseDto> adresses;
 
     /**
      * 
      */
-    private Departement departement;
+    private DepartementDto departement;
 
     /**
      * Default constructor
      */
-    public Ville() {
+    public VilleDto() {
         // EMPTY
     }
 
@@ -91,7 +91,7 @@ public class Ville {
      * Accesseur en lecture du champ <code>adresses</code>.
      * @return le champ <code>adresses</code>.
      */
-    public List<Adresse> getAdresses() {
+    public List<AdresseDto> getAdresses() {
         return adresses;
     }
 
@@ -99,7 +99,7 @@ public class Ville {
      * Accesseur en écriture du champ <code>adresses</code>.
      * @param paramAdresses la valeur à écrire dans <code>adresses</code>.
      */
-    public void setAdresses(List<Adresse> paramAdresses) {
+    public void setAdresses(List<AdresseDto> paramAdresses) {
         adresses = paramAdresses;
     }
 
@@ -107,7 +107,7 @@ public class Ville {
      * Accesseur en lecture du champ <code>departement</code>.
      * @return le champ <code>departement</code>.
      */
-    public Departement getDepartement() {
+    public DepartementDto getDepartement() {
         return departement;
     }
 
@@ -115,7 +115,7 @@ public class Ville {
      * Accesseur en écriture du champ <code>departement</code>.
      * @param paramDepartement la valeur à écrire dans <code>departement</code>.
      */
-    public void setDepartement(Departement paramDepartement) {
+    public void setDepartement(DepartementDto paramDepartement) {
         departement = paramDepartement;
     }
 

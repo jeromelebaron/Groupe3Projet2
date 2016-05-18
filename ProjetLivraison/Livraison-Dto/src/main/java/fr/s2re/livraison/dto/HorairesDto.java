@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * 
  */
-public class Horaires {
+public class HorairesDto {
 
     /**
      * 
@@ -25,12 +25,12 @@ public class Horaires {
     /**
      * 
      */
-    private JourOuverture jourOuverture;
+    private JourOuvertureDto jourOuverture;
 
     /**
      * Default constructor
      */
-    public Horaires() {
+    public HorairesDto() {
         // EMPTY
     }
 
@@ -86,7 +86,7 @@ public class Horaires {
      * Accesseur en lecture du champ <code>jourOuverture</code>.
      * @return le champ <code>jourOuverture</code>.
      */
-    public JourOuverture getJourOuverture() {
+    public JourOuvertureDto getJourOuverture() {
         return jourOuverture;
     }
 
@@ -94,7 +94,7 @@ public class Horaires {
      * Accesseur en écriture du champ <code>jourOuverture</code>.
      * @param paramJourOuverture la valeur à écrire dans <code>jourOuverture</code>.
      */
-    public void setJourOuverture(JourOuverture paramJourOuverture) {
+    public void setJourOuverture(JourOuvertureDto paramJourOuverture) {
         jourOuverture = paramJourOuverture;
     }
 

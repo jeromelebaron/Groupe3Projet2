@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * 
  */
-public class ServiceLivraison {
+public class ServiceLivraisonDto {
 
     /**
      * 
@@ -20,27 +20,27 @@ public class ServiceLivraison {
     /**
      * 
      */
-    private Adresse adresseLocalisation;
+    private AdresseDto adresseLocalisation;
 
     /**
      * 
      */
-    private List<JourOuverture> jourOuvertures;
+    private List<JourOuvertureDto> jourOuvertures;
 
     /**
      * 
      */
-    private List<Commande> commandes;
+    private List<CommandeDto> commandes;
 
     /**
      * 
      */
-    private TypeLivraison typeLivraison;
+    private TypeLivraisonDto typeLivraison;
 
     /**
      * Default constructor
      */
-    public ServiceLivraison() {
+    public ServiceLivraisonDto() {
         // EMPTY
     }
 
@@ -80,7 +80,7 @@ public class ServiceLivraison {
      * Accesseur en lecture du champ <code>adresseLocalisation</code>.
      * @return le champ <code>adresseLocalisation</code>.
      */
-    public Adresse getAdresseLocalisation() {
+    public AdresseDto getAdresseLocalisation() {
         return adresseLocalisation;
     }
 
@@ -88,7 +88,7 @@ public class ServiceLivraison {
      * Accesseur en écriture du champ <code>adresseLocalisation</code>.
      * @param paramAdresseLocalisation la valeur à écrire dans <code>adresseLocalisation</code>.
      */
-    public void setAdresseLocalisation(Adresse paramAdresseLocalisation) {
+    public void setAdresseLocalisation(AdresseDto paramAdresseLocalisation) {
         adresseLocalisation = paramAdresseLocalisation;
     }
 
@@ -96,7 +96,7 @@ public class ServiceLivraison {
      * Accesseur en lecture du champ <code>jourOuvertures</code>.
      * @return le champ <code>jourOuvertures</code>.
      */
-    public List<JourOuverture> getJourOuvertures() {
+    public List<JourOuvertureDto> getJourOuvertures() {
         return jourOuvertures;
     }
 
@@ -104,7 +104,7 @@ public class ServiceLivraison {
      * Accesseur en écriture du champ <code>jourOuvertures</code>.
      * @param paramJourOuvertures la valeur à écrire dans <code>jourOuvertures</code>.
      */
-    public void setJourOuvertures(List<JourOuverture> paramJourOuvertures) {
+    public void setJourOuvertures(List<JourOuvertureDto> paramJourOuvertures) {
         jourOuvertures = paramJourOuvertures;
     }
 
@@ -112,7 +112,7 @@ public class ServiceLivraison {
      * Accesseur en lecture du champ <code>commandes</code>.
      * @return le champ <code>commandes</code>.
      */
-    public List<Commande> getCommandes() {
+    public List<CommandeDto> getCommandes() {
         return commandes;
     }
 
@@ -120,7 +120,7 @@ public class ServiceLivraison {
      * Accesseur en écriture du champ <code>commandes</code>.
      * @param paramCommandes la valeur à écrire dans <code>commandes</code>.
      */
-    public void setCommandes(List<Commande> paramCommandes) {
+    public void setCommandes(List<CommandeDto> paramCommandes) {
         commandes = paramCommandes;
     }
 
@@ -128,7 +128,7 @@ public class ServiceLivraison {
      * Accesseur en lecture du champ <code>typeLivraison</code>.
      * @return le champ <code>typeLivraison</code>.
      */
-    public TypeLivraison getTypeLivraison() {
+    public TypeLivraisonDto getTypeLivraison() {
         return typeLivraison;
     }
 
@@ -136,7 +136,7 @@ public class ServiceLivraison {
      * Accesseur en écriture du champ <code>typeLivraison</code>.
      * @param paramTypeLivraison la valeur à écrire dans <code>typeLivraison</code>.
      */
-    public void setTypeLivraison(TypeLivraison paramTypeLivraison) {
+    public void setTypeLivraison(TypeLivraisonDto paramTypeLivraison) {
         typeLivraison = paramTypeLivraison;
     }
 

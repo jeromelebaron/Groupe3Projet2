@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * 
  */
-public class Adresse {
+public class AdresseDto {
 
     /**
      * 
@@ -35,22 +35,22 @@ public class Adresse {
     /**
      * 
      */
-    private List<ServiceLivraison> serviceLivraisons;
+    private List<ServiceLivraisonDto> serviceLivraisons;
 
     /**
      * 
      */
-    private Ville ville;
+    private VilleDto ville;
 
     /**
      * 
      */
-    private List<Commande> commandes;
+    private List<CommandeDto> commandes;
 
     /**
      * Default constructor
      */
-    public Adresse() {
+    public AdresseDto() {
         // EMPTY
     }
 
@@ -138,7 +138,7 @@ public class Adresse {
      * Accesseur en lecture du champ <code>serviceLivraisons</code>.
      * @return le champ <code>serviceLivraisons</code>.
      */
-    public List<ServiceLivraison> getServiceLivraisons() {
+    public List<ServiceLivraisonDto> getServiceLivraisons() {
         return serviceLivraisons;
     }
 
@@ -146,7 +146,7 @@ public class Adresse {
      * Accesseur en écriture du champ <code>serviceLivraisons</code>.
      * @param paramServiceLivraisons la valeur à écrire dans <code>serviceLivraisons</code>.
      */
-    public void setServiceLivraisons(List<ServiceLivraison> paramServiceLivraisons) {
+    public void setServiceLivraisons(List<ServiceLivraisonDto> paramServiceLivraisons) {
         serviceLivraisons = paramServiceLivraisons;
     }
 
@@ -154,7 +154,7 @@ public class Adresse {
      * Accesseur en lecture du champ <code>ville</code>.
      * @return le champ <code>ville</code>.
      */
-    public Ville getVille() {
+    public VilleDto getVille() {
         return ville;
     }
 
@@ -162,7 +162,7 @@ public class Adresse {
      * Accesseur en écriture du champ <code>ville</code>.
      * @param paramVille la valeur à écrire dans <code>ville</code>.
      */
-    public void setVille(Ville paramVille) {
+    public void setVille(VilleDto paramVille) {
         ville = paramVille;
     }
 
@@ -170,7 +170,7 @@ public class Adresse {
      * Accesseur en lecture du champ <code>commandes</code>.
      * @return le champ <code>commandes</code>.
      */
-    public List<Commande> getCommandes() {
+    public List<CommandeDto> getCommandes() {
         return commandes;
     }
 
@@ -178,7 +178,7 @@ public class Adresse {
      * Accesseur en écriture du champ <code>commandes</code>.
      * @param paramCommandes la valeur à écrire dans <code>commandes</code>.
      */
-    public void setCommandes(List<Commande> paramCommandes) {
+    public void setCommandes(List<CommandeDto> paramCommandes) {
         commandes = paramCommandes;
     }
 

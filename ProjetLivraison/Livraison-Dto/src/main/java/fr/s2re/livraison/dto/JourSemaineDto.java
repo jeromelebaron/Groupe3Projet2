@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * 
  */
-public class TypeLivraison {
+public class JourSemaineDto {
 
     /**
      * 
@@ -20,12 +20,12 @@ public class TypeLivraison {
     /**
      * 
      */
-    private List<ServiceLivraison> serviceLivraisons;
+    private List<JourOuvertureDto> jourOuvertures;
 
     /**
      * Default constructor
      */
-    public TypeLivraison() {
+    public JourSemaineDto() {
         // EMPTY
     }
 
@@ -62,19 +62,19 @@ public class TypeLivraison {
     }
 
     /**
-     * Accesseur en lecture du champ <code>serviceLivraisons</code>.
-     * @return le champ <code>serviceLivraisons</code>.
+     * Accesseur en lecture du champ <code>jourOuvertures</code>.
+     * @return le champ <code>jourOuvertures</code>.
      */
-    public List<ServiceLivraison> getServiceLivraisons() {
-        return serviceLivraisons;
+    public List<JourOuvertureDto> getJourOuvertures() {
+        return jourOuvertures;
     }
 
     /**
-     * Accesseur en écriture du champ <code>serviceLivraisons</code>.
-     * @param paramServiceLivraisons la valeur à écrire dans <code>serviceLivraisons</code>.
+     * Accesseur en écriture du champ <code>jourOuvertures</code>.
+     * @param paramJourOuvertures la valeur à écrire dans <code>jourOuvertures</code>.
      */
-    public void setServiceLivraisons(List<ServiceLivraison> paramServiceLivraisons) {
-        serviceLivraisons = paramServiceLivraisons;
+    public void setJourOuvertures(List<JourOuvertureDto> paramJourOuvertures) {
+        jourOuvertures = paramJourOuvertures;
     }
 
 }

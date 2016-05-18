@@ -34,6 +34,12 @@ public class Departement {
     /**
      * 
      */
+    @Column(name = "numero", length = 10, nullable = false)
+    private String numero;
+
+    /**
+     * 
+     */
     @OneToMany(mappedBy = "departement")
     private List<Ville> villes;
 
@@ -74,6 +80,22 @@ public class Departement {
      */
     public void setNom(String paramNom) {
         nom = paramNom;
+    }
+
+    /**
+     * Accesseur en lecture du champ <code>numero</code>.
+     * @return le champ <code>numero</code>.
+     */
+    public String getNumero() {
+        return numero;
+    }
+
+    /**
+     * Accesseur en écriture du champ <code>numero</code>.
+     * @param paramNumero la valeur à écrire dans <code>numero</code>.
+     */
+    public void setNumero(String paramNumero) {
+        numero = paramNumero;
     }
 
     /**

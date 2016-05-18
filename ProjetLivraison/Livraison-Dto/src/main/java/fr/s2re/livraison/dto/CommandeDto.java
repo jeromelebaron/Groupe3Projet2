@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * 
  */
-public class Commande {
+public class CommandeDto {
 
     /**
      * 
@@ -41,17 +41,17 @@ public class Commande {
     /**
      * 
      */
-    private ServiceLivraison serviceLivraison;
+    private ServiceLivraisonDto serviceLivraison;
 
     /**
      * 
      */
-    private Adresse adresseLivraison;
+    private AdresseDto adresseLivraison;
 
     /**
      * Default constructor
      */
-    public Commande() {
+    public CommandeDto() {
         // EMPTY
     }
 
@@ -156,7 +156,7 @@ public class Commande {
      * Accesseur en lecture du champ <code>serviceLivraison</code>.
      * @return le champ <code>serviceLivraison</code>.
      */
-    public ServiceLivraison getServiceLivraison() {
+    public ServiceLivraisonDto getServiceLivraison() {
         return serviceLivraison;
     }
 
@@ -164,7 +164,7 @@ public class Commande {
      * Accesseur en écriture du champ <code>serviceLivraison</code>.
      * @param paramServiceLivraison la valeur à écrire dans <code>serviceLivraison</code>.
      */
-    public void setServiceLivraison(ServiceLivraison paramServiceLivraison) {
+    public void setServiceLivraison(ServiceLivraisonDto paramServiceLivraison) {
         serviceLivraison = paramServiceLivraison;
     }
 
@@ -172,7 +172,7 @@ public class Commande {
      * Accesseur en lecture du champ <code>adresseLivraison</code>.
      * @return le champ <code>adresseLivraison</code>.
      */
-    public Adresse getAdresseLivraison() {
+    public AdresseDto getAdresseLivraison() {
         return adresseLivraison;
     }
 
@@ -180,7 +180,7 @@ public class Commande {
      * Accesseur en écriture du champ <code>adresseLivraison</code>.
      * @param paramAdresseLivraison la valeur à écrire dans <code>adresseLivraison</code>.
      */
-    public void setAdresseLivraison(Adresse paramAdresseLivraison) {
+    public void setAdresseLivraison(AdresseDto paramAdresseLivraison) {
         adresseLivraison = paramAdresseLivraison;
     }
 
