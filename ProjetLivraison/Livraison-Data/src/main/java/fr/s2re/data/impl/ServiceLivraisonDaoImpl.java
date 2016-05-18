@@ -5,6 +5,8 @@ package fr.s2re.data.impl;
 
 import java.util.List;
 
+import javax.ejb.Remote;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -19,6 +21,8 @@ import fr.s2re.livraison.entity.TypeLivraison;
  * @author $LastChangedBy$
  * @version $Revision$ $Date$
  */
+@Remote(IServiceLivraisonDao.class)
+@Stateless
 public class ServiceLivraisonDaoImpl implements IServiceLivraisonDao {
 
     @PersistenceContext(name = "Livraison-Data")
