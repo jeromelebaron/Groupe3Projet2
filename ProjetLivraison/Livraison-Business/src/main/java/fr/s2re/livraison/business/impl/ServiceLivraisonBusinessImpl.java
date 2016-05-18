@@ -41,6 +41,7 @@ public class ServiceLivraisonBusinessImpl implements IServiceLivraisonBusiness {
         log.debug("Méthode business getServiceLivraisonByIdVille");
         final List<ServiceLivraison> lesServiceLivraison = serviceLivraisonDao
                 .getServiceLivraisonByIdVille(paramIdVille);
+        // TODO refactoring
         final List<ServiceLivraisonDto> lesServiceLivraisonDto = new ArrayList<>();
         for (ServiceLivraison localServiceLivraison : lesServiceLivraison) {
             final ServiceLivraisonDto serviceLivraisonDto = EntityToDto
@@ -59,6 +60,7 @@ public class ServiceLivraisonBusinessImpl implements IServiceLivraisonBusiness {
         log.debug("Méthode business getServiceLivraisonByITypeLivraison");
         final List<ServiceLivraison> lesServiceLivraison = serviceLivraisonDao
                 .getServiceLivraisonByIdTypeLivraison(paramIdTypeLivraison);
+        // TODO refactoring
         final List<ServiceLivraisonDto> lesServiceLivraisonDto = new ArrayList<>();
         for (ServiceLivraison localServiceLivraison : lesServiceLivraison) {
             final ServiceLivraisonDto serviceLivraisonDto = EntityToDto
