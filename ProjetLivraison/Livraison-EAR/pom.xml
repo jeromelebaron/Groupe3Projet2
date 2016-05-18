@@ -59,6 +59,7 @@
 			<artifactId>Livraison-WebService</artifactId>
 			<version>${project.parent.version}</version>
 			<type>ejb</type>
+			
 		</dependency>
 		<dependency>
 			<groupId>${project.parent.groupId}</groupId>
@@ -88,6 +89,7 @@
 						<ejbModule>
 							<groupId>${project.parent.groupId}</groupId>
 							<artifactId>Livraison-WebService</artifactId>
+							<uri>LivraisonWebService.jar</uri>
 						</ejbModule>
 					</modules>
 				</configuration>

@@ -11,6 +11,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import org.apache.log4j.Logger;
+
 import fr.s2re.api.data.IServiceLivraisonDao;
 import fr.s2re.livraison.entity.ServiceLivraison;
 import fr.s2re.livraison.entity.TypeLivraison;
@@ -28,6 +30,8 @@ public class ServiceLivraisonDaoImpl implements IServiceLivraisonDao {
     @PersistenceContext(name = "Livraison-Data")
     private EntityManager entityManager;
 
+    private Logger log = Logger.getLogger(ServiceLivraisonDaoImpl.class);
+
     /**
      * La requête HQL pour récupérer les {@link ServiceLivraison} par ville.
      */
@@ -42,6 +46,7 @@ public class ServiceLivraisonDaoImpl implements IServiceLivraisonDao {
      */
     @Override
     public List<ServiceLivraison> getServiceLivraisonByIdVille(final Integer paramIdVille) {
+        log.debug("Méthode dao getServiceLivraisonByIdVille");
         final TypedQuery<ServiceLivraison> queryFindServiceLivraisonByVille = entityManager
                 .createQuery(REQUETE_FIND_SERVICE_LIVRAISON_BY_VILLE, ServiceLivraison.class);
         queryFindServiceLivraisonByVille.setParameter("idVille", paramIdVille);
@@ -54,6 +59,7 @@ public class ServiceLivraisonDaoImpl implements IServiceLivraisonDao {
     @Override
     public List<ServiceLivraison> getServiceLivraisonByTypeLivraison(
             final Integer paramIdTypeLivraison) {
+        log.debug("Méthode dao getServiceLivraisonByTypeLivraison");
         final TypedQuery<ServiceLivraison> queryFindServiceLivraisonByTypeLivraison = entityManager
                 .createQuery(REQUETE_FIND_SERVICE_LIVRAISON_BY_TYPE_LIVRAISON,
                         ServiceLivraison.class);

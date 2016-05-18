@@ -1,11 +1,20 @@
 package fr.s2re.livraison.dto;
 
+import java.io.Serializable;
 import java.util.Date;
+
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
  */
-public class HorairesDto {
+@XmlRootElement(namespace = "http://servicelivraison.livraison.s2re.fr")
+public class HorairesDto implements Serializable {
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
 
     /**
      * 

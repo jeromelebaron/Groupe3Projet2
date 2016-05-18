@@ -3,8 +3,6 @@
  */
 package fr.s2re.livraison.business.assembleur;
 
-import org.dozer.DozerBeanMapper;
-
 import fr.s2re.livraison.dto.AdresseDto;
 import fr.s2re.livraison.dto.DepartementDto;
 import fr.s2re.livraison.dto.ServiceLivraisonDto;
@@ -24,8 +22,6 @@ import fr.s2re.livraison.entity.Ville;
  */
 public class EntityToDto {
 
-    private static DozerBeanMapper dozerBeanMapper = new DozerBeanMapper();
-
     private EntityToDto() {
         // EMPTY
     }
@@ -33,7 +29,8 @@ public class EntityToDto {
     public static ServiceLivraisonDto fromServiceLivraisonEntityToServiceLivraisonDto(
             final ServiceLivraison paramServiceLivraison) {
         final ServiceLivraisonDto serviceLivraisonDto = new ServiceLivraisonDto();
-        dozerBeanMapper.map(paramServiceLivraison, serviceLivraisonDto);
+        serviceLivraisonDto.setId(paramServiceLivraison.getId());
+        serviceLivraisonDto.setNom(paramServiceLivraison.getNom());
         serviceLivraisonDto.setAdresseLocalisation(EntityToDto
                 .fromAdresseEntityToAdresseDto(paramServiceLivraison.getAdresseLocalisation()));
         serviceLivraisonDto
@@ -45,7 +42,9 @@ public class EntityToDto {
 
     public static AdresseDto fromAdresseEntityToAdresseDto(final Adresse paramAdresseLocalisation) {
         final AdresseDto adresseDto = new AdresseDto();
-        dozerBeanMapper.map(paramAdresseLocalisation, adresseDto);
+        adresseDto.setId(paramAdresseLocalisation.getId());
+        adresseDto.setNomRue(paramAdresseLocalisation.getNomRue());
+        adresseDto.setNumero(paramAdresseLocalisation.getNumero());
         adresseDto.setVille(EntityToDto.fromVilleEntityToVilleDto(paramAdresseLocalisation
                 .getVille()));
         return adresseDto;
@@ -53,7 +52,9 @@ public class EntityToDto {
 
     public static VilleDto fromVilleEntityToVilleDto(final Ville paramVille) {
         final VilleDto villeDto = new VilleDto();
-        dozerBeanMapper.map(paramVille, villeDto);
+        villeDto.setId(paramVille.getId());
+        villeDto.setNom(paramVille.getNom());
+        villeDto.setCodePostal(paramVille.getCodePostal());
         villeDto.setDepartement(EntityToDto.fromDepartementEntityToDepartementDto(paramVille
                 .getDepartement()));
         return villeDto;
@@ -62,14 +63,17 @@ public class EntityToDto {
     public static DepartementDto fromDepartementEntityToDepartementDto(
             final Departement paramDepartement) {
         final DepartementDto departementDto = new DepartementDto();
-        dozerBeanMapper.map(paramDepartement, departementDto);
+        departementDto.setId(paramDepartement.getId());
+        departementDto.setNom(paramDepartement.getNom());
+        departementDto.setNom(paramDepartement.getNumero());
         return departementDto;
     }
 
     public static TypeLivraisonDto fromTypeLivraisonEntityToTypeLivraisonDto(
             final TypeLivraison paramTypeLivraison) {
         final TypeLivraisonDto typeLivraisonDto = new TypeLivraisonDto();
-        dozerBeanMapper.map(paramTypeLivraison, typeLivraisonDto);
-        return null;
+        typeLivraisonDto.setId(paramTypeLivraison.getId());
+        typeLivraisonDto.setLibelle(paramTypeLivraison.getLibelle());
+        return typeLivraisonDto;
     }
 }

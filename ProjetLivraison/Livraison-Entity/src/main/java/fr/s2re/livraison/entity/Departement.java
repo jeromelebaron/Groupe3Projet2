@@ -1,5 +1,6 @@
 package fr.s2re.livraison.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -15,7 +16,12 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "departement")
-public class Departement {
+public class Departement implements Serializable {
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
 
     /**
      * 

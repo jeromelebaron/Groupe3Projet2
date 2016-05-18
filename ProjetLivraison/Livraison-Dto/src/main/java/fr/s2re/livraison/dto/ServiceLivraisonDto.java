@@ -1,11 +1,20 @@
 package fr.s2re.livraison.dto;
 
+import java.io.Serializable;
 import java.util.List;
+
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
  */
-public class ServiceLivraisonDto {
+@XmlRootElement(namespace = "http://servicelivraison.livraison.s2re.fr")
+public class ServiceLivraisonDto implements Serializable {
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
 
     /**
      * 

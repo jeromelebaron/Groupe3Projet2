@@ -10,6 +10,8 @@ import javax.ejb.EJB;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
+import org.apache.log4j.Logger;
+
 import fr.s2re.api.business.IServiceLivraisonBusiness;
 import fr.s2re.api.data.IServiceLivraisonDao;
 import fr.s2re.livraison.business.assembleur.EntityToDto;
@@ -29,11 +31,14 @@ public class ServiceLivraisonBusinessImpl implements IServiceLivraisonBusiness {
     @EJB
     private IServiceLivraisonDao serviceLivraisonDao;
 
+    private Logger log = Logger.getLogger(ServiceLivraisonBusinessImpl.class);
+
     /**
      * {@inheritDoc}
      */
     @Override
     public List<ServiceLivraisonDto> getServiceLivraisonByIdVille(final Integer paramIdVille) {
+        log.debug("Méthode business getServiceLivraisonByIdVille");
         final List<ServiceLivraison> lesServiceLivraison = serviceLivraisonDao
                 .getServiceLivraisonByIdVille(paramIdVille);
         final List<ServiceLivraisonDto> lesServiceLivraisonDto = new ArrayList<>();
@@ -51,6 +56,7 @@ public class ServiceLivraisonBusinessImpl implements IServiceLivraisonBusiness {
     @Override
     public List<ServiceLivraisonDto> getServiceLivraisonByITypeLivraison(
             Integer paramIdTypeLivraison) {
+        log.debug("Méthode business getServiceLivraisonByITypeLivraison");
         return null;
     }
 
