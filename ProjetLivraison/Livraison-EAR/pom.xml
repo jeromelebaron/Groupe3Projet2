@@ -14,13 +14,13 @@
 	<dependencies>
 		<dependency>
 			<groupId>${project.parent.groupId}</groupId>
-			<artifactId>Entity</artifactId>
+			<artifactId>Livraison-Entity</artifactId>
 			<version>${project.parent.version}</version>
 			<type>jar</type>
 		</dependency>
 		<dependency>
 			<groupId>${project.parent.groupId}</groupId>
-			<artifactId>Dto</artifactId>
+			<artifactId>Livraison-Dto</artifactId>
 			<version>${project.parent.version}</version>
 			<type>jar</type>
 		</dependency>
@@ -34,7 +34,7 @@
 			<groupId>${project.parent.groupId}</groupId>
 			<artifactId>Livraison-Data</artifactId>
 			<version>${project.parent.version}</version>
-			<type>ejbs</type>
+			<type>ejb</type>
 		</dependency>
 		<dependency>
 			<groupId>${project.parent.groupId}</groupId>
