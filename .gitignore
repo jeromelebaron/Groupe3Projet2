@@ -15,3 +15,13 @@ EAR/.settings/
 Entity/.settings/
 Uc/.settings/
 WebDiy/.settings/
+ProjetPaiement/Banque-Entity/.settings/
+ProjetPaiement/Banque-Business/.settings/org.eclipse.wst.common.component
+ProjetPaiement/Banque-Business/.settings/org.eclipse.wst.common.project.facet.core.xml
+ProjetPaiement/Banque-DTO/target/maven-archiver/pom.properties
+ProjetPaiement/Banque-Data/.settings/
+ProjetPaiement/Banque-DTO/target/
+ProjetPaiement/Banque-Data/target/
+ProjetPaiement/Banque-EAR/.settings/org.eclipse.wst.common.component
+ProjetPaiement/Banque-EAR/.settings/
+ProjetPaiement/Banque-Entity/target/
