@@ -1,4 +1,4 @@
-/*
+/**
  * Créé le 19 mai 2016 par Jérome LE BARON
  */
 package fr.s2re.stock.api;
@@ -27,7 +27,7 @@ public interface IStockWebService {
      */
     @WebMethod(operationName = "getProduitByReference")
     @WebResult(name = "produitByReference")
-    Produit getProduitByReference(@WebParam(name = "paramReference") String paramReference);
+    ProduitDto getProduitByReference(@WebParam(name = "paramReference") String paramReference);
 
     /**
      * Pour mettre à jour le stock d'un {@link Produit}.
@@ -36,6 +36,6 @@ public interface IStockWebService {
      */
     @WebMethod(operationName = "updateProduit")
     @WebResult(name = "produitUpdate")
-    Produit updateProduit(@WebParam(name = "paramProduit") ProduitDto paramProduitDto);
+    ProduitDto updateProduit(@WebParam(name = "paramProduit") ProduitDto paramProduitDto);
 
 }
