@@ -7,7 +7,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import fr.s2re.livraison.servicelivraison.HorairesDto;
 import fr.s2re.livraison.servicelivraison.IServiceLivraisonWebService;
+import fr.s2re.livraison.servicelivraison.JourOuvertureDto;
 import fr.s2re.livraison.servicelivraison.ServiceLivraisonDto;
 import fr.s2re.livraison.servicelivraison.ServiceLivraisonWS;
 
@@ -37,7 +39,21 @@ public class ServiceLivraisonTest {
                 .getServiceLivraisonWebServiceImplPort();
         List<ServiceLivraisonDto> serviceTrouveByVille = serviceLivraisonWebService
                 .getServiceLivraisonByIdVille(1);
-        LOGGER.info(serviceTrouveByVille.size());
+        for (ServiceLivraisonDto localServiceLivraisonDto : serviceTrouveByVille) {
+            LOGGER.info(localServiceLivraisonDto.getId());
+            List<JourOuvertureDto> lesJourOuvertureDto = localServiceLivraisonDto
+                    .getJourOuvertures();
+            LOGGER.info(lesJourOuvertureDto.size());
+            for (JourOuvertureDto localJourOuvertureDto : lesJourOuvertureDto) {
+                LOGGER.info(localJourOuvertureDto.getJourSemaine().getLibelle());
+                List<HorairesDto> lesHorairesDto = localJourOuvertureDto.getHoraires();
+                for (HorairesDto localHorairesDto : lesHorairesDto) {
+                    LOGGER.info("Horaire de " + localJourOuvertureDto.getJourSemaine().getLibelle()
+                            + " : " + localHorairesDto.getDebut().getHour() + "h"
+                            + localHorairesDto.getFin() + "m");
+                }
+            }
+        }
         LOGGER.debug("Fin du test des services de livraison par ville");
 
         LOGGER.debug("Test des services de livraison par type service");
@@ -45,7 +61,7 @@ public class ServiceLivraisonTest {
                 .getServiceLivraisonByIdTypeLivraison(1);
         LOGGER.info(serviceTrouveByTypeService.size());
         LOGGER.debug("Fin du test des services de livraison par type service");
-        
+
         LOGGER.debug("Fin des tests");
     }
 
