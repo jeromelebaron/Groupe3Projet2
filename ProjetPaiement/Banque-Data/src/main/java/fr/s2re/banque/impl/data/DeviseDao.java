@@ -28,7 +28,7 @@ private static DeviseDao uniqueInstance = null;
 	
 	@Override
 	public Devise getDeviseByCode(String code) {
-		// TODO Auto-generated method stub
+		javax.persistence.TypedQuery<Devise> req = em.createQuery("select d from Devise d Where d.code = :paramCode", Devise.class);
 		return null;
 	}
 
