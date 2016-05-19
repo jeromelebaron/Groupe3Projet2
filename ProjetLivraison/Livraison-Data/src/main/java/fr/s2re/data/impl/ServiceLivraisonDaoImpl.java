@@ -16,6 +16,7 @@ import org.apache.log4j.Logger;
 import fr.s2re.api.data.IServiceLivraisonDao;
 import fr.s2re.livraison.entity.ServiceLivraison;
 import fr.s2re.livraison.entity.TypeLivraison;
+import fr.s2re.livraison.entity.Ville;
 
 /**
  * Pour l'accès à la bdd concernant le {@link ServiceLivraison}.
@@ -39,15 +40,15 @@ public class ServiceLivraisonDaoImpl implements IServiceLivraisonDao {
     private static final Logger LOGGER = Logger.getLogger(ServiceLivraisonDaoImpl.class);
 
     /**
-     * La requête HQL pour récupérer les {@link ServiceLivraison} par ville.
+     * La requête HQL pour récupérer les {@link ServiceLivraison} par {@link Ville}.
      */
     private static final String REQUETE_FIND_SERVICE_LIVRAISON_BY_VILLE = "SELECT DISTINCT s FROM ServiceLivraison s "
             + "JOIN FETCH s.jourOuvertures WHERE s.adresseLocalisation.ville.id = :idVille";
     /**
      * La requête HQL pour récupérer les {@link ServiceLivraison} par {@link TypeLivraison}.
      */
-    private static final String REQUETE_FIND_SERVICE_LIVRAISON_BY_TYPE_LIVRAISON = "FROM ServiceLivraison s "
-            + "WHERE s.typeLivraison.id = :idTypeLivraison";
+    private static final String REQUETE_FIND_SERVICE_LIVRAISON_BY_TYPE_LIVRAISON = "SELECT DISTINCT s FROM ServiceLivraison s "
+            + "JOIN FETCH s.jourOuvertures WHERE s.typeLivraison.id = :idTypeLivraison";
 
     /**
      * {@inheritDoc}
