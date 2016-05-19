@@ -1,4 +1,4 @@
-/*
+/**
  * Créé le 18 mai 2016 par Jérome LE BARON
  */
 package fr.s2re.livraison.webservice.impl;
@@ -15,9 +15,10 @@ import org.apache.log4j.Logger;
 import fr.s2re.api.business.IServiceLivraisonBusiness;
 import fr.s2re.api.webservice.IServiceLivraisonWebService;
 import fr.s2re.livraison.dto.ServiceLivraisonDto;
+import fr.s2re.livraison.entity.ServiceLivraison;
 
 /**
- * Description de la classe
+ * Le webservice concernant le {@link ServiceLivraison}.
  * @author Jérome LE BARON
  * @author $LastChangedBy$
  * @version $Revision$ $Date$
@@ -27,8 +28,14 @@ import fr.s2re.livraison.dto.ServiceLivraisonDto;
 @WebService(endpointInterface = "fr.s2re.api.webservice.IServiceLivraisonWebService", targetNamespace = "http://servicelivraison.livraison.s2re.fr", serviceName = "ServiceLivraisonWS")
 public class ServiceLivraisonWebServiceImpl implements IServiceLivraisonWebService {
 
-    private Logger logger = Logger.getLogger(ServiceLivraisonWebServiceImpl.class);
+    /**
+     * Pour faire du log.
+     */
+    private static final Logger LOGGER = Logger.getLogger(ServiceLivraisonWebServiceImpl.class);
 
+    /**
+     * Pour le business du {@link ServiceLivraison}.
+     */
     @EJB
     private IServiceLivraisonBusiness serviceLivraisonBusiness;
 
@@ -37,7 +44,7 @@ public class ServiceLivraisonWebServiceImpl implements IServiceLivraisonWebServi
      */
     @Override
     public List<ServiceLivraisonDto> getServiceLivraisonByIdVille(final Integer paramIdVille) {
-        logger.debug("Méthode Webservice getServiceLivraisonByIdVille");
+        LOGGER.debug("Méthode Webservice getServiceLivraisonByIdVille");
         return serviceLivraisonBusiness.getServiceLivraisonByIdVille(paramIdVille);
     }
 
@@ -47,7 +54,7 @@ public class ServiceLivraisonWebServiceImpl implements IServiceLivraisonWebServi
     @Override
     public List<ServiceLivraisonDto> getServiceLivraisonByIdTypeLivraison(
             final Integer paramIdTypeLivraison) {
-        logger.debug("Méthode Webservice getServiceLivraisonByIdTypeLivraison");
+        LOGGER.debug("Méthode Webservice getServiceLivraisonByIdTypeLivraison");
         return serviceLivraisonBusiness.getServiceLivraisonByIdTypeLivraison(paramIdTypeLivraison);
     }
 

@@ -1,4 +1,4 @@
-/*
+/**
  * Créé le 18 mai 2016 par Jérome LE BARON
  */
 package fr.s2re.livraison.business.impl;
@@ -32,20 +32,29 @@ import fr.s2re.livraison.entity.ServiceLivraison;
 @Stateless
 public class ServiceLivraisonBusinessImpl implements IServiceLivraisonBusiness {
 
+    /**
+     * Le dao pour le {@link ServiceLivraison}.
+     */
     @EJB
     private IServiceLivraisonDao serviceLivraisonDao;
 
+    /**
+     * Le dao pour les {@link Horaires}.
+     */
     @EJB
     private IHorairesDao horairesDao;
 
-    private Logger log = Logger.getLogger(ServiceLivraisonBusinessImpl.class);
+    /**
+     * Pour faire du log.
+     */
+    private static final Logger LOGGER = Logger.getLogger(ServiceLivraisonBusinessImpl.class);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public List<ServiceLivraisonDto> getServiceLivraisonByIdVille(final Integer paramIdVille) {
-        log.debug("Méthode business getServiceLivraisonByIdVille");
+        LOGGER.debug("Méthode business getServiceLivraisonByIdVille");
         final List<ServiceLivraison> lesServiceLivraison = serviceLivraisonDao
                 .getServiceLivraisonByIdVille(paramIdVille);
         recupererTousHorairesOuvertures(lesServiceLivraison);
@@ -61,7 +70,7 @@ public class ServiceLivraisonBusinessImpl implements IServiceLivraisonBusiness {
     @Override
     public List<ServiceLivraisonDto> getServiceLivraisonByIdTypeLivraison(
             Integer paramIdTypeLivraison) {
-        log.debug("Méthode business getServiceLivraisonByITypeLivraison");
+        LOGGER.debug("Méthode business getServiceLivraisonByITypeLivraison");
         final List<ServiceLivraison> lesServiceLivraison = serviceLivraisonDao
                 .getServiceLivraisonByIdTypeLivraison(paramIdTypeLivraison);
         recupererTousHorairesOuvertures(lesServiceLivraison);
@@ -93,8 +102,8 @@ public class ServiceLivraisonBusinessImpl implements IServiceLivraisonBusiness {
     }
 
     /**
-     * Pour peupleur les {@link JourOuvertureDto} du {@link ServiceLivraisonDto} des
-     * {@link ServiceLivraisonDto} lié aux {@link ServiceLivraison}.
+     * Pour peupleur les {@link JourOuvertureDto} et les {@link HorairesDto} du
+     * {@link ServiceLivraisonDto} des {@link ServiceLivraisonDto} lié aux {@link ServiceLivraison}.
      * @param lesServiceLivraison le {@link ServiceLivraison} duquel récupérer les
      *            {@link JourOuverture}.
      * @param lesServiceLivraisonDto le {@link ServiceLivraisonDto} pour lequel peupler les

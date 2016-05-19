@@ -27,10 +27,16 @@ import fr.s2re.livraison.entity.TypeLivraison;
 @Stateless
 public class ServiceLivraisonDaoImpl implements IServiceLivraisonDao {
 
+    /**
+     * L'entity manager de JPA.
+     */
     @PersistenceContext(name = "Livraison-Data")
     private EntityManager entityManager;
 
-    private Logger log = Logger.getLogger(ServiceLivraisonDaoImpl.class);
+    /**
+     * Pour faire du log.
+     */
+    private static final Logger LOGGER = Logger.getLogger(ServiceLivraisonDaoImpl.class);
 
     /**
      * La requête HQL pour récupérer les {@link ServiceLivraison} par ville.
@@ -48,7 +54,7 @@ public class ServiceLivraisonDaoImpl implements IServiceLivraisonDao {
      */
     @Override
     public List<ServiceLivraison> getServiceLivraisonByIdVille(final Integer paramIdVille) {
-        log.debug("Méthode dao getServiceLivraisonByIdVille");
+        LOGGER.debug("Méthode dao getServiceLivraisonByIdVille");
         final TypedQuery<ServiceLivraison> queryFindServiceLivraisonByVille = entityManager
                 .createQuery(REQUETE_FIND_SERVICE_LIVRAISON_BY_VILLE, ServiceLivraison.class);
         queryFindServiceLivraisonByVille.setParameter("idVille", paramIdVille);
@@ -61,7 +67,7 @@ public class ServiceLivraisonDaoImpl implements IServiceLivraisonDao {
     @Override
     public List<ServiceLivraison> getServiceLivraisonByIdTypeLivraison(
             final Integer paramIdTypeLivraison) {
-        log.debug("Méthode dao getServiceLivraisonByTypeLivraison");
+        LOGGER.debug("Méthode dao getServiceLivraisonByTypeLivraison");
         final TypedQuery<ServiceLivraison> queryFindServiceLivraisonByTypeLivraison = entityManager
                 .createQuery(REQUETE_FIND_SERVICE_LIVRAISON_BY_TYPE_LIVRAISON,
                         ServiceLivraison.class);
