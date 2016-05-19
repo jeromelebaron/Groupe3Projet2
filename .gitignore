@@ -40,6 +40,7 @@ ProjetPaiement/Banque-BusinessApi/.settings/
 ProjetPaiement/Banque-DTO/.settings/
 ProjetPaiement/Banque-DataApi/.settings/
 ProjetPaiement/Banque-WebService/.settings/
+ProjetPaiement/Banque-WebService/target/
 .settings/
 *.classpath
 
