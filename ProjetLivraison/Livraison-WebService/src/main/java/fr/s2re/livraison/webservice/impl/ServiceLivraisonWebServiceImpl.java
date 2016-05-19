@@ -12,9 +12,12 @@ import javax.jws.WebService;
 
 import org.apache.log4j.Logger;
 
+import fr.s2re.api.business.ICommandeBusiness;
 import fr.s2re.api.business.IServiceLivraisonBusiness;
 import fr.s2re.api.webservice.IServiceLivraisonWebService;
+import fr.s2re.livraison.dto.CommandeDto;
 import fr.s2re.livraison.dto.ServiceLivraisonDto;
+import fr.s2re.livraison.entity.Commande;
 import fr.s2re.livraison.entity.ServiceLivraison;
 
 /**
@@ -40,6 +43,12 @@ public class ServiceLivraisonWebServiceImpl implements IServiceLivraisonWebServi
     private IServiceLivraisonBusiness serviceLivraisonBusiness;
 
     /**
+     * Pour le business de {@link Commande}.
+     */
+    @EJB
+    private ICommandeBusiness commandeBusiness;
+
+    /**
      * {@inheritDoc}
      */
     @Override
@@ -56,6 +65,15 @@ public class ServiceLivraisonWebServiceImpl implements IServiceLivraisonWebServi
             final Integer paramIdTypeLivraison) {
         LOGGER.debug("Méthode Webservice getServiceLivraisonByIdTypeLivraison");
         return serviceLivraisonBusiness.getServiceLivraisonByIdTypeLivraison(paramIdTypeLivraison);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public CommandeDto insertCommande(CommandeDto paramCommandeDto) {
+        LOGGER.debug("Méthode WebService insertCommande");
+        return commandeBusiness.insertCommande(paramCommandeDto);
     }
 
 }

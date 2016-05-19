@@ -2,6 +2,7 @@ ApiBusiness/target/
 ApiData/target/
 ApiUc/target/
 */target/
+<<<<<<< HEAD
 *.project
 *.classpath
 *.prefs
@@ -18,6 +19,9 @@ WebDiy/.settings/
 ProjetLivraison/Livraison-ApiBusiness/target/
 ProjetLivraison/Livraison-ApiData/target/
 ProjetLivraison/Livraison-ApiWebService/target/Livraison-ApiWebService-0.1.jar
+ProjetLivraison/Livraison-ApiBusiness/target/
+ProjetLivraison/Livraison-ApiData/target/
+>>>>>>> hotfix/CorrectionWebService
 ProjetLivraison/Livraison-ApiWebService/target/
 ProjetLivraison/Livraison-Dto/target/
 ProjetLivraison/Livraison-Entity/target/
@@ -32,4 +36,3 @@ ProjetPaiement/Banque-Data/target/
 ProjetPaiement/Banque-EAR/.settings/org.eclipse.wst.common.component
 ProjetPaiement/Banque-EAR/.settings/
 ProjetPaiement/Banque-Entity/target/
-

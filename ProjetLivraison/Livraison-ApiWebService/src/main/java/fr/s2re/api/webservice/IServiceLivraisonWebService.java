@@ -10,6 +10,7 @@ import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 
+import fr.s2re.livraison.dto.CommandeDto;
 import fr.s2re.livraison.dto.ServiceLivraisonDto;
 
 @WebService(targetNamespace = "http://servicelivraison.livraison.s2re.fr")
@@ -25,4 +26,9 @@ public interface IServiceLivraisonWebService {
     List<ServiceLivraisonDto> getServiceLivraisonByIdTypeLivraison(
             @WebParam(name = "paramIdTypeLivraison") Integer idTypeLivraison);
 
+    @WebMethod(operationName = "insertCommande")
+    @WebResult(name = "commandeInseree")
+    CommandeDto insertCommande(@WebParam(name = "paramCommande") CommandeDto paramCommandeDto);
+
+    
 }
