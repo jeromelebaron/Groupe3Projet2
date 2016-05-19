@@ -65,11 +65,11 @@ public class ServiceLivraisonWS
     /**
      * 
      * @return
-     *     returns IServiceLivraisonWebService
+     *     returns ILivraisonWebService
      */
     @WebEndpoint(name = "ServiceLivraisonWebServiceImplPort")
-    public IServiceLivraisonWebService getServiceLivraisonWebServiceImplPort() {
-        return super.getPort(new QName("http://servicelivraison.livraison.s2re.fr", "ServiceLivraisonWebServiceImplPort"), IServiceLivraisonWebService.class);
+    public ILivraisonWebService getServiceLivraisonWebServiceImplPort() {
+        return super.getPort(new QName("http://servicelivraison.livraison.s2re.fr", "ServiceLivraisonWebServiceImplPort"), ILivraisonWebService.class);
     }
 
     /**
@@ -77,11 +77,11 @@ public class ServiceLivraisonWS
      * @param features
      *     A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return
-     *     returns IServiceLivraisonWebService
+     *     returns ILivraisonWebService
      */
     @WebEndpoint(name = "ServiceLivraisonWebServiceImplPort")
-    public IServiceLivraisonWebService getServiceLivraisonWebServiceImplPort(WebServiceFeature... features) {
-        return super.getPort(new QName("http://servicelivraison.livraison.s2re.fr", "ServiceLivraisonWebServiceImplPort"), IServiceLivraisonWebService.class, features);
+    public ILivraisonWebService getServiceLivraisonWebServiceImplPort(WebServiceFeature... features) {
+        return super.getPort(new QName("http://servicelivraison.livraison.s2re.fr", "ServiceLivraisonWebServiceImplPort"), ILivraisonWebService.class, features);
     }
 
     private static URL __getWsdlLocation() {

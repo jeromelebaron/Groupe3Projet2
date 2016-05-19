@@ -8,7 +8,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import fr.s2re.livraison.servicelivraison.HorairesDto;
-import fr.s2re.livraison.servicelivraison.IServiceLivraisonWebService;
+import fr.s2re.livraison.servicelivraison.ILivraisonWebService;
 import fr.s2re.livraison.servicelivraison.JourOuvertureDto;
 import fr.s2re.livraison.servicelivraison.ServiceLivraisonDto;
 import fr.s2re.livraison.servicelivraison.ServiceLivraisonWS;
@@ -35,7 +35,7 @@ public class ServiceLivraisonTest {
 
         LOGGER.debug("Test du service de livraison par ville");
         ServiceLivraisonWS serviceLivraisonWS = new ServiceLivraisonWS();
-        IServiceLivraisonWebService serviceLivraisonWebService = serviceLivraisonWS
+        ILivraisonWebService serviceLivraisonWebService = serviceLivraisonWS
                 .getServiceLivraisonWebServiceImplPort();
         List<ServiceLivraisonDto> serviceTrouveByVille = serviceLivraisonWebService
                 .getServiceLivraisonByIdVille(1);

@@ -17,11 +17,11 @@ import javax.xml.ws.ResponseWrapper;
  * Generated source version: 2.2
  * 
  */
-@WebService(name = "IServiceLivraisonWebService", targetNamespace = "http://servicelivraison.livraison.s2re.fr")
+@WebService(name = "ILivraisonWebService", targetNamespace = "http://servicelivraison.livraison.s2re.fr")
 @XmlSeeAlso({
     ObjectFactory.class
 })
-public interface IServiceLivraisonWebService {
+public interface ILivraisonWebService {
 
 
     /**
@@ -37,6 +37,20 @@ public interface IServiceLivraisonWebService {
     public List<ServiceLivraisonDto> getServiceLivraisonByIdVille(
         @WebParam(name = "paramIdVille", targetNamespace = "")
         Integer paramIdVille);
+
+    /**
+     * 
+     * @param paramCommande
+     * @return
+     *     returns fr.s2re.livraison.servicelivraison.CommandeDto
+     */
+    @WebMethod
+    @WebResult(name = "commandeInseree", targetNamespace = "")
+    @RequestWrapper(localName = "insertCommande", targetNamespace = "http://servicelivraison.livraison.s2re.fr", className = "fr.s2re.livraison.servicelivraison.InsertCommande")
+    @ResponseWrapper(localName = "insertCommandeResponse", targetNamespace = "http://servicelivraison.livraison.s2re.fr", className = "fr.s2re.livraison.servicelivraison.InsertCommandeResponse")
+    public CommandeDto insertCommande(
+        @WebParam(name = "paramCommande", targetNamespace = "")
+        CommandeDto paramCommande);
 
     /**
      * 

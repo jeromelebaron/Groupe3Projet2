@@ -14,7 +14,7 @@ import org.apache.log4j.Logger;
 
 import fr.s2re.api.business.ICommandeBusiness;
 import fr.s2re.api.business.IServiceLivraisonBusiness;
-import fr.s2re.api.webservice.IServiceLivraisonWebService;
+import fr.s2re.api.webservice.ILivraisonWebService;
 import fr.s2re.livraison.dto.CommandeDto;
 import fr.s2re.livraison.dto.ServiceLivraisonDto;
 import fr.s2re.livraison.entity.Commande;
@@ -26,10 +26,10 @@ import fr.s2re.livraison.entity.ServiceLivraison;
  * @author $LastChangedBy$
  * @version $Revision$ $Date$
  */
-@Remote(IServiceLivraisonWebService.class)
+@Remote(ILivraisonWebService.class)
 @Stateless
-@WebService(endpointInterface = "fr.s2re.api.webservice.IServiceLivraisonWebService", targetNamespace = "http://servicelivraison.livraison.s2re.fr", serviceName = "ServiceLivraisonWS")
-public class ServiceLivraisonWebServiceImpl implements IServiceLivraisonWebService {
+@WebService(endpointInterface = "fr.s2re.api.webservice.ILivraisonWebService", targetNamespace = "http://servicelivraison.livraison.s2re.fr", serviceName = "ServiceLivraisonWS")
+public class ServiceLivraisonWebServiceImpl implements ILivraisonWebService {
 
     /**
      * Pour faire du log.

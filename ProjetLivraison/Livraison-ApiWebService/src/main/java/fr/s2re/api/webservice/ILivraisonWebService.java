@@ -14,7 +14,7 @@ import fr.s2re.livraison.dto.CommandeDto;
 import fr.s2re.livraison.dto.ServiceLivraisonDto;
 
 @WebService(targetNamespace = "http://servicelivraison.livraison.s2re.fr")
-public interface IServiceLivraisonWebService {
+public interface ILivraisonWebService {
 
     @WebMethod(operationName = "getServiceLivraisonByIdVille")
     @WebResult(name = "listeResultatServiceLivraisonByIdVille")
