@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.s2re.stock.api.IProduitDao;
@@ -53,13 +54,24 @@ public class ProduitDaoImpl implements IProduitDao {
      * {@inheritDoc}
      */
     @Override
+    @Transactional
     public Produit updateProduit(Produit paramProduit) {
         LOGGER.debug("Méthode Dao updateProduit");
         final Session session = sessionFactory.getCurrentSession();
         session.merge(paramProduit);
-        session.update(paramProduit);
         session.flush();
         return paramProduit;
     }
 
+    /**
+     * Accesseur en écriture du champ <code>sessionFactory</code>.
+     * @param paramSessionFactory la valeur à écrire dans <code>sessionFactory</code>.
+     */
+    @Autowired
+    public void setSessionFactory(SessionFactory paramSessionFactory) {
+        sessionFactory = paramSessionFactory;
+    }
+
+    
+    
 }
