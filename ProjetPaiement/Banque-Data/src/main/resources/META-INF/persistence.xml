@@ -10,5 +10,10 @@
 		<class>fr.s2re.banque.entity.Operationbancaire</class>
 		<class>fr.s2re.banque.entity.Debit</class>
 		<class>fr.s2re.banque.entity.Credit</class>
+		<properties>
+			<property name="hibernate.hbm2ddl.auto" value="validate" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+		</properties>
 	</persistence-unit>
 </persistence>

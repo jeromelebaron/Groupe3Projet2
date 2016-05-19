@@ -23,20 +23,20 @@ public class CompteBancaireBusiness implements ICompteBancaireBusiness{
 
 
 	@Override
-	public void crediter(String code, Double montant) {
-		compteBancaireDao.crediter(code, montant);
+	public void crediter(Integer idCompte, Double montant) {
+		compteBancaireDao.crediter(idCompte, montant);
 
 	}
 
 	@Override
-	public void debiter(String code, Double montant) {
-		compteBancaireDao.debiter(code, montant);
+	public void debiter(Integer idCompte, Double montant) {
+		compteBancaireDao.debiter(idCompte, montant);
 
 	}
 
 	@Override
-	public double getSolde(String code) {
-		return compteBancaireDao.getSolde(code);
+	public double getSolde(Integer paramIdCompte) {
+		return compteBancaireDao.getSolde(paramIdCompte);
 
 	}
 
@@ -47,8 +47,8 @@ public class CompteBancaireBusiness implements ICompteBancaireBusiness{
 	}
 
 	@Override
-	public List<CompteBancaireDto> getCompteByClient(ClientDto client) {
-		final List<Comptebancaire> listeComptes = compteBancaireDao.getCompteByClient(DtoToEntity.fromClientDtoToClientEntity(client));
+	public List<CompteBancaireDto> getCompteByClient(Integer idClient) {
+		final List<Comptebancaire> listeComptes = compteBancaireDao.getCompteByClient(idClient);
 		final List<CompteBancaireDto> listeComptesDto = new ArrayList<>();
 		for(Comptebancaire compteBancaire : listeComptes){
 			final CompteBancaireDto compteDto = EntityToDto.fromCompteBancaireEntityToCompteBancaireDto(compteBancaire);

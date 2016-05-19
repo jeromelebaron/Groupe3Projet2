@@ -34,7 +34,7 @@ public class Client implements Serializable {
 	private Banque banque;
 
 	//bi-directional many-to-one association to Comptebancaire
-	@OneToMany(mappedBy="client")
+	@OneToMany(mappedBy="client", fetch=FetchType.EAGER)
 	private List<Comptebancaire> comptebancaires;
 
 	public Client() {
@@ -100,6 +100,14 @@ public class Client implements Serializable {
 		comptebancaire.setClient(null);
 
 		return comptebancaire;
+	}
+
+	@Override
+	public String toString() {
+		return "Client [idClient=" + idClient + ", adresseClient="
+				+ adresseClient + ", nomClient=" + nomClient
+				+ ", prenomClient=" + prenomClient + ", banque=" + banque
+				+ ", comptebancaires=" + comptebancaires + "]";
 	}
 
 }

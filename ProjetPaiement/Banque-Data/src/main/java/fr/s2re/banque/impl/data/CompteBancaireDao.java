@@ -18,8 +18,8 @@ public class CompteBancaireDao implements ICompteBancaireDao {
 	EntityManager em;
 
 	@Override
-	public double getSolde(String code) {
-		Comptebancaire compte = em.find(Comptebancaire.class, code);
+	public double getSolde(Integer paramIdCompte) {
+		Comptebancaire compte = em.find(Comptebancaire.class, paramIdCompte);
 		return compte.getSolde(); 
 	}
 
@@ -37,24 +37,25 @@ public class CompteBancaireDao implements ICompteBancaireDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Comptebancaire> getCompteByClient(Client paramClient) {
-		javax.persistence.Query req = em.createQuery("SELECT c FROM Comptebancaire c WHERE c.client = :paramClient");
+	public List<Comptebancaire> getCompteByClient(Integer idClient) {
+		javax.persistence.Query req = em.createQuery("Select distinct c FROM Comptebancaire c WHERE c.client.idClient = :idClient");
+		req.setParameter("idClient", idClient);
 		return req.getResultList();
 	}
 
 	@Override
-	public void crediter(String code, Double montant) {
+	public void crediter( Integer idCompte, Double montant) {
 		if(montant <=0) throw new RuntimeException( "le montant doit etre supérieur à 0)");
-		Comptebancaire compte = em.find(Comptebancaire.class, code);
+		Comptebancaire compte = em.find(Comptebancaire.class, idCompte);
 		compte.setSolde((compte.getSolde()) + montant);
 		compte.addOperationbancaire(new Credit(montant,compte));
 		em.persist(compte);	
 	}
 
 	@Override
-	public void debiter(String code, Double montant) {
+	public void debiter(Integer idCompte, Double montant) {
 		if(montant <=0) throw new RuntimeException( "le montant doit etre supérieur à 0)");
-		Comptebancaire compte = em.find(Comptebancaire.class, code);
+		Comptebancaire compte = em.find(Comptebancaire.class, idCompte);
 		if(compte.getSolde() <=montant) throw new RuntimeException("le solde est insuffisant");
 		compte.setSolde((compte.getSolde()-montant));
 		compte.addOperationbancaire(new Debit(montant,compte));

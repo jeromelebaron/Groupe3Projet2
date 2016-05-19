@@ -10,7 +10,10 @@ import javax.jws.WebService;
 import org.apache.log4j.Logger;
 
 import fr.s2re.api.webservice.IServiceBanqueWebService;
+import fr.s2re.banque.api.business.ICarteBancaireBusiness;
+import fr.s2re.banque.api.business.IClientBusiness;
 import fr.s2re.banque.api.business.ICompteBancaireBusiness;
+import fr.s2re.banque.dto.CarteBancaireDto;
 import fr.s2re.banque.dto.ClientDto;
 import fr.s2re.banque.dto.CompteBancaireDto;
 
@@ -23,25 +26,28 @@ public class ServiceBanqueWebServiceImp implements IServiceBanqueWebService {
 
 	@EJB
 	ICompteBancaireBusiness compteBancaireBusiness;
-
+	@EJB
+	IClientBusiness clientBusiness;
+    @EJB
+    ICarteBancaireBusiness carteBancaireBusiness;
 	@Override
-	public void crediter(String code, Double montant) {
+	public void crediter(Integer idCompte, Double montant) {
 		logger.debug("crediter le solde");
-		compteBancaireBusiness.crediter(code, montant);
+		compteBancaireBusiness.crediter(idCompte, montant);
 
 	}
 
 	@Override
-	public void debiter(String code, Double montant) {
+	public void debiter(Integer idCompte, Double montant) {
 		logger.debug("debiter le solde");
-		compteBancaireBusiness.debiter(code, montant);
+		compteBancaireBusiness.debiter(idCompte, montant);
 
 	}
 
 	@Override
-	public double getSolde(String code) {
+	public double getSolde(Integer paramIdCompte) {
 		logger.debug("recuperer le solde");
-		return compteBancaireBusiness.getSolde(code);
+		return compteBancaireBusiness.getSolde(paramIdCompte);
 
 	}
 
@@ -52,9 +58,22 @@ public class ServiceBanqueWebServiceImp implements IServiceBanqueWebService {
 	}
 
 	@Override
-	public List<CompteBancaireDto> getCompteByClient(ClientDto client) {
+	public List<CompteBancaireDto> getCompteByClient(Integer idClient) {
 		logger.debug("verification du solde dans le compte client");
-		return compteBancaireBusiness.getCompteByClient(client);
+		return compteBancaireBusiness.getCompteByClient(idClient);
+	}
+
+	@Override
+	public ClientDto getCLientByNom(String nom) {
+		logger.debug("recuperer le client par son nom");
+		clientBusiness.getCLientByNom(nom);
+		return null;
+	}
+
+	@Override
+	public List<CarteBancaireDto>  getCarteByCompte(Integer idCompte) {
+		carteBancaireBusiness.getCarteByCompte(idCompte);
+		return null;
 	}
 
 }

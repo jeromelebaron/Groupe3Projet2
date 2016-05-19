@@ -6,9 +6,9 @@ import fr.s2re.banque.dto.ClientDto;
 import fr.s2re.banque.dto.CompteBancaireDto;
 
 public interface ICompteBancaireBusiness {
-	void crediter (String code, Double montant);
-	void debiter (String code, Double montant);
-	double getSolde(String code);
+	void crediter (Integer idCompte, Double montant);
+	void debiter (Integer idCompte, Double montant);
+	double getSolde(Integer paramIdCompte);
 	boolean verifierSolde(int idCompte, double montantCommande);
-	List<CompteBancaireDto> getCompteByClient(ClientDto client);
+	List<CompteBancaireDto> getCompteByClient(Integer idClient);
 }

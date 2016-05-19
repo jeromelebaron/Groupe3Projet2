@@ -37,7 +37,7 @@ public class Comptebancaire implements Serializable {
 	private Client client;
 
 	//bi-directional many-to-one association to Operationbancaire
-	@OneToMany(mappedBy="comptebancaire")
+	@OneToMany( mappedBy="comptebancaire")
 	private List<Operationbancaire> operationbancaires;
 
 	public Comptebancaire() {

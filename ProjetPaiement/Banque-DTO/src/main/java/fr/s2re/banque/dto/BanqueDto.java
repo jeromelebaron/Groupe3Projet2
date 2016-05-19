@@ -52,8 +52,7 @@ public class BanqueDto implements Serializable {
 		this.clients = clients;
 	}
 
-	public BanqueDto(int idBanque, String adresseBanque, String nomBanque,
-			List<ClientDto> clients) {
+	public BanqueDto(int idBanque, String adresseBanque, String nomBanque, List<ClientDto> clients) {
 		super();
 		this.idBanque = idBanque;
 		this.adresseBanque = adresseBanque;
@@ -65,8 +64,7 @@ public class BanqueDto implements Serializable {
 		super();
 	}
 
-	public BanqueDto(String adresseBanque, String nomBanque,
-			List<ClientDto> clients) {
+	public BanqueDto(String adresseBanque, String nomBanque,List<ClientDto> clients) {
 		super();
 		this.adresseBanque = adresseBanque;
 		this.nomBanque = nomBanque;
