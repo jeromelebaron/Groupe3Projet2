@@ -13,6 +13,8 @@
 		<module>Banque-BusinessApi</module>
 		<module>Banque-Business</module>
 		<module>Banque-EAR</module>
+		<module>Banque-ApiWebService</module>
+		<module>Banque-WebService</module>
 	</modules>
 	<properties>
 		<java.version>1.7</java.version>
