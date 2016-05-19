@@ -5,15 +5,6 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
-import fr.s2re.livraison.commande.AdresseDto;
-import fr.s2re.livraison.commande.CommandeDto;
-import fr.s2re.livraison.commande.DepartementDto;
-import fr.s2re.livraison.commande.HorairesDto;
-import fr.s2re.livraison.commande.JourOuvertureDto;
-import fr.s2re.livraison.commande.JourSemaineDto;
-import fr.s2re.livraison.commande.ServiceLivraisonDto;
-import fr.s2re.livraison.commande.TypeLivraisonDto;
-import fr.s2re.livraison.commande.VilleDto;
 
 
 /**
