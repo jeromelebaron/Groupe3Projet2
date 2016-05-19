@@ -1,4 +1,4 @@
-/*
+/**
  * Créé le 19 mai 2016 par Jérome LE BARON
  */
 package fr.s2re.stock.test;
@@ -15,10 +15,14 @@ public class StockTest {
         // EMPTY
     }
 
+    /**
+     * Pour faire du log.
+     */
     private final static Logger LOGGER = Logger.getLogger(StockTest.class);
 
     /**
-     * @param args
+     * Le main pour faire le test
+     * @param args java.
      */
     public static void main(String[] args) {
         LOGGER.debug("Début des tests");
