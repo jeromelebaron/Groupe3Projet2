@@ -38,9 +38,20 @@
 					<div>
 						<div class="quick_desc">
 							<fieldset>
+								<legend>Cartes de paiement</legend>
+								<div>
+									<img src="images/payment.png" class="img-responsive" alt="" />
+									<span>DIY Decor Home accepte la plupart des cartes de
+										crédit et de débit</span>
+								</div>
+								<legend> </legend>
 								<legend>Données carte bancaire</legend>
 								<div>
-									<h:outputLabel value="Numero" class="text_align_add" />
+                                    <h:outputLabel value="Nom du titulaire de la carte" class="text_align_add" />
+                                    <input type="text" />
+                                </div>
+								<div>
+									<h:outputLabel value="Numero de la carte" class="text_align_add" />
 									<input type="text" />
 								</div>
 								<div>
@@ -48,7 +59,7 @@
 									<input type="text" />/<input type="text" />
 								</div>
 								<div>
-									<h:outputLabel value="Cryptogramme" class="text_align_add" />
+									<h:outputLabel value="Cryptogramme visuel" class="text_align_add" />
 									<input type="text" />
 								</div>
 							</fieldset>
@@ -61,7 +72,8 @@
 				<div class="price-details">
 					<h3>Details</h3>
 					<span>Total</span> <span class="total1"><h:outputLabel
-							value="#{panierMb.totalPanier}" /></span> <span>Frais de port</span> <span class="total1"><h:outputLabel
+							value="#{panierMb.totalPanier}" /></span> <span>Frais de port</span> <span
+						class="total1"><h:outputLabel
 							value="#{commandeMb.fraisLivraison}" /> </span>
 					<div class="clearfix"></div>
 				</div>
