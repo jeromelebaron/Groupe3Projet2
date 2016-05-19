@@ -48,7 +48,7 @@ public class ServiceLivraisonDaoImpl implements IServiceLivraisonDao {
      * La requête HQL pour récupérer les {@link ServiceLivraison} par {@link TypeLivraison}.
      */
     private static final String REQUETE_FIND_SERVICE_LIVRAISON_BY_TYPE_LIVRAISON = "SELECT DISTINCT s FROM ServiceLivraison s "
-            + "JOIN FETCH s.jourOuvertures WHERE s.typeLivraison.id = :idTypeLivraison";
+            + "LEFT JOIN FETCH s.jourOuvertures WHERE s.typeLivraison.id = :idTypeLivraison";
 
     /**
      * {@inheritDoc}
