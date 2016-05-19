@@ -2,7 +2,6 @@ ApiBusiness/target/
 ApiData/target/
 ApiUc/target/
 */target/
-<<<<<<< HEAD
 *.project
 *.classpath
 *.prefs
@@ -21,7 +20,6 @@ ProjetLivraison/Livraison-ApiData/target/
 ProjetLivraison/Livraison-ApiWebService/target/Livraison-ApiWebService-0.1.jar
 ProjetLivraison/Livraison-ApiBusiness/target/
 ProjetLivraison/Livraison-ApiData/target/
->>>>>>> hotfix/CorrectionWebService
 ProjetLivraison/Livraison-ApiWebService/target/
 ProjetLivraison/Livraison-Dto/target/
 ProjetLivraison/Livraison-Entity/target/
@@ -42,3 +40,6 @@ ProjetPaiement/Banque-BusinessApi/.settings/
 ProjetPaiement/Banque-DTO/.settings/
 ProjetPaiement/Banque-DataApi/.settings/
 ProjetPaiement/Banque-WebService/.settings/
+.settings/
+*.classpath
+
