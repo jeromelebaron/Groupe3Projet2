@@ -8,6 +8,7 @@ import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 
+import fr.s2re.stock.dto.ProduitDto;
 import fr.s2re.stock.entity.Produit;
 
 /**
@@ -35,6 +36,6 @@ public interface IStockWebService {
      */
     @WebMethod(operationName = "updateProduit")
     @WebResult(name = "produitUpdate")
-    Produit updateProduit(@WebParam(name = "paramProduit") Produit paramProduit);
+    Produit updateProduit(@WebParam(name = "paramProduit") ProduitDto paramProduitDto);
 
 }

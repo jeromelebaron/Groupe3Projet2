@@ -3,6 +3,10 @@
  */
 package fr.s2re.stock.dto;
 
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
 import fr.s2re.stock.entity.Produit;
 
 /**
@@ -11,8 +15,13 @@ import fr.s2re.stock.entity.Produit;
  * @author $LastChangedBy$
  * @version $Revision$ $Date$
  */
-public class ProduitDto {
+@XmlRootElement(namespace = "http://webservice.stock.s2re.fr")
+public class ProduitDto implements Serializable {
 
+    /**
+     * Pour la sérialisation.
+     */
+    private static final long serialVersionUID = 1L;
     /**
      * L'identifiant unique du produit pour la bdd.
      */

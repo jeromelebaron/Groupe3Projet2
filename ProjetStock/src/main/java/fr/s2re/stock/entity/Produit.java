@@ -3,6 +3,8 @@
  */
 package fr.s2re.stock.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,8 +20,12 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "produit")
-public class Produit {
+public class Produit implements Serializable {
 
+    /**
+     * Pour la sérialisation.
+     */
+    private static final long serialVersionUID = 1L;
     /**
      * L'identifiant unique du produit pour la bdd.
      */
