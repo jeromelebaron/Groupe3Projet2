@@ -44,3 +44,5 @@ ProjetPaiement/Banque-WebService/target/
 .settings/
 *.classpath
 
+ProjetPaiement/Banque-ApiWebService/target/
+ProjetPaiement/Banque-WebService/target/
