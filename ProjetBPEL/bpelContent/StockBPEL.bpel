@@ -140,7 +140,7 @@
                 </bpel:copy>
             </bpel:assign>
             <bpel:if name="If">
-                <bpel:condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[$produit/quantiteStock > $input.payload/tns:quantiteProduit]]></bpel:condition>
+                <bpel:condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[$produit/quantiteStock >= $input.payload/tns:quantiteProduit]]></bpel:condition>
                 <bpel:sequence name="SequenceQteDispo">
                     <bpel:assign validate="no" name="AssignQtePourDecrement">
                         <bpel:copy>
