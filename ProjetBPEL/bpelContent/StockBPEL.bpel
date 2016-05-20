@@ -175,25 +175,7 @@
                         </bpel:copy>
                     </bpel:assign>
                     <bpel:invoke name="InvokeWSDecrementer" partnerLink="PartnerLinkStock" operation="decrementerStock" portType="nsproduit:IStockWebService" inputVariable="PartnerLinkStockRequest2" outputVariable="PartnerLinkStockResponse2"></bpel:invoke>
-                    <bpel:assign validate="no" name="AssignNouveauStockProduit">
-                        <bpel:copy>
-                            <bpel:from><bpel:literal><tns:produitDto xmlns:tns="http://webservice.stock.s2re.fr" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <id>0</id>
-  <quantiteStock>0</quantiteStock>
-  <reference>reference</reference>
-</tns:produitDto>
-</bpel:literal></bpel:from>
-                            <bpel:to variable="produit"></bpel:to>
-                        </bpel:copy>
-                        <bpel:copy>
-                            <bpel:from part="parameters" variable="PartnerLinkStockResponse2">
-                                <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[nouvelleQuantite]]></bpel:query>
-                            </bpel:from>
-                            <bpel:to variable="produit">
-                                <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[quantiteStock]]></bpel:query>
-                            </bpel:to>
-                        </bpel:copy>
-                    </bpel:assign>
+                    
                     <bpel:assign validate="no" name="AssignMAJProduit">
                         
                         
@@ -219,9 +201,9 @@
                             </bpel:to>
                         </bpel:copy>
                         <bpel:copy>
-                            <bpel:from variable="produit">
+                            <bpel:from part="parameters" variable="PartnerLinkStockResponse2">
                                 <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
-                                    <![CDATA[quantiteStock]]>
+                                    <![CDATA[nouvelleQuantite]]>
                                 </bpel:query>
                             </bpel:from>
                             <bpel:to part="parameters" variable="PartnerLinkStockRequest1">

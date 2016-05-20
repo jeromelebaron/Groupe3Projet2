@@ -74,7 +74,7 @@ public class StockWebServiceImpl implements IStockWebService {
     @Override
     public Integer decrementerStock(int paramQteStock, int paramQteCommande) {
         LOGGER.debug("Méthode WebService decrementerStock");
-        int nouvelleQte = paramQteCommande - paramQteCommande;
+        int nouvelleQte = paramQteStock - paramQteCommande;
         return nouvelleQte;
     }
 
