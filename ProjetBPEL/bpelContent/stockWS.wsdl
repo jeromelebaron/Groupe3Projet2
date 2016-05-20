@@ -2,6 +2,10 @@
   <wsdl:types>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://webservice.stock.s2re.fr" elementFormDefault="unqualified" targetNamespace="http://webservice.stock.s2re.fr" version="1.0">
 
+  <xs:element name="decrementerStock" type="tns:decrementerStock"/>
+
+  <xs:element name="decrementerStockResponse" type="tns:decrementerStockResponse"/>
+
   <xs:element name="getProduitByReference" type="tns:getProduitByReference"/>
 
   <xs:element name="getProduitByReferenceResponse" type="tns:getProduitByReferenceResponse"/>
@@ -32,6 +36,19 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="decrementerStock">
+    <xs:sequence>
+      <xs:element name="qteStock" type="xs:int"/>
+      <xs:element name="qteCommande" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="decrementerStockResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nouvelleQuantite" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="getProduitByReference">
     <xs:sequence>
       <xs:element minOccurs="0" name="paramReference" type="xs:string"/>
@@ -54,6 +71,14 @@
     <wsdl:part element="tns:getProduitByReference" name="parameters">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="decrementerStock">
+    <wsdl:part element="tns:decrementerStock" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="decrementerStockResponse">
+    <wsdl:part element="tns:decrementerStockResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="updateProduit">
     <wsdl:part element="tns:updateProduit" name="parameters">
     </wsdl:part>
@@ -67,6 +92,12 @@
       <wsdl:input message="tns:updateProduit" name="updateProduit">
     </wsdl:input>
       <wsdl:output message="tns:updateProduitResponse" name="updateProduitResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="decrementerStock">
+      <wsdl:input message="tns:decrementerStock" name="decrementerStock">
+    </wsdl:input>
+      <wsdl:output message="tns:decrementerStockResponse" name="decrementerStockResponse">
     </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getProduitByReference">
@@ -84,6 +115,15 @@
         <soap:body use="literal"/>
       </wsdl:input>
       <wsdl:output name="updateProduitResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="decrementerStock">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="decrementerStock">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="decrementerStockResponse">
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
