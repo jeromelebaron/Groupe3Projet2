@@ -40,6 +40,8 @@
         <bpel:variable name="output"
                   messageType="tns:StockBPELResponseMessage"/>
         <bpel:variable name="produit" element="nsproduit:produitDto"></bpel:variable>
+        <bpel:variable name="PartnerLinkStockResponse" messageType="nsproduit:getProduitByReferenceResponse"></bpel:variable>
+        <bpel:variable name="PartnerLinkStockRequest" messageType="nsproduit:getProduitByReference"></bpel:variable>
     </bpel:variables>
 
     <!-- ================================================================= -->         
@@ -59,11 +61,74 @@
         
         <!-- Generate reply to synchronous request -->
         <bpel:sequence name="SequenceGetProduitByRef">
-            <bpel:assign validate="no" name="AssignProduit"></bpel:assign>
-            <bpel:invoke name="InvokeWSStockGetProduit"></bpel:invoke>
-            <bpel:assign validate="no" name="AssignRetourProduit"></bpel:assign>
+            <bpel:assign validate="no" name="AssignProduit">
+                <bpel:copy>
+                    <bpel:from><bpel:literal><tns:getProduitByReference xmlns:tns="http://webservice.stock.s2re.fr" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <paramReference>paramReference</paramReference>
+</tns:getProduitByReference>
+</bpel:literal></bpel:from>
+                    <bpel:to variable="PartnerLinkStockRequest" part="parameters"></bpel:to>
+                </bpel:copy>
+                <bpel:copy>
+                    <bpel:from part="payload" variable="input">
+                        <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:referenceProduit]]></bpel:query>
+                    </bpel:from>
+                    <bpel:to part="parameters" variable="PartnerLinkStockRequest">
+                        <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[paramReference]]></bpel:query>
+                    </bpel:to>
+                </bpel:copy>
+            </bpel:assign>
+            <bpel:invoke name="InvokeWSStockGetProduit" partnerLink="PartnerLinkStock" operation="getProduitByReference" portType="nsproduit:IStockWebService" inputVariable="PartnerLinkStockRequest" outputVariable="PartnerLinkStockResponse"></bpel:invoke>
+            <bpel:assign validate="no" name="AssignRetourProduit">
+                
+                <bpel:copy>
+                    <bpel:from><bpel:literal xml:space="preserve"><tns:produitDto xmlns:tns="http://webservice.stock.s2re.fr" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id>0</id>
+  <quantiteStock>0</quantiteStock>
+  <reference>######</reference>
+</tns:produitDto>
+</bpel:literal></bpel:from>
+                    <bpel:to variable="produit"></bpel:to>
+                </bpel:copy>
+                <bpel:copy>
+                    <bpel:from part="parameters" variable="PartnerLinkStockResponse">
+                        <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                            <![CDATA[produitByReference/id]]>
+                        </bpel:query>
+                    </bpel:from>
+                    <bpel:to variable="produit">
+                        <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                            <![CDATA[id]]>
+                        </bpel:query>
+                    </bpel:to>
+                </bpel:copy>
+                <bpel:copy>
+                    <bpel:from part="parameters" variable="PartnerLinkStockResponse">
+                        <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[produitByReference/quantiteStock]]></bpel:query>
+                    </bpel:from>
+                    <bpel:to variable="produit">
+                        <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[quantiteStock]]></bpel:query>
+                    </bpel:to>
+                </bpel:copy>
+                <bpel:copy>
+                    <bpel:from part="parameters" variable="PartnerLinkStockResponse">
+                        <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[produitByReference/reference]]></bpel:query>
+                    </bpel:from>
+                    <bpel:to variable="produit">
+                        <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[reference]]></bpel:query>
+                    </bpel:to>
+                </bpel:copy>
+            </bpel:assign>
             <bpel:if name="If">
-                <bpel:else></bpel:else>
+                <bpel:condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[$produit/tns:quantiteStock &gt; $input.payload/tns:quantiteProduit]]></bpel:condition>
+                <bpel:sequence name="SequenceQteDispo">
+                    <bpel:assign validate="no" name="Assign"></bpel:assign>
+                    <bpel:invoke name="Invoke"></bpel:invoke>
+                    <bpel:assign validate="no" name="Assign1"></bpel:assign>
+                </bpel:sequence>
+                <bpel:else>
+                    <bpel:sequence name="SequenceQteNonDispo"></bpel:sequence>
+                </bpel:else>
             </bpel:if>
         </bpel:sequence>
         <bpel:reply name="replyOutput" 

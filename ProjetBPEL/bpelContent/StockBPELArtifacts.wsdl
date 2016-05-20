@@ -17,7 +17,8 @@
             <element name="StockBPELRequest">
                 <complexType>
                     <sequence>
-                        <element name="input" type="string"/>
+                        <element name="referenceProduit" type="string"/>
+                        <element name="quantiteProduit" type="int"/>
                     </sequence>
                 </complexType>
             </element>
@@ -25,7 +26,8 @@
             <element name="StockBPELResponse">
                 <complexType>
                     <sequence>
-                        <element name="result" type="string"/>
+                        <element name="messageSortie" type="string"/>
+                        <element name="quantiteProduitSortie" type="int"/>
                     </sequence>
                 </complexType>
             </element>

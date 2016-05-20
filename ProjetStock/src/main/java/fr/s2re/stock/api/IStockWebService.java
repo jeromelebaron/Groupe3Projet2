@@ -38,4 +38,9 @@ public interface IStockWebService {
     @WebResult(name = "produitUpdate")
     ProduitDto updateProduit(@WebParam(name = "paramProduit") ProduitDto paramProduitDto);
 
+    @WebMethod(operationName = "decrementerStock")
+    @WebResult(name = "nouvelleQuantite")
+    Integer decrementerStock(@WebParam(name = "qteStock") int qteStock,
+            @WebParam(name = "qteCommande") int qteCommande);
+
 }
