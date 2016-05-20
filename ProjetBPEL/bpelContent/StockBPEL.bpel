@@ -40,7 +40,7 @@
           -->
         <bpel:variable name="output"
                   messageType="tns:StockBPELResponseMessage"/>
-        <bpel:variable name="produit" element="nsproduit:produitDto"></bpel:variable>
+        <bpel:variable name="produit" type="nsproduit:produitDto"></bpel:variable>
         <bpel:variable name="PartnerLinkStockResponse" messageType="nsproduit:getProduitByReferenceResponse"></bpel:variable>
         <bpel:variable name="PartnerLinkStockRequest" messageType="nsproduit:getProduitByReference"></bpel:variable>
         
@@ -140,7 +140,7 @@
                 </bpel:copy>
             </bpel:assign>
             <bpel:if name="If">
-                <bpel:condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[$produit/tns:quantiteStock > $input.payload/tns:quantiteProduit]]></bpel:condition>
+                <bpel:condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[$produit/quantiteStock > $input.payload/tns:quantiteProduit]]></bpel:condition>
                 <bpel:sequence name="SequenceQteDispo">
                     <bpel:assign validate="no" name="AssignQtePourDecrement">
                         <bpel:copy>
