@@ -63,6 +63,7 @@ public class ServiceLivraisonTest {
         LOGGER.debug("Fin du test des services de livraison par type service");
 
         LOGGER.debug("Fin des tests");
+        
     }
 
 }

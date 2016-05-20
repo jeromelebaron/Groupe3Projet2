@@ -17,7 +17,7 @@ public class CompteBancaireDao implements ICompteBancaireDao {
 	@PersistenceContext(unitName="Banque-Data")
 	EntityManager em;
 
-	@Override
+	/*@Override
 	public double getSolde(Integer paramIdCompte) {
 		Comptebancaire compte = em.find(Comptebancaire.class, paramIdCompte);
 		return compte.getSolde(); 
@@ -34,7 +34,7 @@ public class CompteBancaireDao implements ICompteBancaireDao {
 		}
 		return false;
 	}
-
+*/
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Comptebancaire> getCompteByClient(Integer idClient) {
@@ -43,7 +43,7 @@ public class CompteBancaireDao implements ICompteBancaireDao {
 		return req.getResultList();
 	}
 
-	@Override
+/*	@Override
 	public void crediter( Integer idCompte, Double montant) {
 		if(montant <=0) throw new RuntimeException( "le montant doit etre supérieur à 0)");
 		Comptebancaire compte = em.find(Comptebancaire.class, idCompte);
@@ -61,6 +61,6 @@ public class CompteBancaireDao implements ICompteBancaireDao {
 		compte.addOperationbancaire(new Debit(montant,compte));
 		em.persist(compte);
 
-	}
+	}*/
 
 }

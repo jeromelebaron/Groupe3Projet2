@@ -66,14 +66,14 @@ public class ServiceBanqueWebServiceImp implements IServiceBanqueWebService {
 	@Override
 	public ClientDto getCLientByNom(String nom) {
 		logger.debug("recuperer le client par son nom");
-		 return clientBusiness.getCLientByNom(nom);
-		
+		clientBusiness.getCLientByNom(nom);
+		return null;
 	}
 
 	@Override
 	public List<CarteBancaireDto>  getCarteByCompte(Integer idCompte) {
-		 return carteBancaireBusiness.getCarteByCompte(idCompte);
-		
+		carteBancaireBusiness.getCarteByCompte(idCompte);
+		return null;
 	}
 
 }
