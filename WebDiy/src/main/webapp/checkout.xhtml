@@ -3,7 +3,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <ui:composition template="/WEB-INF/template/templateSansMenu.xhtml">
-	<ui:define name="titre">Liste d'envie</ui:define>
+	<ui:define name="titre">Mon panier</ui:define>
 	<ui:define name="mainPage">
 		<div class="check_box">
 			<div class="col-md-9 cart-items">
@@ -44,7 +44,7 @@
 									</h3>
 									<ul class="qty">
 										<li><p>
-												Quantite :
+												Quantité :
 												<h:commandButton class="btnCrement" value="-"
 													action="#{panierMb.decrementeQteProduit(ligne.produit.id)}" />
 												<h:outputLabel id="output" value="#{ligne.quantite}" />
@@ -70,7 +70,7 @@
 				</h:panelGroup>
 			</div>
 			<div class="col-md-3 cart-total">
-				<a class="continue" href="#">Continuer mes achats</a>
+				<a class="continue" href="accueil.jsf">Continuer mes achats</a>
 				<div class="price-details">
 					<h3>Details</h3>
 					<span>Total</span> <span class="total1"><h:outputLabel
@@ -95,11 +95,11 @@
 						<a class="btn_rose" href="#">Appliquer</a>
 					</div>
 					<p>
-						<a href="login.jsf">Connexion</a> pour utiliser le coupons
+						<a href="login.jsf">Connexion</a> pour utiliser un coupon
 					</p>
 				</div>
 				<div class="clearfix"></div>
-				<h:commandLink styleClass="order" value="Payer la commande"
+				<h:commandLink styleClass="order" value="Valider la commande"
 					action="#{commandeMb.commander()}" />
 			</div>
 			<div class="clearfix"></div>
