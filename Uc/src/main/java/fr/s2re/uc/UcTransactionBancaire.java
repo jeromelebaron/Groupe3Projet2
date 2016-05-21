@@ -15,7 +15,7 @@ public class UcTransactionBancaire implements IUcTransactionBancaire {
     @Override
     public boolean validerPaiement(CartePaiementDto paramCartePaiementDto,
             double paramMontantTransaction) {
-        return false;
+        return true;
     }
 
 }

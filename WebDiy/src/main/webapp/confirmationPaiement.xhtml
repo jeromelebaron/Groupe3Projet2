@@ -35,23 +35,24 @@
 							</ui:repeat>
 						</div>
 					</div>
-					<div>
-						<div class="quick_desc">
-							<fieldset>
-								<legend>Données carte bancaire</legend>
-								<div class="row">
-									<h:outputLabel value="Numero" styleClass="col-md-3" />
-									<input type="text" class="col-md-3" />
-								</div>
-								<div class="row">
-									<h:outputLabel value="Date d'expiration" styleClass="col-md-3" />
-									<input type="text" size="3" /> / <input type="text" size="3" />
-								</div>
-								<div class="row">
-									<h:outputLabel value="Cryptogramme" styleClass="col-md-3" />
-									<input type="text" size="3" />
-								</div>
-							</fieldset>
+					<div class="quick_desc">
+						<fieldset>
+							<legend>Données de la carte bancaire</legend>
+							<div class="row">
+								<h:outputLabel value="Numero" styleClass="col-md-3" />
+								<input type="text" class="col-md-3" />
+							</div>
+							<div class="row">
+								<h:outputLabel value="Date d'expiration" styleClass="col-md-3" />
+								<input type="text" size="3" /> / <input type="text" size="3" />
+							</div>
+							<div class="row">
+								<h:outputLabel value="Cryptogramme" styleClass="col-md-3" />
+								<input type="text" size="3" />
+							</div>
+						</fieldset>
+						<div class="row">
+							<h:outputLabel value="#{paiementMB.messageErreurPaiement}" />
 						</div>
 					</div>
 				</div>
@@ -76,7 +77,7 @@
 				</ul>
 				<div class="clearfix"></div>
 				<h:commandLink styleClass="order" value="Payer la commande"
-					action="confirmationCommande.jsf?faces-redirect=true" />
+					action="#{paiementMB.payer()}"  />
 			</div>
 			<div class="clearfix"></div>
 		</div>

@@ -3,8 +3,8 @@
  */
 package fr.s2re.managedbean;
 
-import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import fr.s2re.dto.CartePaiementDto;
@@ -30,13 +30,26 @@ public class PaiementMB {
      * La carte bancaire pour la transaction
      */
     private CartePaiementDto cartePaiementDto;
+    /**
+     * Montant de la commande.
+     */
+    private double montantCommande;
+    /**
+     * Le message en cas d'erreur de paiement
+     */
+    private String messageErreurPaiement;
 
     /**
      * Pour effectuer le paiement.
-     * @return sur la page de confirmation de la commande.
+     * @return sur la page de confirmation de la commande si le paiement est validé.
      */
     public String payer() {
-        return "";
+        if (ucTransactionBancaire.validerPaiement(cartePaiementDto, montantCommande)) {
+            return "confirmationCommande.jsf?faces-redirect=true";
+        } else {
+            messageErreurPaiement = "Erreur avec vos informations bancaires, veuillez réessayer";
+            return "";
+        }
     }
 
     /**
@@ -53,6 +66,38 @@ public class PaiementMB {
      */
     public void setCartePaiementDto(CartePaiementDto paramCartePaiementDto) {
         cartePaiementDto = paramCartePaiementDto;
+    }
+
+    /**
+     * Accesseur en lecture du champ <code>montantCommande</code>.
+     * @return le champ <code>montantCommande</code>.
+     */
+    public double getMontantCommande() {
+        return montantCommande;
+    }
+
+    /**
+     * Accesseur en écriture du champ <code>montantCommande</code>.
+     * @param paramMontantCommande la valeur à écrire dans <code>montantCommande</code>.
+     */
+    public void setMontantCommande(double paramMontantCommande) {
+        montantCommande = paramMontantCommande;
+    }
+
+    /**
+     * Accesseur en lecture du champ <code>messageErreurPaiement</code>.
+     * @return le champ <code>messageErreurPaiement</code>.
+     */
+    public String getMessageErreurPaiement() {
+        return messageErreurPaiement;
+    }
+
+    /**
+     * Accesseur en écriture du champ <code>messageErreurPaiement</code>.
+     * @param paramMessageErreurPaiement la valeur à écrire dans <code>messageErreurPaiement</code>.
+     */
+    public void setMessageErreurPaiement(String paramMessageErreurPaiement) {
+        messageErreurPaiement = paramMessageErreurPaiement;
     }
 
     /**
