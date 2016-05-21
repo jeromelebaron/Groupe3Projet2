@@ -39,17 +39,17 @@
 						<div class="quick_desc">
 							<fieldset>
 								<legend>Données carte bancaire</legend>
-								<div>
-									<h:outputLabel value="Numero" class="text_align_add" />
-									<input type="text" />
+								<div class="row">
+									<h:outputLabel value="Numero" styleClass="col-md-3" />
+									<input type="text" class="col-md-3" />
 								</div>
-								<div>
-									<h:outputLabel value="Date d'expiration" class="text_align_add" />
-									<input type="text" />/<input type="text" />
+								<div class="row">
+									<h:outputLabel value="Date d'expiration" styleClass="col-md-3" />
+									<input type="text" size="3" /> / <input type="text" size="3" />
 								</div>
-								<div>
-									<h:outputLabel value="Cryptogramme" class="text_align_add" />
-									<input type="text" />
+								<div class="row">
+									<h:outputLabel value="Cryptogramme" styleClass="col-md-3" />
+									<input type="text" size="3" />
 								</div>
 							</fieldset>
 						</div>
@@ -61,7 +61,8 @@
 				<div class="price-details">
 					<h3>Details</h3>
 					<span>Total</span> <span class="total1"><h:outputLabel
-							value="#{panierMb.totalPanier}" /></span> <span>Frais de port</span> <span class="total1"><h:outputLabel
+							value="#{panierMb.totalPanier}" /></span> <span>Frais de port</span> <span
+						class="total1"><h:outputLabel
 							value="#{commandeMb.fraisLivraison}" /> </span>
 					<div class="clearfix"></div>
 				</div>
