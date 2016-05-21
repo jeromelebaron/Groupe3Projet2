@@ -28,7 +28,7 @@ public class CommandeMb {
 
     private UtilisateurDto user;
 
-    private CommandeDto commande;
+    private CommandeDto commande = new CommandeDto();
 
     private Double fraisLivraison;
 
@@ -58,6 +58,7 @@ public class CommandeMb {
     @PostConstruct
     public void init() {
         listLigneDeCommande = panierMb.getListLigneDeCommande();
+        commande.setLignesDeCommande(listLigneDeCommande);
     }
 
     public String commander() {
@@ -89,23 +90,25 @@ public class CommandeMb {
         return "";
     }
 
-    public String payer() {
-        CommandeDto cmdTmp = new CommandeDto();
+    public String allerPayer() {
+        // CommandeDto cmdTmp = new CommandeDto();
         // for(TypeCBDto t : typesCb){
         // if(t.getId() == typeCbChoisi){
         // cmdTmp.setTypeCB(t);
         // }
         // }
-        cmdTmp.setTypeCB(typesCb.get(0));
+        // TODO déplacer ce traitement dans le paiement
+        commande.setTypeCB(typesCb.get(0));
         for (MethodeLivraisonDto m : methodesLivraison) {
             if (m.getId() == methodeLivraisonChoisi) {
-                cmdTmp.setMethodeLivraison(m);
+                commande.setMethodeLivraison(m);
                 fraisLivraison = m.getPrix();
             }
         }
-        cmdTmp.setAdresseFacturation(ucUtilisateur.retournerAdresseParId(clientMb.getAdresseFacturationChoisie()));
-        cmdTmp.setAdresseLivraison(ucUtilisateur.retournerAdresseParId(clientMb.getAdresseLivraisonChoisie()));
-        commande = ucClient.passerCommande((ClientDto) user, listLigneDeCommande, cmdTmp);
+        commande.setAdresseFacturation(ucUtilisateur.retournerAdresseParId(clientMb
+                .getAdresseFacturationChoisie()));
+        commande.setAdresseLivraison(ucUtilisateur.retournerAdresseParId(clientMb
+                .getAdresseLivraisonChoisie()));
         return "confirmationPaiement.xhtml?faces-redirect=true";
     }
 
