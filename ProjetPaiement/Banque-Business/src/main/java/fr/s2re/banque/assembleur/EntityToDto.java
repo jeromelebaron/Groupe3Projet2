@@ -142,4 +142,14 @@ public class EntityToDto {
         DebitDto.setComptebancaire(EntityToDto.fromCompteBancaireEntityToCompteBancaireDto(debit.getComptebancaire()));
 		return DebitDto;
 	}
+	public static List<DeviseDto> fromListeDeviseEntityToListeDeviseDto(
+			List<Devise> listeDevise) {
+		final List<DeviseDto> listeDeviseDto = new ArrayList<>();
+		for(Devise devise : listeDevise){
+			final DeviseDto deviseDto = EntityToDto.fromDeviseEntityToDeviseDto(devise);
+			listeDeviseDto.add(deviseDto);
+		}
+		
+		return listeDeviseDto;	
+	}
 }
