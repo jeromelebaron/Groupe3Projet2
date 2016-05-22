@@ -3,9 +3,6 @@
  */
 package fr.s2re.managedbean;
 
-import java.util.List;
-
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -14,7 +11,6 @@ import javax.faces.bean.SessionScoped;
 import fr.s2re.dto.CartePaiementDto;
 import fr.s2re.dto.ClientDto;
 import fr.s2re.dto.CommandeDto;
-import fr.s2re.dto.LigneDeCommandeDto;
 import fr.s2re.dto.UtilisateurDto;
 import fr.s2re.iuc.IUcClient;
 import fr.s2re.iuc.IUcTransactionBancaire;
@@ -48,21 +44,9 @@ public class PaiementMB {
      */
     private CommandeDto commandeDto;
     /**
-     * La liste des lignes de commande.
-     */
-    private List<LigneDeCommandeDto> lesLigneDeCommandeDto;
-    /**
      * La carte bancaire pour la transaction
      */
     private CartePaiementDto cartePaiementDto;
-    /**
-     * Montant de la commande.
-     */
-    private double montantCommande;
-    /**
-     * Le montant total de la commande.
-     */
-    private double montantTotalCommande;
     /**
      * Le message en cas d'erreur de paiement.
      */
@@ -84,24 +68,16 @@ public class PaiementMB {
     private ConnectionMb connectionMb;
 
     /**
-     * Initalisation à la construction.
-     */
-    @PostConstruct
-    public void init() {
-        commandeDto = commandeMb.getCommande();
-        lesLigneDeCommandeDto = commandeMb.getListLigneDeCommande();
-        montantCommande = panierMb.getTotalPanier();
-    }
-
-    /**
      * Pour effectuer le paiement.
      * @return sur la page de confirmation de la commande si le paiement est validé.
      */
     public String payer() {
         if (connectionMb != null && connectionMb.getUser() != null) {
             user = connectionMb.getUser();
-            if (ucTransactionBancaire.validerPaiement(cartePaiementDto, montantCommande)) {
-                ucClient.passerCommande((ClientDto) user, commandeMb.getListLigneDeCommande(),
+            commandeDto = commandeMb.getCommande();
+            if (ucTransactionBancaire.validerPaiement(cartePaiementDto,
+                    commandeMb.getMontantTotalCommande())) {
+                commandeDto = ucClient.passerCommande((ClientDto) user, commandeMb.getListLigneDeCommande(),
                         commandeDto);
                 panierMb.getListLigneDeCommande().clear();
                 panierMb.getMapLigneCmd().clear();
@@ -148,22 +124,6 @@ public class PaiementMB {
     }
 
     /**
-     * Accesseur en lecture du champ <code>lesLigneDeCommandeDto</code>.
-     * @return le champ <code>lesLigneDeCommandeDto</code>.
-     */
-    public List<LigneDeCommandeDto> getLesLigneDeCommandeDto() {
-        return lesLigneDeCommandeDto;
-    }
-
-    /**
-     * Accesseur en écriture du champ <code>lesLigneDeCommandeDto</code>.
-     * @param paramLesLigneDeCommandeDto la valeur à écrire dans <code>lesLigneDeCommandeDto</code>.
-     */
-    public void setLesLigneDeCommandeDto(List<LigneDeCommandeDto> paramLesLigneDeCommandeDto) {
-        lesLigneDeCommandeDto = paramLesLigneDeCommandeDto;
-    }
-
-    /**
      * Accesseur en lecture du champ <code>cartePaiementDto</code>.
      * @return le champ <code>cartePaiementDto</code>.
      */
@@ -177,38 +137,6 @@ public class PaiementMB {
      */
     public void setCartePaiementDto(CartePaiementDto paramCartePaiementDto) {
         cartePaiementDto = paramCartePaiementDto;
-    }
-
-    /**
-     * Accesseur en lecture du champ <code>montantCommande</code>.
-     * @return le champ <code>montantCommande</code>.
-     */
-    public double getMontantCommande() {
-        return montantCommande;
-    }
-
-    /**
-     * Accesseur en écriture du champ <code>montantCommande</code>.
-     * @param paramMontantCommande la valeur à écrire dans <code>montantCommande</code>.
-     */
-    public void setMontantCommande(double paramMontantCommande) {
-        montantCommande = paramMontantCommande;
-    }
-
-    /**
-     * Accesseur en lecture du champ <code>montantTotalCommande</code>.
-     * @return le champ <code>montantTotalCommande</code>.
-     */
-    public double getMontantTotalCommande() {
-        return montantTotalCommande;
-    }
-
-    /**
-     * Accesseur en écriture du champ <code>montantTotalCommande</code>.
-     * @param paramMontantTotalCommande la valeur à écrire dans <code>montantTotalCommande</code>.
-     */
-    public void setMontantTotalCommande(double paramMontantTotalCommande) {
-        montantTotalCommande = paramMontantTotalCommande;
     }
 
     /**

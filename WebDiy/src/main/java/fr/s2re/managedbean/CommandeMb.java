@@ -1,13 +1,12 @@
 package fr.s2re.managedbean;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.AjaxBehaviorEvent;
 
 import fr.s2re.dto.AdresseDto;
 import fr.s2re.dto.ClientDto;
@@ -22,23 +21,33 @@ import fr.s2re.iuc.IUcUtilisateur;
 @ManagedBean
 @SessionScoped
 public class CommandeMb {
-    private int methodeLivraisonChoisi;
+    private int methodeLivraisonChoisi = 2;
 
     private int typeCbChoisi;
 
     private UtilisateurDto user;
-
+    /**
+     * La {@link CommandeDto} à payer.
+     */
     private CommandeDto commande = new CommandeDto();
-
-    private Double fraisLivraison;
-
-    private Double panierFraisLivraison = 0.0;
+    /**
+     * Le montant du panier.
+     */
+    private double montantPanier;
+    /**
+     * Le frais de livraison de la {@link CommandeDto}.
+     */
+    private Double fraisLivraison = 2.5;
+    /**
+     * Le montant total de la {@link CommandeDto} avec les frais de port.
+     */
+    private Double montantTotalCommande;
 
     private List<MethodeLivraisonDto> methodesLivraison;
 
     private List<TypeCBDto> typesCb;
 
-    private List<LigneDeCommandeDto> listLigneDeCommande = new ArrayList<>();
+    private List<LigneDeCommandeDto> listLigneDeCommande;
 
     @EJB
     private IUcClient ucClient;
@@ -55,13 +64,11 @@ public class CommandeMb {
     @ManagedProperty(value = "#{clientMb}")
     private ClientMb clientMb;
 
-    @PostConstruct
-    public void init() {
+    public String commander() {
         listLigneDeCommande = panierMb.getListLigneDeCommande();
         commande.setLignesDeCommande(listLigneDeCommande);
-    }
-
-    public String commander() {
+        montantPanier = panierMb.getTotalPanier();
+        montantTotalCommande = montantPanier + fraisLivraison;
         if (connectionMb != null && connectionMb.getUser() != null) {
             user = connectionMb.getUser();
         }
@@ -90,6 +97,14 @@ public class CommandeMb {
         return "";
     }
 
+    /**
+     * Pour mettre à jour en ajax le panneau de récapitulatif de la commande.
+     * @param event l'évènement ajax à récupérer.
+     */
+    public void mettreAJourRecapitulatifCommande(AjaxBehaviorEvent event) {
+        montantTotalCommande = montantPanier + fraisLivraison;
+    }
+
     public String allerPayer() {
         // CommandeDto cmdTmp = new CommandeDto();
         // for(TypeCBDto t : typesCb){
@@ -105,6 +120,7 @@ public class CommandeMb {
                 fraisLivraison = m.getPrix();
             }
         }
+        montantTotalCommande = panierMb.getTotalPanier() + fraisLivraison;
         commande.setAdresseFacturation(ucUtilisateur.retournerAdresseParId(clientMb
                 .getAdresseFacturationChoisie()));
         commande.setAdresseLivraison(ucUtilisateur.retournerAdresseParId(clientMb
@@ -142,6 +158,38 @@ public class CommandeMb {
 
     public void setCommande(CommandeDto paramCommande) {
         commande = paramCommande;
+    }
+
+    /**
+     * Accesseur en lecture du champ <code>montantPanier</code>.
+     * @return le champ <code>montantPanier</code>.
+     */
+    public double getMontantPanier() {
+        return montantPanier;
+    }
+
+    /**
+     * Accesseur en écriture du champ <code>montantPanier</code>.
+     * @param paramMontantPanier la valeur à écrire dans <code>montantPanier</code>.
+     */
+    public void setMontantPanier(double paramMontantPanier) {
+        montantPanier = paramMontantPanier;
+    }
+
+    /**
+     * Accesseur en lecture du champ <code>montantTotalCommande</code>.
+     * @return le champ <code>montantTotalCommande</code>.
+     */
+    public Double getMontantTotalCommande() {
+        return montantTotalCommande;
+    }
+
+    /**
+     * Accesseur en écriture du champ <code>montantTotalCommande</code>.
+     * @param paramMontantTotalCommande la valeur à écrire dans <code>montantTotalCommande</code>.
+     */
+    public void setMontantTotalCommande(Double paramMontantTotalCommande) {
+        montantTotalCommande = paramMontantTotalCommande;
     }
 
     public List<MethodeLivraisonDto> getMethodesLivraison() {
@@ -216,12 +264,4 @@ public class CommandeMb {
         fraisLivraison = paramFraisLivraison;
     }
 
-    public Double getPanierFraisLivraison() {
-        panierFraisLivraison = fraisLivraison + panierMb.getTotalPanier();
-        return panierFraisLivraison;
-    }
-
-    public void setPanierFraisLivraison(Double paramPanierFraisLivraison) {
-        panierFraisLivraison = paramPanierFraisLivraison;
-    }
 }

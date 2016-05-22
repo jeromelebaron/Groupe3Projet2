@@ -63,9 +63,11 @@
 					<div class="choix_paiment">
 						<h3 class="quick_output">Méthode de livraison</h3>
 						<div class="espace_radio">
-							<h:selectOneRadio value="#{commandeMb.methodeLivraisonChoisi}" >
+							<h:selectOneRadio value="#{commandeMb.methodeLivraisonChoisi}">
 								<f:selectItems value="#{commandeMb.methodesLivraison}" var="m"
 									itemLabel="#{m.libelle} (#{m.prix}€)" itemValue="#{m.id}" />
+								<f:ajax event="click" render="panneauMontant"
+									listener="#{commandeMb.mettreAJourRecapitulatifCommande()}" />
 							</h:selectOneRadio>
 						</div>
 					</div>
@@ -81,7 +83,7 @@
 												var="adresse" itemLabel="#{adresse.libelle}"
 												itemValue="#{adresse.id}" />
 										</h:selectOneMenu>
-										
+
 										<h:commandButton value="Supprimer"
 											action="#{clientMb.supprimerAdresseL()}" class="btn_add" />
 									</div>
@@ -183,16 +185,25 @@
 			</div>
 			<div class="col-md-3 cart-total">
 				<a class="continue" href="#">Continuer mes achats</a>
-
-				<ul class="total_price">
-					<li class="last_price">
-						<h4>TOTAL</h4>
-					</li>
-					<li class="last_price"><span><h:outputLabel
-								value="#{panierMb.panierFraisLivraison}€" /></span></li>
+				<h:panelGroup id="panneauMontant">
+					<div class="price-details">
+						<h3>Details</h3>
+						<span>Total</span> <span class="total1"><h:outputLabel
+								value="#{commandeMb.montantPanier}" /></span> <span>Frais de
+							port</span> <span class="total1"><h:outputLabel
+								value="#{commandeMb.fraisLivraison}" /> </span>
+						<div class="clearfix"></div>
+					</div>
+					<ul class="total_price">
+						<li class="last_price">
+							<h4>TOTAL</h4>
+						</li>
+						<li class="last_price"><span><h:outputLabel
+									value="#{commandeMb.montantTotalCommande}€" /></span></li>
+						<div class="clearfix"></div>
+					</ul>
 					<div class="clearfix"></div>
-				</ul>
-				<div class="clearfix"></div>
+				</h:panelGroup>
 				<h:commandLink styleClass="order" value="Payer la commande"
 					action="#{commandeMb.allerPayer()}" />
 				<div class="total-item">
