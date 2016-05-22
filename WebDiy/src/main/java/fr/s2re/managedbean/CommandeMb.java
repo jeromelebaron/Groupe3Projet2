@@ -1,6 +1,8 @@
 package fr.s2re.managedbean;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -16,6 +18,7 @@ import fr.s2re.dto.MethodeLivraisonDto;
 import fr.s2re.dto.TypeCBDto;
 import fr.s2re.dto.UtilisateurDto;
 import fr.s2re.iuc.IUcClient;
+import fr.s2re.iuc.IUcPanier;
 import fr.s2re.iuc.IUcUtilisateur;
 
 @ManagedBean
@@ -48,12 +51,22 @@ public class CommandeMb {
     private List<TypeCBDto> typesCb;
 
     private List<LigneDeCommandeDto> listLigneDeCommande;
+    /**
+     * La map en cas de problème de stock.
+     */
+    private Map<LigneDeCommandeDto, Integer> mapLigneCommandeStockInsuffisant = new HashMap<>();
 
     @EJB
     private IUcClient ucClient;
 
     @EJB
     private IUcUtilisateur ucUtilisateur;
+
+    /**
+     * Concerne les use case du panier.
+     */
+    @EJB
+    private IUcPanier ucPanier;
 
     @ManagedProperty(value = "#{panierMb}")
     private PanierMb panierMb;
@@ -66,6 +79,7 @@ public class CommandeMb {
 
     public String commander() {
         listLigneDeCommande = panierMb.getListLigneDeCommande();
+        mapLigneCommandeStockInsuffisant = ucPanier.validerPanier(listLigneDeCommande);
         commande.setLignesDeCommande(listLigneDeCommande);
         montantPanier = panierMb.getTotalPanier();
         montantTotalCommande = montantPanier + fraisLivraison;
@@ -216,6 +230,24 @@ public class CommandeMb {
         listLigneDeCommande = paramListLigneDeCommande;
     }
 
+    /**
+     * Accesseur en lecture du champ <code>ligneCommandeStockInsuffisant</code>.
+     * @return le champ <code>ligneCommandeStockInsuffisant</code>.
+     */
+    public Map<LigneDeCommandeDto, Integer> getLigneCommandeStockInsuffisant() {
+        return mapLigneCommandeStockInsuffisant;
+    }
+
+    /**
+     * Accesseur en écriture du champ <code>ligneCommandeStockInsuffisant</code>.
+     * @param paramLigneCommandeStockInsuffisant la valeur à écrire dans
+     *            <code>ligneCommandeStockInsuffisant</code>.
+     */
+    public void setLigneCommandeStockInsuffisant(
+            Map<LigneDeCommandeDto, Integer> paramLigneCommandeStockInsuffisant) {
+        mapLigneCommandeStockInsuffisant = paramLigneCommandeStockInsuffisant;
+    }
+
     public IUcClient getUcClient() {
         return ucClient;
     }
@@ -230,6 +262,22 @@ public class CommandeMb {
 
     public void setUcUtilisateur(IUcUtilisateur paramUcUtilisateur) {
         ucUtilisateur = paramUcUtilisateur;
+    }
+
+    /**
+     * Accesseur en lecture du champ <code>ucPanier</code>.
+     * @return le champ <code>ucPanier</code>.
+     */
+    public IUcPanier getUcPanier() {
+        return ucPanier;
+    }
+
+    /**
+     * Accesseur en écriture du champ <code>ucPanier</code>.
+     * @param paramUcPanier la valeur à écrire dans <code>ucPanier</code>.
+     */
+    public void setUcPanier(IUcPanier paramUcPanier) {
+        ucPanier = paramUcPanier;
     }
 
     public PanierMb getPanierMb() {

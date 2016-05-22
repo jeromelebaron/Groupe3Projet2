@@ -10,6 +10,10 @@ import java.util.Map;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
+import fr.s2re.bpel.stock.StockBPEL;
+import fr.s2re.bpel.stock.StockBPELPortType;
+import fr.s2re.bpel.stock.StockBPELRequest;
+import fr.s2re.bpel.stock.StockBPELResponse;
 import fr.s2re.dto.LigneDeCommandeDto;
 import fr.s2re.ibusiness.IBusinessPanier;
 
@@ -23,17 +27,32 @@ import fr.s2re.ibusiness.IBusinessPanier;
 @Stateless
 public class BusinessPanierImpl implements IBusinessPanier {
 
-
+    /**
+     * Pour récupérer l'interface du BPEL;
+     */
+    private StockBPEL stockBPEL = new StockBPEL();
+    /**
+     * Le proxy du BPEL.
+     */
+    private StockBPELPortType proxy = stockBPEL.getStockBPELPort();
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public Map<LigneDeCommandeDto, Double> verifierPanier(
+    public Map<LigneDeCommandeDto, Integer> verifierPanier(
             List<LigneDeCommandeDto> paramLesLignesDeCommande) {
-        Map<LigneDeCommandeDto, Double> lesLigneDeCommandeDto = new HashMap<>();
-        return lesLigneDeCommandeDto;
+        Map<LigneDeCommandeDto, Integer> mapProduitStockInsuffisant = new HashMap<>();
+        for (LigneDeCommandeDto localLigneDeCommandeDto : paramLesLignesDeCommande) {
+            final StockBPELRequest payload = new StockBPELRequest();
+            payload.setReferenceProduit(localLigneDeCommandeDto.getProduit().getReference());
+            payload.setQuantiteProduit(localLigneDeCommandeDto.getQuantite());
+            final StockBPELResponse stockBPELResponse = proxy.process(payload);
+            if ("StockInsuffisant".equals(stockBPELResponse.getMessageSortie())) {
+                mapProduitStockInsuffisant.put(localLigneDeCommandeDto, stockBPELResponse.getQuantiteProduitSortie());
+            }
+        }
+        return mapProduitStockInsuffisant;
     }
-
 
 }

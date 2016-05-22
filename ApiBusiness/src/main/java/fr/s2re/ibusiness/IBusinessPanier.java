@@ -16,6 +16,7 @@ import fr.s2re.dto.LigneDeCommandeDto;
  */
 public interface IBusinessPanier {
 
-    Map<LigneDeCommandeDto, Double> verifierPanier(List<LigneDeCommandeDto> paramLesLignesDeCommande);
+    Map<LigneDeCommandeDto, Integer> verifierPanier(
+            List<LigneDeCommandeDto> paramLesLignesDeCommande);
 
 }

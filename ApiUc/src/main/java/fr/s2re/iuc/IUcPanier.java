@@ -22,6 +22,6 @@ public interface IUcPanier {
      * @return une Map avec en clé la ligne de commande et en valeur la quantité restante dans le
      *         stock.
      */
-    Map<LigneDeCommandeDto, Double> validerPanier(List<LigneDeCommandeDto> paramListeLigneCommande);
+    Map<LigneDeCommandeDto, Integer> validerPanier(List<LigneDeCommandeDto> paramListeLigneCommande);
 
 }
