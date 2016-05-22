@@ -9,12 +9,16 @@ import fr.s2re.banque.dto.BanqueDto;
 import fr.s2re.banque.dto.CarteBancaireDto;
 import fr.s2re.banque.dto.ClientDto;
 import fr.s2re.banque.dto.CompteBancaireDto;
+import fr.s2re.banque.dto.CreditDto;
+import fr.s2re.banque.dto.DebitDto;
 import fr.s2re.banque.dto.DeviseDto;
 import fr.s2re.banque.dto.OperationBancaireDto;
 import fr.s2re.banque.entity.Banque;
 import fr.s2re.banque.entity.Cartebancaire;
 import fr.s2re.banque.entity.Client;
 import fr.s2re.banque.entity.Comptebancaire;
+import fr.s2re.banque.entity.Credit;
+import fr.s2re.banque.entity.Debit;
 import fr.s2re.banque.entity.Devise;
 import fr.s2re.banque.entity.Operationbancaire;
 
@@ -123,5 +127,19 @@ public class EntityToDto {
 		dbm.map(operationBancair, operationBancairDto);
 		operationBancairDto.setComptebancaire(EntityToDto.fromCompteBancaireEntityToCompteBancaireDto(operationBancair.getComptebancaire()));
 		return operationBancairDto;
+	}
+	
+	public static CreditDto fromCreditEntityToCreditDto(Credit credit){
+		CreditDto creditDto = new CreditDto();
+		dbm.map(credit, creditDto);
+        creditDto.setComptebancaire(EntityToDto.fromCompteBancaireEntityToCompteBancaireDto(credit.getComptebancaire()));
+		return creditDto;
+	}
+	
+	public static DebitDto fromDebitEntityToDebitDto(Debit debit){
+		DebitDto DebitDto = new DebitDto();
+		dbm.map(debit, DebitDto);
+        DebitDto.setComptebancaire(EntityToDto.fromCompteBancaireEntityToCompteBancaireDto(debit.getComptebancaire()));
+		return DebitDto;
 	}
 }

@@ -6,5 +6,5 @@ import fr.s2re.banque.entity.Cartebancaire;
 
 public interface ICarteBancaireDao {
 
-	List<Cartebancaire> getCarteByCompte(Integer idCompte);
+	List<Cartebancaire> getCarteByClient(Integer idClient);
 }

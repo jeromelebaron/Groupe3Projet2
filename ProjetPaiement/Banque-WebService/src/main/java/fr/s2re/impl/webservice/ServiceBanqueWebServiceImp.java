@@ -1,5 +1,6 @@
 package fr.s2re.impl.webservice;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -13,9 +14,11 @@ import fr.s2re.api.webservice.IServiceBanqueWebService;
 import fr.s2re.banque.api.business.ICarteBancaireBusiness;
 import fr.s2re.banque.api.business.IClientBusiness;
 import fr.s2re.banque.api.business.ICompteBancaireBusiness;
+import fr.s2re.banque.api.business.IOperationBancaireBusiness;
 import fr.s2re.banque.dto.CarteBancaireDto;
 import fr.s2re.banque.dto.ClientDto;
 import fr.s2re.banque.dto.CompteBancaireDto;
+import fr.s2re.banque.dto.OperationBancaireDto;
 
 @Remote(IServiceBanqueWebService.class)
 @Stateless
@@ -28,28 +31,11 @@ public class ServiceBanqueWebServiceImp implements IServiceBanqueWebService {
 	ICompteBancaireBusiness compteBancaireBusiness;
 	@EJB
 	IClientBusiness clientBusiness;
-    @EJB
-    ICarteBancaireBusiness carteBancaireBusiness;
-	@Override
-	public void crediter(Integer idCompte, Double montant) {
-		logger.debug("crediter le solde");
-		compteBancaireBusiness.crediter(idCompte, montant);
+	@EJB
+	ICarteBancaireBusiness carteBancaireBusiness;
+	@EJB
+	IOperationBancaireBusiness operationBancaireBusiness;
 
-	}
-
-	@Override
-	public void debiter(Integer idCompte, Double montant) {
-		logger.debug("debiter le solde");
-		compteBancaireBusiness.debiter(idCompte, montant);
-
-	}
-
-	@Override
-	public double getSolde(Integer paramIdCompte) {
-		logger.debug("recuperer le solde");
-		return compteBancaireBusiness.getSolde(paramIdCompte);
-
-	}
 
 	@Override
 	public boolean verifierSolde(int idCompte, double montantCommande) {
@@ -66,14 +52,28 @@ public class ServiceBanqueWebServiceImp implements IServiceBanqueWebService {
 	@Override
 	public ClientDto getCLientByNom(String nom) {
 		logger.debug("recuperer le client par son nom");
-		 return clientBusiness.getCLientByNom(nom);
-		
+		return clientBusiness.getCLientByNom(nom);
+
 	}
 
 	@Override
-	public List<CarteBancaireDto>  getCarteByCompte(Integer idCompte) {
-		 return carteBancaireBusiness.getCarteByCompte(idCompte);
-		
+	public List<CarteBancaireDto>  getCarteByClient(Integer idClient) {
+		return carteBancaireBusiness.getCarteByClient(idClient);
+
+	}
+
+	@Override
+	public OperationBancaireDto insertDebit(int idOperation,
+			Date dateOperation, double montant, String typeOperation,
+			CompteBancaireDto comptebancaire) {
+		return operationBancaireBusiness.insertDebit(idOperation, dateOperation, montant, typeOperation, comptebancaire);
+	}
+
+	@Override
+	public OperationBancaireDto insertCredit(int idOperation,
+			Date dateOperation, double montant, String typeOperation,
+			CompteBancaireDto comptebancaire) {
+		return operationBancaireBusiness.insertCredit(idOperation, dateOperation, montant, typeOperation, comptebancaire);
 	}
 
 }

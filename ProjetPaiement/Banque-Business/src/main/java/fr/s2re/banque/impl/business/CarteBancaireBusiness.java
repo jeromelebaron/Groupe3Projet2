@@ -21,12 +21,13 @@ public class CarteBancaireBusiness implements ICarteBancaireBusiness {
 ICarteBancaireDao carteBancaireDao;
 	
 	@Override
-	public List<CarteBancaireDto> getCarteByCompte(Integer idCompte) {
-		final List<Cartebancaire> listecarte = carteBancaireDao.getCarteByCompte(idCompte);
+	public List<CarteBancaireDto> getCarteByClient(Integer idClient) {
+		final List<Cartebancaire> listecarte = carteBancaireDao.getCarteByClient(idClient);
 		final List<CarteBancaireDto> listeCartesDto = new ArrayList<>();
 		for(Cartebancaire cartebancaire : listecarte){
 			final CarteBancaireDto carteDto = EntityToDto.fromCarteBancaireEntityToCarteBancaireDto(cartebancaire);
 			listeCartesDto.add(carteDto);
+			
 		}
 		return listeCartesDto;
 		

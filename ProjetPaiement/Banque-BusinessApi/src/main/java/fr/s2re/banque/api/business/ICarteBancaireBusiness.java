@@ -5,6 +5,6 @@ import java.util.List;
 import fr.s2re.banque.dto.CarteBancaireDto;
 
 public interface ICarteBancaireBusiness {
-	List<CarteBancaireDto> getCarteByCompte(Integer idCompte);
+	List<CarteBancaireDto> getCarteByClient(Integer idClient);
 
 }
