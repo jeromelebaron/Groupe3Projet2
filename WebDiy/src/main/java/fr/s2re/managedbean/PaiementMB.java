@@ -90,7 +90,7 @@ public class PaiementMB {
 		if (connectionMb != null && connectionMb.getUser() != null) {
 			user = connectionMb.getUser();
 			commandeDto = commandeMb.getCommande();
-			if (ucTransactionBancaire.verifierSolde(nomTitulaire,commandeDto.getTotal(), carteDto )) {
+			if (ucTransactionBancaire.verifierSolde(nomTitulaire,commandeMb.getMontantTotalCommande(), carteDto )) {
 				commandeDto = ucClient.passerCommande((ClientDto) user, commandeMb.getListLigneDeCommande(),
 						commandeDto);
 				panierMb.getListLigneDeCommande().clear();

@@ -1,6 +1,8 @@
 
 package fr.s2re.banque.servicebanque;
 
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlSchemaType;
@@ -39,7 +41,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "idCarte",
     "numeroCarte"
 })
-public class CarteBancaireDto {
+public class CarteBancaireDto implements Serializable {
 
     protected CompteBancaireDto comptebancaire;
     protected int cryptogramme;
