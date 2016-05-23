@@ -22,6 +22,7 @@ import fr.s2re.banque.dto.DebitDto;
 import fr.s2re.banque.dto.OperationBancaireDto;
 import fr.s2re.banque.entity.Comptebancaire;
 import fr.s2re.banque.entity.Debit;
+import fr.s2re.banque.entity.Operationbancaire;
 
 @Remote(ICompteBancaireBusiness.class)
 @Stateless
@@ -39,10 +40,10 @@ public class CompteBancaireBusiness implements ICompteBancaireBusiness{
 		Double soldeActuel = null;
 		List<OperationBancaireDto> operationsBancaireDto = EntityToDto.fromListeOperationsEntityToListeOperationsDto(operationBancaireDao.getOperationByCompte(idCompteBancaire));
 		for(OperationBancaireDto operation : operationsBancaireDto){
-			if(operation.getClass() == DebitDto.class){
+			if(operation instanceof CreditDto){
 				soldeActuel = soldeInitial + operation.getMontant();
 			}
-			if(operation.getClass() == CreditDto.class){
+			if(operation instanceof DebitDto){
 				soldeActuel = soldeInitial - operation.getMontant();	
 			}
 		}
@@ -67,14 +68,15 @@ public class CompteBancaireBusiness implements ICompteBancaireBusiness{
 
 		for(CarteBancaireDto carte : cartesBancaire){
 			soldeActuel = 	calculSoldeActuel(carte.getComptebancaire().getSolde(), carte.getComptebancaire().getIdCompte());
-			if(soldeActuel <= montantCommande){
-				return false;
-			}
-			if(soldeActuel > montantCommande){
-				return true;
+			if(soldeActuel !=null){
+				if(soldeActuel <= montantCommande){
+					return false;
+				}
+				if(soldeActuel > montantCommande){
+					return true;
+				}
 			}
 		}
-
 
 
 		return false;
