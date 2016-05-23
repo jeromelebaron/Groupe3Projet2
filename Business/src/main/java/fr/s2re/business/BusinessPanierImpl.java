@@ -9,6 +9,7 @@ import java.util.Map;
 
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
+import javax.xml.ws.BindingProvider;
 
 import fr.s2re.bpel.stock.StockBPEL;
 import fr.s2re.bpel.stock.StockBPELPortType;
@@ -42,6 +43,10 @@ public class BusinessPanierImpl implements IBusinessPanier {
     @Override
     public Map<LigneDeCommandeDto, Integer> verifierPanier(
             List<LigneDeCommandeDto> paramLesLignesDeCommande) {
+        BindingProvider bp = (BindingProvider) proxy;
+        // Si le service généré par Tomcat ne fonctionne plus
+        bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY,
+                "http://localhost:8080/ode/processes/StockBPEL?wsdl");
         Map<LigneDeCommandeDto, Integer> mapProduitStockInsuffisant = new HashMap<>();
         for (LigneDeCommandeDto localLigneDeCommandeDto : paramLesLignesDeCommande) {
             final StockBPELRequest payload = new StockBPELRequest();

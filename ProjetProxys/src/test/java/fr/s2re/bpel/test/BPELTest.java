@@ -3,6 +3,8 @@
  */
 package fr.s2re.bpel.test;
 
+import javax.xml.ws.BindingProvider;
+
 import org.apache.log4j.Logger;
 
 import fr.s2re.bpel.stock.StockBPEL;
@@ -26,6 +28,10 @@ public class BPELTest {
     public static void main(String[] args) {
         StockBPEL stockBPEL = new StockBPEL();
         StockBPELPortType proxy = stockBPEL.getStockBPELPort();
+        BindingProvider bp = (BindingProvider) proxy;
+        // Si le service généré par Tomcat ne fonctionne plus
+        bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY,
+                "http://localhost:8080/ode/processes/StockBPEL?wsdl");
         final StockBPELRequest payload = new StockBPELRequest();
         payload.setReferenceProduit("TB001");
         payload.setQuantiteProduit(10);
