@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="paramNomClient" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="paramMontantCommande" type="{http://www.w3.org/2001/XMLSchema}double"/>
+ *         &lt;element name="paramcarteBancairee" type="{http://servicebanque.banque.s2re.fr}carteBancaireDto" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,12 +30,14 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "verifierSolde", propOrder = {
     "paramNomClient",
-    "paramMontantCommande"
+    "paramMontantCommande",
+    "paramcarteBancairee"
 })
 public class VerifierSolde {
 
     protected String paramNomClient;
     protected double paramMontantCommande;
+    protected CarteBancaireDto paramcarteBancairee;
 
     /**
      * Gets the value of the paramNomClient property.
@@ -74,6 +77,30 @@ public class VerifierSolde {
      */
     public void setParamMontantCommande(double value) {
         this.paramMontantCommande = value;
+    }
+
+    /**
+     * Gets the value of the paramcarteBancairee property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link CarteBancaireDto }
+     *     
+     */
+    public CarteBancaireDto getParamcarteBancairee() {
+        return paramcarteBancairee;
+    }
+
+    /**
+     * Sets the value of the paramcarteBancairee property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link CarteBancaireDto }
+     *     
+     */
+    public void setParamcarteBancairee(CarteBancaireDto value) {
+        this.paramcarteBancairee = value;
     }
 
 }

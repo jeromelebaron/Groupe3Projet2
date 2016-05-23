@@ -17,7 +17,7 @@ import fr.s2re.banque.dto.OperationBancaireDto;
 public interface IServiceBanqueWebService {
 	//Services pour le Compte bancaire
     @WebMethod(operationName="verifierSolde")
-	boolean verifierSolde(@WebParam(name="paramNomClient")String nomClient, @WebParam(name="paramMontantCommande")double montantCommande);
+	boolean verifierSolde(@WebParam(name="paramNomClient")String nomClient, @WebParam(name="paramMontantCommande")double montantCommande, @WebParam(name="paramcarteBancairee")CarteBancaireDto carteBancaire);
 	//Service pour operationsbancaire
 	@WebMethod(operationName="insertDebit")
 	OperationBancaireDto insertDebit(@WebParam(name="idOperation")int idOperation,@WebParam(name="dateOperation") Date dateOperation, @WebParam(name="montant")double montant,

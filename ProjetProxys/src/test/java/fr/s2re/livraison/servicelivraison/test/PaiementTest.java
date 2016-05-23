@@ -10,6 +10,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.apache.log4j.Logger;
 
+import fr.s2re.banque.servicebanque.CarteBancaireDto;
 import fr.s2re.banque.servicebanque.ClientDto;
 import fr.s2re.banque.servicebanque.CompteBancaireDto;
 import fr.s2re.banque.servicebanque.IServiceBanqueWebService;
@@ -44,7 +45,8 @@ public class PaiementTest {
 		 LOGGER.debug("Ajout credit");
 		OperationBancaireDto operation = serviceBanqueWS.insertDebit(0, date2, 500, "Debit", comptes.get(0));
 		LOGGER.info(operation);
-		boolean resultat = serviceBanqueWS.verifierSolde("Le Baron", 100);
+		 CarteBancaireDto carte = new CarteBancaireDto(126,"0123456789012345");
+		boolean resultat = serviceBanqueWS.verifierSolde("Le Baron",100, carte);
 		LOGGER.info(resultat);
 
 	}

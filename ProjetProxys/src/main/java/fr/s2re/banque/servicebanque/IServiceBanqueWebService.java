@@ -27,6 +27,7 @@ public interface IServiceBanqueWebService {
 
     /**
      * 
+     * @param paramcarteBancairee
      * @param paramNomClient
      * @param paramMontantCommande
      * @return
@@ -40,7 +41,9 @@ public interface IServiceBanqueWebService {
         @WebParam(name = "paramNomClient", targetNamespace = "")
         String paramNomClient,
         @WebParam(name = "paramMontantCommande", targetNamespace = "")
-        double paramMontantCommande);
+        double paramMontantCommande,
+        @WebParam(name = "paramcarteBancairee", targetNamespace = "")
+        CarteBancaireDto paramcarteBancairee);
 
     /**
      * 

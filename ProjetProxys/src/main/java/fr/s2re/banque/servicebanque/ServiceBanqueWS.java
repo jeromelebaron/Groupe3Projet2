@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "ServiceBanqueWS", targetNamespace = "http://servicebanque.banque.s2re.fr", wsdlLocation = "http://localhost:8080/Banque-WebService-0.0.1-SNAPSHOT/ServiceBanqueWS/ServiceBanqueWebServiceImp?wsdl")
+@WebServiceClient(name = "ServiceBanqueWS", targetNamespace = "http://servicebanque.banque.s2re.fr", wsdlLocation = "http://192.168.100.165:8080/Banque-WebService-0.0.1-SNAPSHOT/ServiceBanqueWS/ServiceBanqueWebServiceImp?wsdl")
 public class ServiceBanqueWS
     extends Service
 {
@@ -30,7 +30,7 @@ public class ServiceBanqueWS
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://localhost:8080/Banque-WebService-0.0.1-SNAPSHOT/ServiceBanqueWS/ServiceBanqueWebServiceImp?wsdl");
+            url = new URL("http://192.168.100.165:8080/Banque-WebService-0.0.1-SNAPSHOT/ServiceBanqueWS/ServiceBanqueWebServiceImp?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

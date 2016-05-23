@@ -152,4 +152,14 @@ public class CarteBancaireDto {
         this.numeroCarte = value;
     }
 
+	public CarteBancaireDto() {
+		super();
+	}
+
+	public CarteBancaireDto(int cryptogramme, String numeroCarte) {
+		super();
+		this.cryptogramme = cryptogramme;
+		this.numeroCarte = numeroCarte;
+	}
+
 }

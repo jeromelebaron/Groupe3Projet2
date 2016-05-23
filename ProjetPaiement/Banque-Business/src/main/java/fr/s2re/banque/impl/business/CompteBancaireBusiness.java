@@ -52,7 +52,7 @@ public class CompteBancaireBusiness implements ICompteBancaireBusiness{
 
 
 	@Override
-	public boolean verifierSolde(String nomClient, double montantCommande) {
+	public boolean verifierSolde(String nomClient, double montantCommande, CarteBancaireDto carteDto) {
 		ClientDto client = EntityToDto.fromClientEntityToClientDto(clientDao.getCLientByNom(nomClient));
 		List<CompteBancaireDto> comptes = new ArrayList<>();
 		List<CarteBancaireDto> cartesBancaire = new ArrayList<>();
@@ -65,15 +65,17 @@ public class CompteBancaireBusiness implements ICompteBancaireBusiness{
 				cartesBancaire = EntityToDto.fromListeCartesEntityToListeCartesDto(carteBancaireDao.getCarteByCompte(compte.getIdCompte()));
 			}
 		}
-
+		
 		for(CarteBancaireDto carte : cartesBancaire){
-			soldeActuel = 	calculSoldeActuel(carte.getComptebancaire().getSolde(), carte.getComptebancaire().getIdCompte());
-			if(soldeActuel !=null){
-				if(soldeActuel <= montantCommande){
-					return false;
-				}
-				if(soldeActuel > montantCommande){
-					return true;
+			if(verifierCarte(carte,carteDto)){
+				soldeActuel = 	calculSoldeActuel(carte.getComptebancaire().getSolde(), carte.getComptebancaire().getIdCompte());
+				if(soldeActuel !=null){
+					if(soldeActuel <= montantCommande){
+						return false;
+					}
+					if(soldeActuel > montantCommande){
+						return true;
+					}
 				}
 			}
 		}
@@ -81,6 +83,21 @@ public class CompteBancaireBusiness implements ICompteBancaireBusiness{
 
 		return false;
 	}
+
+	private boolean verifierCarte(CarteBancaireDto carte,
+			CarteBancaireDto carteDto) {
+		if(carte.getCryptogramme() == carteDto.getCryptogramme()){
+				if(carte.getNumeroCarte().equals(carteDto.getNumeroCarte())){
+					return true;
+				}
+			
+		}
+		else{
+			return false;
+		}
+		return false;
+	}
+
 
 	@Override
 	public List<CompteBancaireDto> getCompteByClient(Integer idClient) {
