@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="paramIdCompte" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="paramNomClient" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="paramMontantCommande" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -28,28 +28,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "verifierSolde", propOrder = {
-    "paramIdCompte",
+    "paramNomClient",
     "paramMontantCommande"
 })
 public class VerifierSolde {
 
-    protected int paramIdCompte;
+    protected String paramNomClient;
     protected double paramMontantCommande;
 
     /**
-     * Gets the value of the paramIdCompte property.
+     * Gets the value of the paramNomClient property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getParamIdCompte() {
-        return paramIdCompte;
+    public String getParamNomClient() {
+        return paramNomClient;
     }
 
     /**
-     * Sets the value of the paramIdCompte property.
+     * Sets the value of the paramNomClient property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setParamIdCompte(int value) {
-        this.paramIdCompte = value;
+    public void setParamNomClient(String value) {
+        this.paramNomClient = value;
     }
 
     /**

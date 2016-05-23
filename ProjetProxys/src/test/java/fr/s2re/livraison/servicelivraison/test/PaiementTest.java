@@ -1,8 +1,19 @@
 package fr.s2re.livraison.servicelivraison.test;
 
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
+
 import org.apache.log4j.Logger;
 
+import fr.s2re.banque.servicebanque.ClientDto;
+import fr.s2re.banque.servicebanque.CompteBancaireDto;
 import fr.s2re.banque.servicebanque.IServiceBanqueWebService;
+import fr.s2re.banque.servicebanque.OperationBancaireDto;
 import fr.s2re.banque.servicebanque.ServiceBanqueWS;
 
 public class PaiementTest {
@@ -15,13 +26,26 @@ public class PaiementTest {
 		 ServiceBanqueWS serviceBanque = new ServiceBanqueWS();
 		 IServiceBanqueWebService serviceBanqueWS = serviceBanque.getServiceBanqueWebServiceImpPort();
 		 
-		 serviceBanqueWS.getSolde(1);
-		 serviceBanqueWS.crediter(1, 100.0);
-		 serviceBanqueWS.getSolde(1);
-		 serviceBanqueWS.debiter(1, 50.0);
-		 LOGGER.info(serviceBanqueWS.getCarteByCompte(1));
-		serviceBanqueWS.getCompteByClient(1);
-		 
+		 ClientDto client = serviceBanqueWS.getCLientByNom("Le Baron");
+		 LOGGER.info(client.getNomClient());
+		 LOGGER.info(client.getComptebancaires());
+		List<CompteBancaireDto> comptes =  client.getComptebancaires();
+		 LOGGER.debug("recuperation du compte client");
+		 LOGGER.info(comptes.get(0));
+		GregorianCalendar c = new GregorianCalendar();
+		c.setTime(new Date());
+		XMLGregorianCalendar date2 = null;
+		try {
+			date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
+		} catch (DatatypeConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 LOGGER.debug("Ajout credit");
+		OperationBancaireDto operation = serviceBanqueWS.insertCredit(0, date2, 100, "Credit", comptes.get(0));
+		LOGGER.info(operation);
+		boolean resultat = serviceBanqueWS.verifierSolde("Le Baron", 100);
+		LOGGER.info(resultat);
 
 	}
 

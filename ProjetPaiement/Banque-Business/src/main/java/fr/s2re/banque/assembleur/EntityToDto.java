@@ -99,9 +99,8 @@ public class EntityToDto {
 		clientDto.setNomClient(client.getNomClient());
 		clientDto.setPrenomClient(client.getPrenomClient());
 		clientDto.setBanque(null);
-		/*List<Comptebancaire> listeComptes = client.getComptebancaires();
-		clientDto.setComptebancaires(fromListeComptesEntityToListeComptesDto(listeComptes));*/
-		clientDto.setComptebancaires(null);	
+		List<Comptebancaire> listeComptes = client.getComptebancaires();
+		clientDto.setComptebancaires(fromListeComptesEntityToListeComptesDto(listeComptes));
 		return clientDto;	
 	}
 
@@ -111,27 +110,32 @@ public class EntityToDto {
         compteBancaireDto.setCodeIban(compteBancaire.getCodeIban());
         compteBancaireDto.setSolde(compteBancaire.getSolde());
         compteBancaireDto.setIdCompte(compteBancaire.getIdCompte());
-        compteBancaireDto.setClient(EntityToDto.fromClientEntityToClientDto(compteBancaire.getClient()));  
+        compteBancaireDto.setClient(null);
        /* List<Cartebancaire>listeCartes = compteBancaire.getCartebancaires();
         compteBancaireDto.setCartebancaires(fromListeCartesEntityToListeCartesDto(listeCartes));*/
        /* List<Operationbancaire> listeoperations = compteBancaire.getOperationbancaires();
         compteBancaireDto.setOperationbancaires(fromListeOperationsEntityToListeOperationsDto(listeoperations));*/
-		compteBancaire.getClient().setComptebancaires(null);
-		compteBancaire.getClient().getBanque().setClients(null);
+		//compteBancaire.getClient().setComptebancaires(null);
+		//compteBancaire.getClient().getBanque().setClients(null);
 		compteBancaire.setOperationbancaires(null);
 		return compteBancaireDto;
 	}
 
 	public static OperationBancaireDto fromOperationBancaireEntityToOperationBancaireDto(Operationbancaire operationBancair){
 		OperationBancaireDto operationBancairDto = new OperationBancaireDto();
-		dbm.map(operationBancair, operationBancairDto);
+		operationBancairDto.setDateOperation(operationBancair.getDateOperation());
+		operationBancairDto.setIdOperation(operationBancair.getIdOperation());
+		operationBancairDto.setMontant(operationBancair.getMontant());
 		operationBancairDto.setComptebancaire(EntityToDto.fromCompteBancaireEntityToCompteBancaireDto(operationBancair.getComptebancaire()));
 		return operationBancairDto;
 	}
 	
 	public static CreditDto fromCreditEntityToCreditDto(Credit credit){
 		CreditDto creditDto = new CreditDto();
-		dbm.map(credit, creditDto);
+		creditDto.setDateOperation(credit.getDateOperation());
+		creditDto.setIdOperation(credit.getIdOperation());
+		creditDto.setMontant(credit.getMontant());
+		creditDto.setTypeOperation("Credit");
         creditDto.setComptebancaire(EntityToDto.fromCompteBancaireEntityToCompteBancaireDto(credit.getComptebancaire()));
 		return creditDto;
 	}

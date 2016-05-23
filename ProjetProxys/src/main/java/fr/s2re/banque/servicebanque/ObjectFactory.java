@@ -25,23 +25,19 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _VerifierSoldeResponse_QNAME = new QName("http://servicebanque.banque.s2re.fr", "verifierSoldeResponse");
+    private final static QName _GetCarteByClientResponse_QNAME = new QName("http://servicebanque.banque.s2re.fr", "getCarteByClientResponse");
     private final static QName _CarteBancaireDto_QNAME = new QName("http://servicebanque.banque.s2re.fr", "carteBancaireDto");
+    private final static QName _InsertCreditResponse_QNAME = new QName("http://servicebanque.banque.s2re.fr", "insertCreditResponse");
     private final static QName _GetCLientByNomResponse_QNAME = new QName("http://servicebanque.banque.s2re.fr", "getCLientByNomResponse");
     private final static QName _GetCLientByNom_QNAME = new QName("http://servicebanque.banque.s2re.fr", "getCLientByNom");
     private final static QName _CompteBancaireDto_QNAME = new QName("http://servicebanque.banque.s2re.fr", "compteBancaireDto");
-    private final static QName _Crediter_QNAME = new QName("http://servicebanque.banque.s2re.fr", "crediter");
     private final static QName _VerifierSolde_QNAME = new QName("http://servicebanque.banque.s2re.fr", "verifierSolde");
     private final static QName _OperationBancaireDto_QNAME = new QName("http://servicebanque.banque.s2re.fr", "operationBancaireDto");
-    private final static QName _CrediterResponse_QNAME = new QName("http://servicebanque.banque.s2re.fr", "crediterResponse");
-    private final static QName _GetCompteByClientResponse_QNAME = new QName("http://servicebanque.banque.s2re.fr", "getCompteByClientResponse");
-    private final static QName _GetSoldeResponse_QNAME = new QName("http://servicebanque.banque.s2re.fr", "getSoldeResponse");
-    private final static QName _DebiterResponse_QNAME = new QName("http://servicebanque.banque.s2re.fr", "debiterResponse");
-    private final static QName _Debiter_QNAME = new QName("http://servicebanque.banque.s2re.fr", "debiter");
-    private final static QName _GetCarteByCompteResponse_QNAME = new QName("http://servicebanque.banque.s2re.fr", "getCarteByCompteResponse");
+    private final static QName _GetCarteByClient_QNAME = new QName("http://servicebanque.banque.s2re.fr", "getCarteByClient");
+    private final static QName _InsertDebit_QNAME = new QName("http://servicebanque.banque.s2re.fr", "insertDebit");
+    private final static QName _InsertCredit_QNAME = new QName("http://servicebanque.banque.s2re.fr", "insertCredit");
+    private final static QName _InsertDebitResponse_QNAME = new QName("http://servicebanque.banque.s2re.fr", "insertDebitResponse");
     private final static QName _ClientDto_QNAME = new QName("http://servicebanque.banque.s2re.fr", "clientDto");
-    private final static QName _GetCompteByClient_QNAME = new QName("http://servicebanque.banque.s2re.fr", "getCompteByClient");
-    private final static QName _GetSolde_QNAME = new QName("http://servicebanque.banque.s2re.fr", "getSolde");
-    private final static QName _GetCarteByCompte_QNAME = new QName("http://servicebanque.banque.s2re.fr", "getCarteByCompte");
     private final static QName _BanqueDto_QNAME = new QName("http://servicebanque.banque.s2re.fr", "banqueDto");
 
     /**
@@ -52,35 +48,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetCarteByCompteResponse }
+     * Create an instance of {@link InsertDebitResponse }
      * 
      */
-    public GetCarteByCompteResponse createGetCarteByCompteResponse() {
-        return new GetCarteByCompteResponse();
+    public InsertDebitResponse createInsertDebitResponse() {
+        return new InsertDebitResponse();
     }
 
     /**
-     * Create an instance of {@link Debiter }
+     * Create an instance of {@link InsertCredit }
      * 
      */
-    public Debiter createDebiter() {
-        return new Debiter();
+    public InsertCredit createInsertCredit() {
+        return new InsertCredit();
     }
 
     /**
-     * Create an instance of {@link GetSoldeResponse }
+     * Create an instance of {@link InsertDebit }
      * 
      */
-    public GetSoldeResponse createGetSoldeResponse() {
-        return new GetSoldeResponse();
-    }
-
-    /**
-     * Create an instance of {@link DebiterResponse }
-     * 
-     */
-    public DebiterResponse createDebiterResponse() {
-        return new DebiterResponse();
+    public InsertDebit createInsertDebit() {
+        return new InsertDebit();
     }
 
     /**
@@ -89,30 +77,6 @@ public class ObjectFactory {
      */
     public BanqueDto createBanqueDto() {
         return new BanqueDto();
-    }
-
-    /**
-     * Create an instance of {@link GetSolde }
-     * 
-     */
-    public GetSolde createGetSolde() {
-        return new GetSolde();
-    }
-
-    /**
-     * Create an instance of {@link GetCarteByCompte }
-     * 
-     */
-    public GetCarteByCompte createGetCarteByCompte() {
-        return new GetCarteByCompte();
-    }
-
-    /**
-     * Create an instance of {@link GetCompteByClient }
-     * 
-     */
-    public GetCompteByClient createGetCompteByClient() {
-        return new GetCompteByClient();
     }
 
     /**
@@ -140,6 +104,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link InsertCreditResponse }
+     * 
+     */
+    public InsertCreditResponse createInsertCreditResponse() {
+        return new InsertCreditResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetCarteByClientResponse }
+     * 
+     */
+    public GetCarteByClientResponse createGetCarteByClientResponse() {
+        return new GetCarteByClientResponse();
+    }
+
+    /**
      * Create an instance of {@link VerifierSoldeResponse }
      * 
      */
@@ -148,19 +128,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetCompteByClientResponse }
+     * Create an instance of {@link GetCarteByClient }
      * 
      */
-    public GetCompteByClientResponse createGetCompteByClientResponse() {
-        return new GetCompteByClientResponse();
-    }
-
-    /**
-     * Create an instance of {@link CrediterResponse }
-     * 
-     */
-    public CrediterResponse createCrediterResponse() {
-        return new CrediterResponse();
+    public GetCarteByClient createGetCarteByClient() {
+        return new GetCarteByClient();
     }
 
     /**
@@ -177,14 +149,6 @@ public class ObjectFactory {
      */
     public VerifierSolde createVerifierSolde() {
         return new VerifierSolde();
-    }
-
-    /**
-     * Create an instance of {@link Crediter }
-     * 
-     */
-    public Crediter createCrediter() {
-        return new Crediter();
     }
 
     /**
@@ -213,12 +177,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetCarteByClientResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicebanque.banque.s2re.fr", name = "getCarteByClientResponse")
+    public JAXBElement<GetCarteByClientResponse> createGetCarteByClientResponse(GetCarteByClientResponse value) {
+        return new JAXBElement<GetCarteByClientResponse>(_GetCarteByClientResponse_QNAME, GetCarteByClientResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CarteBancaireDto }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://servicebanque.banque.s2re.fr", name = "carteBancaireDto")
     public JAXBElement<CarteBancaireDto> createCarteBancaireDto(CarteBancaireDto value) {
         return new JAXBElement<CarteBancaireDto>(_CarteBancaireDto_QNAME, CarteBancaireDto.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InsertCreditResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicebanque.banque.s2re.fr", name = "insertCreditResponse")
+    public JAXBElement<InsertCreditResponse> createInsertCreditResponse(InsertCreditResponse value) {
+        return new JAXBElement<InsertCreditResponse>(_InsertCreditResponse_QNAME, InsertCreditResponse.class, null, value);
     }
 
     /**
@@ -249,15 +231,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Crediter }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicebanque.banque.s2re.fr", name = "crediter")
-    public JAXBElement<Crediter> createCrediter(Crediter value) {
-        return new JAXBElement<Crediter>(_Crediter_QNAME, Crediter.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link VerifierSolde }{@code >}}
      * 
      */
@@ -276,57 +249,39 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CrediterResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetCarteByClient }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicebanque.banque.s2re.fr", name = "crediterResponse")
-    public JAXBElement<CrediterResponse> createCrediterResponse(CrediterResponse value) {
-        return new JAXBElement<CrediterResponse>(_CrediterResponse_QNAME, CrediterResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://servicebanque.banque.s2re.fr", name = "getCarteByClient")
+    public JAXBElement<GetCarteByClient> createGetCarteByClient(GetCarteByClient value) {
+        return new JAXBElement<GetCarteByClient>(_GetCarteByClient_QNAME, GetCarteByClient.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetCompteByClientResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link InsertDebit }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicebanque.banque.s2re.fr", name = "getCompteByClientResponse")
-    public JAXBElement<GetCompteByClientResponse> createGetCompteByClientResponse(GetCompteByClientResponse value) {
-        return new JAXBElement<GetCompteByClientResponse>(_GetCompteByClientResponse_QNAME, GetCompteByClientResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://servicebanque.banque.s2re.fr", name = "insertDebit")
+    public JAXBElement<InsertDebit> createInsertDebit(InsertDebit value) {
+        return new JAXBElement<InsertDebit>(_InsertDebit_QNAME, InsertDebit.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetSoldeResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link InsertCredit }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicebanque.banque.s2re.fr", name = "getSoldeResponse")
-    public JAXBElement<GetSoldeResponse> createGetSoldeResponse(GetSoldeResponse value) {
-        return new JAXBElement<GetSoldeResponse>(_GetSoldeResponse_QNAME, GetSoldeResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://servicebanque.banque.s2re.fr", name = "insertCredit")
+    public JAXBElement<InsertCredit> createInsertCredit(InsertCredit value) {
+        return new JAXBElement<InsertCredit>(_InsertCredit_QNAME, InsertCredit.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DebiterResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link InsertDebitResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicebanque.banque.s2re.fr", name = "debiterResponse")
-    public JAXBElement<DebiterResponse> createDebiterResponse(DebiterResponse value) {
-        return new JAXBElement<DebiterResponse>(_DebiterResponse_QNAME, DebiterResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Debiter }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicebanque.banque.s2re.fr", name = "debiter")
-    public JAXBElement<Debiter> createDebiter(Debiter value) {
-        return new JAXBElement<Debiter>(_Debiter_QNAME, Debiter.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetCarteByCompteResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicebanque.banque.s2re.fr", name = "getCarteByCompteResponse")
-    public JAXBElement<GetCarteByCompteResponse> createGetCarteByCompteResponse(GetCarteByCompteResponse value) {
-        return new JAXBElement<GetCarteByCompteResponse>(_GetCarteByCompteResponse_QNAME, GetCarteByCompteResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://servicebanque.banque.s2re.fr", name = "insertDebitResponse")
+    public JAXBElement<InsertDebitResponse> createInsertDebitResponse(InsertDebitResponse value) {
+        return new JAXBElement<InsertDebitResponse>(_InsertDebitResponse_QNAME, InsertDebitResponse.class, null, value);
     }
 
     /**
@@ -336,33 +291,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://servicebanque.banque.s2re.fr", name = "clientDto")
     public JAXBElement<ClientDto> createClientDto(ClientDto value) {
         return new JAXBElement<ClientDto>(_ClientDto_QNAME, ClientDto.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetCompteByClient }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicebanque.banque.s2re.fr", name = "getCompteByClient")
-    public JAXBElement<GetCompteByClient> createGetCompteByClient(GetCompteByClient value) {
-        return new JAXBElement<GetCompteByClient>(_GetCompteByClient_QNAME, GetCompteByClient.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetSolde }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicebanque.banque.s2re.fr", name = "getSolde")
-    public JAXBElement<GetSolde> createGetSolde(GetSolde value) {
-        return new JAXBElement<GetSolde>(_GetSolde_QNAME, GetSolde.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetCarteByCompte }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicebanque.banque.s2re.fr", name = "getCarteByCompte")
-    public JAXBElement<GetCarteByCompte> createGetCarteByCompte(GetCarteByCompte value) {
-        return new JAXBElement<GetCarteByCompte>(_GetCarteByCompte_QNAME, GetCarteByCompte.class, null, value);
     }
 
     /**

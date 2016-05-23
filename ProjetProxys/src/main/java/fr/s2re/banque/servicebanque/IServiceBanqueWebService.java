@@ -7,6 +7,7 @@ import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 
@@ -26,22 +27,8 @@ public interface IServiceBanqueWebService {
 
     /**
      * 
-     * @param paramidCompte
-     * @param paramMontant
-     */
-    @WebMethod
-    @RequestWrapper(localName = "crediter", targetNamespace = "http://servicebanque.banque.s2re.fr", className = "fr.s2re.banque.servicebanque.Crediter")
-    @ResponseWrapper(localName = "crediterResponse", targetNamespace = "http://servicebanque.banque.s2re.fr", className = "fr.s2re.banque.servicebanque.CrediterResponse")
-    public void crediter(
-        @WebParam(name = "paramidCompte", targetNamespace = "")
-        Integer paramidCompte,
-        @WebParam(name = "paramMontant", targetNamespace = "")
-        Double paramMontant);
-
-    /**
-     * 
+     * @param paramNomClient
      * @param paramMontantCommande
-     * @param paramIdCompte
      * @return
      *     returns boolean
      */
@@ -50,66 +37,76 @@ public interface IServiceBanqueWebService {
     @RequestWrapper(localName = "verifierSolde", targetNamespace = "http://servicebanque.banque.s2re.fr", className = "fr.s2re.banque.servicebanque.VerifierSolde")
     @ResponseWrapper(localName = "verifierSoldeResponse", targetNamespace = "http://servicebanque.banque.s2re.fr", className = "fr.s2re.banque.servicebanque.VerifierSoldeResponse")
     public boolean verifierSolde(
-        @WebParam(name = "paramIdCompte", targetNamespace = "")
-        int paramIdCompte,
+        @WebParam(name = "paramNomClient", targetNamespace = "")
+        String paramNomClient,
         @WebParam(name = "paramMontantCommande", targetNamespace = "")
         double paramMontantCommande);
 
     /**
      * 
-     * @param paramidCompte
+     * @param montant
+     * @param typeOperation
+     * @param idOperation
+     * @param dateOperation
+     * @param comptebancaire
+     * @return
+     *     returns fr.s2re.banque.servicebanque.OperationBancaireDto
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "insertDebit", targetNamespace = "http://servicebanque.banque.s2re.fr", className = "fr.s2re.banque.servicebanque.InsertDebit")
+    @ResponseWrapper(localName = "insertDebitResponse", targetNamespace = "http://servicebanque.banque.s2re.fr", className = "fr.s2re.banque.servicebanque.InsertDebitResponse")
+    public OperationBancaireDto insertDebit(
+        @WebParam(name = "idOperation", targetNamespace = "")
+        int idOperation,
+        @WebParam(name = "dateOperation", targetNamespace = "")
+        XMLGregorianCalendar dateOperation,
+        @WebParam(name = "montant", targetNamespace = "")
+        double montant,
+        @WebParam(name = "typeOperation", targetNamespace = "")
+        String typeOperation,
+        @WebParam(name = "comptebancaire", targetNamespace = "")
+        CompteBancaireDto comptebancaire);
+
+    /**
+     * 
+     * @param paramidClient
      * @return
      *     returns java.util.List<fr.s2re.banque.servicebanque.CarteBancaireDto>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getCarteByCompte", targetNamespace = "http://servicebanque.banque.s2re.fr", className = "fr.s2re.banque.servicebanque.GetCarteByCompte")
-    @ResponseWrapper(localName = "getCarteByCompteResponse", targetNamespace = "http://servicebanque.banque.s2re.fr", className = "fr.s2re.banque.servicebanque.GetCarteByCompteResponse")
-    public List<CarteBancaireDto> getCarteByCompte(
-        @WebParam(name = "paramidCompte", targetNamespace = "")
-        Integer paramidCompte);
+    @RequestWrapper(localName = "getCarteByClient", targetNamespace = "http://servicebanque.banque.s2re.fr", className = "fr.s2re.banque.servicebanque.GetCarteByClient")
+    @ResponseWrapper(localName = "getCarteByClientResponse", targetNamespace = "http://servicebanque.banque.s2re.fr", className = "fr.s2re.banque.servicebanque.GetCarteByClientResponse")
+    public List<CarteBancaireDto> getCarteByClient(
+        @WebParam(name = "paramidClient", targetNamespace = "")
+        Integer paramidClient);
 
     /**
      * 
-     * @param paramidCompte
-     * @param paramMontant
-     */
-    @WebMethod
-    @RequestWrapper(localName = "debiter", targetNamespace = "http://servicebanque.banque.s2re.fr", className = "fr.s2re.banque.servicebanque.Debiter")
-    @ResponseWrapper(localName = "debiterResponse", targetNamespace = "http://servicebanque.banque.s2re.fr", className = "fr.s2re.banque.servicebanque.DebiterResponse")
-    public void debiter(
-        @WebParam(name = "paramidCompte", targetNamespace = "")
-        Integer paramidCompte,
-        @WebParam(name = "paramMontant", targetNamespace = "")
-        Double paramMontant);
-
-    /**
-     * 
-     * @param paramIdCompte
+     * @param montant
+     * @param typeOperation
+     * @param idOperation
+     * @param dateOperation
+     * @param comptebancaire
      * @return
-     *     returns double
+     *     returns fr.s2re.banque.servicebanque.OperationBancaireDto
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getSolde", targetNamespace = "http://servicebanque.banque.s2re.fr", className = "fr.s2re.banque.servicebanque.GetSolde")
-    @ResponseWrapper(localName = "getSoldeResponse", targetNamespace = "http://servicebanque.banque.s2re.fr", className = "fr.s2re.banque.servicebanque.GetSoldeResponse")
-    public double getSolde(
-        @WebParam(name = "paramIdCompte", targetNamespace = "")
-        Integer paramIdCompte);
-
-    /**
-     * 
-     * @param paramIdClient
-     * @return
-     *     returns java.util.List<fr.s2re.banque.servicebanque.CompteBancaireDto>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getCompteByClient", targetNamespace = "http://servicebanque.banque.s2re.fr", className = "fr.s2re.banque.servicebanque.GetCompteByClient")
-    @ResponseWrapper(localName = "getCompteByClientResponse", targetNamespace = "http://servicebanque.banque.s2re.fr", className = "fr.s2re.banque.servicebanque.GetCompteByClientResponse")
-    public List<CompteBancaireDto> getCompteByClient(
-        @WebParam(name = "paramIdClient", targetNamespace = "")
-        Integer paramIdClient);
+    @RequestWrapper(localName = "insertCredit", targetNamespace = "http://servicebanque.banque.s2re.fr", className = "fr.s2re.banque.servicebanque.InsertCredit")
+    @ResponseWrapper(localName = "insertCreditResponse", targetNamespace = "http://servicebanque.banque.s2re.fr", className = "fr.s2re.banque.servicebanque.InsertCreditResponse")
+    public OperationBancaireDto insertCredit(
+        @WebParam(name = "idOperation", targetNamespace = "")
+        int idOperation,
+        @WebParam(name = "dateOperation", targetNamespace = "")
+        XMLGregorianCalendar dateOperation,
+        @WebParam(name = "montant", targetNamespace = "")
+        double montant,
+        @WebParam(name = "typeOperation", targetNamespace = "")
+        String typeOperation,
+        @WebParam(name = "comptebancaire", targetNamespace = "")
+        CompteBancaireDto comptebancaire);
 
     /**
      * 

@@ -1,7 +1,9 @@
 package fr.s2re.banque.entity;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.util.Date;
 
 
@@ -91,5 +93,6 @@ public class Operationbancaire implements Serializable {
 		this.comptebancaire = comptebancaire;
 	}
 
+	
 	
 }
