@@ -1,6 +1,8 @@
 
 package fr.s2re.livraison.servicelivraison;
 
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlSchemaType;
@@ -37,8 +39,12 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "id",
     "jourOuverture"
 })
-public class HorairesDto {
+public class HorairesDto implements Serializable {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar debut;
     @XmlSchemaType(name = "dateTime")

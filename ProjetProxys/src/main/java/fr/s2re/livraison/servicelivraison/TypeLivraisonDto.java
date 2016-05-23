@@ -1,8 +1,10 @@
 
 package fr.s2re.livraison.servicelivraison;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -36,7 +38,7 @@ import javax.xml.bind.annotation.XmlType;
     "libelle",
     "serviceLivraisons"
 })
-public class TypeLivraisonDto {
+public class TypeLivraisonDto implements Serializable {
 
     protected Integer id;
     protected String libelle;

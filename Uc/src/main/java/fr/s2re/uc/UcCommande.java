@@ -31,7 +31,7 @@ public class UcCommande implements IUcCommande {
      * {@inheritDoc}
      */
     @Override
-    public List<ServiceLivraisonDto> getServiceLivraisonByIdVille(final String paramCodePostal) {
+    public List<ServiceLivraisonDto> getServiceLivraisonByCodePostalVille(final String paramCodePostal) {
         return businessServiceLivraison.getServiceLivraisonByIdVille(paramCodePostal);
     }
 
