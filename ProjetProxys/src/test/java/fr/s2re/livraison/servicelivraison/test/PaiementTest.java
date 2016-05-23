@@ -42,7 +42,7 @@ public class PaiementTest {
 			e.printStackTrace();
 		}
 		 LOGGER.debug("Ajout credit");
-		OperationBancaireDto operation = serviceBanqueWS.insertCredit(0, date2, 100, "Credit", comptes.get(0));
+		OperationBancaireDto operation = serviceBanqueWS.insertDebit(0, date2, 500, "Debit", comptes.get(0));
 		LOGGER.info(operation);
 		boolean resultat = serviceBanqueWS.verifierSolde("Le Baron", 100);
 		LOGGER.info(resultat);

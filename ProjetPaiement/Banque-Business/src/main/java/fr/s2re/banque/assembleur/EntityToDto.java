@@ -148,7 +148,10 @@ public class EntityToDto {
 
 	public static DebitDto fromDebitEntityToDebitDto(Debit debit){
 		DebitDto DebitDto = new DebitDto();
-		dbm.map(debit, DebitDto);
+		DebitDto.setDateOperation(debit.getDateOperation());
+		DebitDto.setIdOperation(debit.getIdOperation());
+		DebitDto.setMontant(debit.getMontant());
+		DebitDto.setTypeOperation("Debit");
 		DebitDto.setComptebancaire(EntityToDto.fromCompteBancaireEntityToCompteBancaireDto(debit.getComptebancaire()));
 		return DebitDto;
 	}

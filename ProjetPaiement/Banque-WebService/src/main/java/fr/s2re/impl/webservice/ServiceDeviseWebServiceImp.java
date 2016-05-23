@@ -22,7 +22,7 @@ public class ServiceDeviseWebServiceImp {
 	IDeviseBusiness deviseBusiness;
 	@GET
 	@Path("/devise/{code}")
-	//http://localhost:8080/Banque-WebService/... 
+	//http://localhost:8080/webservice/... 
 		//      ..../services/rest/deviseService/devise/EUR
 	public DeviseDto rechercherDeviseParCode(String code) {
 		return deviseBusiness.rechercherDeviseParCode(code);
