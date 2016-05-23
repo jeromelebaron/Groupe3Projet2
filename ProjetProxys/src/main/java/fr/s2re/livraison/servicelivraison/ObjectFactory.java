@@ -27,15 +27,15 @@ public class ObjectFactory {
     private final static QName _JourOuvertureDto_QNAME = new QName("http://servicelivraison.livraison.s2re.fr", "jourOuvertureDto");
     private final static QName _CommandeDto_QNAME = new QName("http://servicelivraison.livraison.s2re.fr", "commandeDto");
     private final static QName _TypeLivraisonDto_QNAME = new QName("http://servicelivraison.livraison.s2re.fr", "typeLivraisonDto");
+    private final static QName _GetServiceLivraisonByCodePostalVille_QNAME = new QName("http://servicelivraison.livraison.s2re.fr", "getServiceLivraisonByCodePostalVille");
     private final static QName _VilleDto_QNAME = new QName("http://servicelivraison.livraison.s2re.fr", "villeDto");
     private final static QName _DepartementDto_QNAME = new QName("http://servicelivraison.livraison.s2re.fr", "departementDto");
     private final static QName _GetServiceLivraisonByIdTypeLivraison_QNAME = new QName("http://servicelivraison.livraison.s2re.fr", "getServiceLivraisonByIdTypeLivraison");
     private final static QName _AdresseDto_QNAME = new QName("http://servicelivraison.livraison.s2re.fr", "adresseDto");
-    private final static QName _GetServiceLivraisonByIdVilleResponse_QNAME = new QName("http://servicelivraison.livraison.s2re.fr", "getServiceLivraisonByIdVilleResponse");
     private final static QName _JourSemaineDto_QNAME = new QName("http://servicelivraison.livraison.s2re.fr", "jourSemaineDto");
     private final static QName _GetServiceLivraisonByIdTypeLivraisonResponse_QNAME = new QName("http://servicelivraison.livraison.s2re.fr", "getServiceLivraisonByIdTypeLivraisonResponse");
     private final static QName _HorairesDto_QNAME = new QName("http://servicelivraison.livraison.s2re.fr", "horairesDto");
-    private final static QName _GetServiceLivraisonByIdVille_QNAME = new QName("http://servicelivraison.livraison.s2re.fr", "getServiceLivraisonByIdVille");
+    private final static QName _GetServiceLivraisonByCodePostalVilleResponse_QNAME = new QName("http://servicelivraison.livraison.s2re.fr", "getServiceLivraisonByCodePostalVilleResponse");
     private final static QName _InsertCommandeResponse_QNAME = new QName("http://servicelivraison.livraison.s2re.fr", "insertCommandeResponse");
     private final static QName _ServiceLivraisonDto_QNAME = new QName("http://servicelivraison.livraison.s2re.fr", "serviceLivraisonDto");
     private final static QName _InsertCommande_QNAME = new QName("http://servicelivraison.livraison.s2re.fr", "insertCommande");
@@ -72,6 +72,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetServiceLivraisonByCodePostalVille }
+     * 
+     */
+    public GetServiceLivraisonByCodePostalVille createGetServiceLivraisonByCodePostalVille() {
+        return new GetServiceLivraisonByCodePostalVille();
+    }
+
+    /**
      * Create an instance of {@link VilleDto }
      * 
      */
@@ -104,14 +112,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetServiceLivraisonByIdVilleResponse }
-     * 
-     */
-    public GetServiceLivraisonByIdVilleResponse createGetServiceLivraisonByIdVilleResponse() {
-        return new GetServiceLivraisonByIdVilleResponse();
-    }
-
-    /**
      * Create an instance of {@link JourSemaineDto }
      * 
      */
@@ -133,14 +133,6 @@ public class ObjectFactory {
      */
     public HorairesDto createHorairesDto() {
         return new HorairesDto();
-    }
-
-    /**
-     * Create an instance of {@link GetServiceLivraisonByIdVille }
-     * 
-     */
-    public GetServiceLivraisonByIdVille createGetServiceLivraisonByIdVille() {
-        return new GetServiceLivraisonByIdVille();
     }
 
     /**
@@ -168,6 +160,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetServiceLivraisonByCodePostalVilleResponse }
+     * 
+     */
+    public GetServiceLivraisonByCodePostalVilleResponse createGetServiceLivraisonByCodePostalVilleResponse() {
+        return new GetServiceLivraisonByCodePostalVilleResponse();
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link JourOuvertureDto }{@code >}}
      * 
      */
@@ -192,6 +192,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://servicelivraison.livraison.s2re.fr", name = "typeLivraisonDto")
     public JAXBElement<TypeLivraisonDto> createTypeLivraisonDto(TypeLivraisonDto value) {
         return new JAXBElement<TypeLivraisonDto>(_TypeLivraisonDto_QNAME, TypeLivraisonDto.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetServiceLivraisonByCodePostalVille }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicelivraison.livraison.s2re.fr", name = "getServiceLivraisonByCodePostalVille")
+    public JAXBElement<GetServiceLivraisonByCodePostalVille> createGetServiceLivraisonByCodePostalVille(GetServiceLivraisonByCodePostalVille value) {
+        return new JAXBElement<GetServiceLivraisonByCodePostalVille>(_GetServiceLivraisonByCodePostalVille_QNAME, GetServiceLivraisonByCodePostalVille.class, null, value);
     }
 
     /**
@@ -231,15 +240,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetServiceLivraisonByIdVilleResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicelivraison.livraison.s2re.fr", name = "getServiceLivraisonByIdVilleResponse")
-    public JAXBElement<GetServiceLivraisonByIdVilleResponse> createGetServiceLivraisonByIdVilleResponse(GetServiceLivraisonByIdVilleResponse value) {
-        return new JAXBElement<GetServiceLivraisonByIdVilleResponse>(_GetServiceLivraisonByIdVilleResponse_QNAME, GetServiceLivraisonByIdVilleResponse.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link JourSemaineDto }{@code >}}
      * 
      */
@@ -267,12 +267,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetServiceLivraisonByIdVille }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetServiceLivraisonByCodePostalVilleResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicelivraison.livraison.s2re.fr", name = "getServiceLivraisonByIdVille")
-    public JAXBElement<GetServiceLivraisonByIdVille> createGetServiceLivraisonByIdVille(GetServiceLivraisonByIdVille value) {
-        return new JAXBElement<GetServiceLivraisonByIdVille>(_GetServiceLivraisonByIdVille_QNAME, GetServiceLivraisonByIdVille.class, null, value);
+    @XmlElementDecl(namespace = "http://servicelivraison.livraison.s2re.fr", name = "getServiceLivraisonByCodePostalVilleResponse")
+    public JAXBElement<GetServiceLivraisonByCodePostalVilleResponse> createGetServiceLivraisonByCodePostalVilleResponse(GetServiceLivraisonByCodePostalVilleResponse value) {
+        return new JAXBElement<GetServiceLivraisonByCodePostalVilleResponse>(_GetServiceLivraisonByCodePostalVilleResponse_QNAME, GetServiceLivraisonByCodePostalVilleResponse.class, null, value);
     }
 
     /**

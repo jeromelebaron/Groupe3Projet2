@@ -52,9 +52,9 @@ public class ServiceLivraisonWebServiceImpl implements ILivraisonWebService {
      * {@inheritDoc}
      */
     @Override
-    public List<ServiceLivraisonDto> getServiceLivraisonByIdVille(final Integer paramIdVille) {
+    public List<ServiceLivraisonDto> getServiceLivraisonByCodePostal(final String paramCodePostal) {
         LOGGER.debug("Méthode Webservice getServiceLivraisonByIdVille");
-        return serviceLivraisonBusiness.getServiceLivraisonByIdVille(paramIdVille);
+        return serviceLivraisonBusiness.getServiceLivraisonByCodePostal(paramCodePostal);
     }
 
     /**

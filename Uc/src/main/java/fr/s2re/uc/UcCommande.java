@@ -6,6 +6,8 @@ package fr.s2re.uc;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.ejb.Remote;
+import javax.ejb.Stateless;
 
 import fr.s2re.dto.CommandeDto;
 import fr.s2re.ibusiness.IBusinessServiceLivraison;
@@ -18,6 +20,8 @@ import fr.s2re.livraison.servicelivraison.ServiceLivraisonDto;
  * @author $LastChangedBy$
  * @version $Revision$ $Date$
  */
+@Remote(IUcCommande.class)
+@Stateless
 public class UcCommande implements IUcCommande {
 
     @EJB
@@ -27,8 +31,8 @@ public class UcCommande implements IUcCommande {
      * {@inheritDoc}
      */
     @Override
-    public List<ServiceLivraisonDto> getServiceLivraisonByIdVille(Integer paramIdVille) {
-        return businessServiceLivraison.getServiceLivraisonByIdVille(paramIdVille);
+    public List<ServiceLivraisonDto> getServiceLivraisonByIdVille(final String paramCodePostal) {
+        return businessServiceLivraison.getServiceLivraisonByIdVille(paramCodePostal);
     }
 
     /**

@@ -38,7 +38,7 @@ public class ServiceLivraisonTest {
         ILivraisonWebService serviceLivraisonWebService = serviceLivraisonWS
                 .getServiceLivraisonWebServiceImplPort();
         List<ServiceLivraisonDto> serviceTrouveByVille = serviceLivraisonWebService
-                .getServiceLivraisonByIdVille(1);
+                .getServiceLivraisonByCodePostalVille("92600");
         for (ServiceLivraisonDto localServiceLivraisonDto : serviceTrouveByVille) {
             LOGGER.info(localServiceLivraisonDto.getId());
             List<JourOuvertureDto> lesJourOuvertureDto = localServiceLivraisonDto

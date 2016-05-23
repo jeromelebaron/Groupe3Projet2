@@ -16,10 +16,10 @@ import fr.s2re.livraison.dto.ServiceLivraisonDto;
 @WebService(targetNamespace = "http://servicelivraison.livraison.s2re.fr")
 public interface ILivraisonWebService {
 
-    @WebMethod(operationName = "getServiceLivraisonByIdVille")
-    @WebResult(name = "listeResultatServiceLivraisonByIdVille")
-    List<ServiceLivraisonDto> getServiceLivraisonByIdVille(
-            @WebParam(name = "paramIdVille") Integer idVille);
+    @WebMethod(operationName = "getServiceLivraisonByCodePostalVille")
+    @WebResult(name = "listeResultatServiceLivraisoncodePostalVille")
+    List<ServiceLivraisonDto> getServiceLivraisonByCodePostal(
+            @WebParam(name = "paramCpVille") String paramCodePostal);
 
     @WebMethod(operationName = "getServiceLivraisonByIdTypeLivraison")
     @WebResult(name = "listeResultatServiceLivraisonByIdTypeLivraison")

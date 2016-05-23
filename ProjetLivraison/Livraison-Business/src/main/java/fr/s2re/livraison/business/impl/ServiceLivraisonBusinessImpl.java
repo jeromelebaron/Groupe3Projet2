@@ -53,10 +53,10 @@ public class ServiceLivraisonBusinessImpl implements IServiceLivraisonBusiness {
      * {@inheritDoc}
      */
     @Override
-    public List<ServiceLivraisonDto> getServiceLivraisonByIdVille(final Integer paramIdVille) {
+    public List<ServiceLivraisonDto> getServiceLivraisonByCodePostal(final String paramCodePostal) {
         LOGGER.debug("Méthode business getServiceLivraisonByIdVille");
         final List<ServiceLivraison> lesServiceLivraison = serviceLivraisonDao
-                .getServiceLivraisonByIdVille(paramIdVille);
+                .getServiceLivraisonByIdVille(paramCodePostal);
         recupererTousHorairesOuvertures(lesServiceLivraison);
         final List<ServiceLivraisonDto> lesServiceLivraisonDto = EntityToDto
                 .fromListServiceLivraisonEntityToListLivraisonDto(lesServiceLivraison);

@@ -19,10 +19,10 @@ public interface IServiceLivraisonDao {
 
     /**
      * Pour récupérer les {@link ServiceLivraison} en fonction de la ville.
-     * @param paramIdVille l'id de la {@link Ville} pour laquelle rechercher.
+     * @param paramCodePostal le code postal de la {@link Ville} pour laquelle rechercher.
      * @return une liste de {@link ServiceLivraison}.
      */
-    List<ServiceLivraison> getServiceLivraisonByIdVille(Integer paramIdVille);
+    List<ServiceLivraison> getServiceLivraisonByIdVille(String paramCodePostal);
 
     /**
      * Pour récupérer les {@link ServiceLivraison} en fonction de la ville.

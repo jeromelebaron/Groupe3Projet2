@@ -27,10 +27,10 @@ public class BusinessServiceLivraisonImpl implements IBusinessServiceLivraison {
      * {@inheritDoc}
      */
     @Override
-    public List<ServiceLivraisonDto> getServiceLivraisonByIdVille(final Integer paramIdVille) {
+    public List<ServiceLivraisonDto> getServiceLivraisonByIdVille(final String paramCodePostal) {
         ServiceLivraisonWS serviceLivraisonWS = new ServiceLivraisonWS();
         ILivraisonWebService proxy = serviceLivraisonWS.getServiceLivraisonWebServiceImplPort();
-        return proxy.getServiceLivraisonByIdVille(paramIdVille);
+        return proxy.getServiceLivraisonByCodePostalVille(paramCodePostal);
     }
 
 }

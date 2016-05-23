@@ -18,9 +18,9 @@ public interface IBusinessServiceLivraison {
 
     /**
      * Pour récupérer tous les services de livraisons par {@link VilleDto}.
-     * @param paramIdVille l'id de la {@link VilleDto}.
+     * @param paramCodePostal le code postal de la {@link VilleDto}.
      * @return une liste de {@link ServiceLivraisonDto}.
      */
-    List<ServiceLivraisonDto> getServiceLivraisonByIdVille(Integer paramIdVille);
+    List<ServiceLivraisonDto> getServiceLivraisonByIdVille(String paramCodePostal);
 
 }

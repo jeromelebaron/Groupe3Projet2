@@ -16,7 +16,8 @@ import fr.s2re.livraison.entity.ServiceLivraison;
  */
 public interface IServiceLivraisonBusiness {
 
-    List<ServiceLivraisonDto> getServiceLivraisonByIdVille(final Integer paramIdVille);
+    List<ServiceLivraisonDto> getServiceLivraisonByCodePostal(final String paramparamCodePostal);
 
-    List<ServiceLivraisonDto> getServiceLivraisonByIdTypeLivraison(final Integer paramIdTypeLivraison);
+    List<ServiceLivraisonDto> getServiceLivraisonByIdTypeLivraison(
+            final Integer paramIdTypeLivraison);
 }

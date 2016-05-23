@@ -1,5 +1,6 @@
 package fr.s2re.managedbean;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,8 +19,10 @@ import fr.s2re.dto.MethodeLivraisonDto;
 import fr.s2re.dto.TypeCBDto;
 import fr.s2re.dto.UtilisateurDto;
 import fr.s2re.iuc.IUcClient;
+import fr.s2re.iuc.IUcCommande;
 import fr.s2re.iuc.IUcPanier;
 import fr.s2re.iuc.IUcUtilisateur;
+import fr.s2re.livraison.servicelivraison.ServiceLivraisonDto;
 
 @ManagedBean
 @SessionScoped
@@ -56,6 +59,10 @@ public class CommandeMb {
      * en stock.
      */
     private Map<Integer, Integer> mapLigneCommandeStockInsuffisant = new HashMap<>();
+    /**
+     * La liste des {@link ServiceLivraisonDto}.
+     */
+    private List<ServiceLivraisonDto> lesServicesDeLivraison = new ArrayList<>();
 
     @EJB
     private IUcClient ucClient;
@@ -68,6 +75,11 @@ public class CommandeMb {
      */
     @EJB
     private IUcPanier ucPanier;
+    /**
+     * Concerne les uses case de la {@link CommandeDto}.
+     */
+    @EJB
+    private IUcCommande ucCommande;
 
     @ManagedProperty(value = "#{panierMb}")
     private PanierMb panierMb;
@@ -87,6 +99,7 @@ public class CommandeMb {
         commande.setLignesDeCommande(listLigneDeCommande);
         montantPanier = panierMb.getTotalPanier();
         montantTotalCommande = montantPanier + fraisLivraison;
+
         if (connectionMb != null && connectionMb.getUser() != null) {
             user = connectionMb.getUser();
         }
@@ -104,8 +117,11 @@ public class CommandeMb {
                     }
                 }
             }
-            if (!clientMb.getAdressesLivraison().isEmpty())
+            if (!clientMb.getAdressesLivraison().isEmpty()) {
                 clientMb.setAdresseDisplay(clientMb.getAdressesLivraison().get(0));
+                lesServicesDeLivraison = ucCommande.getServiceLivraisonByIdVille(clientMb
+                        .getAdressesLivraison().get(0).getVille().getCp());
+            }
             typesCb = ucClient.retournerTypeCb();
             return "paiement.xhtml?faces-redirect=true";
         }
@@ -252,6 +268,23 @@ public class CommandeMb {
         mapLigneCommandeStockInsuffisant = paramMapLigneCommandeStockInsuffisant;
     }
 
+    /**
+     * Accesseur en lecture du champ <code>lesServicesDeLivraison</code>.
+     * @return le champ <code>lesServicesDeLivraison</code>.
+     */
+    public List<ServiceLivraisonDto> getLesServicesDeLivraison() {
+        return lesServicesDeLivraison;
+    }
+
+    /**
+     * Accesseur en écriture du champ <code>lesServicesDeLivraison</code>.
+     * @param paramLesServicesDeLivraison la valeur à écrire dans
+     *            <code>lesServicesDeLivraison</code>.
+     */
+    public void setLesServicesDeLivraison(List<ServiceLivraisonDto> paramLesServicesDeLivraison) {
+        lesServicesDeLivraison = paramLesServicesDeLivraison;
+    }
+
     public IUcClient getUcClient() {
         return ucClient;
     }
@@ -282,6 +315,22 @@ public class CommandeMb {
      */
     public void setUcPanier(IUcPanier paramUcPanier) {
         ucPanier = paramUcPanier;
+    }
+
+    /**
+     * Accesseur en lecture du champ <code>ucCommande</code>.
+     * @return le champ <code>ucCommande</code>.
+     */
+    public IUcCommande getUcCommande() {
+        return ucCommande;
+    }
+
+    /**
+     * Accesseur en écriture du champ <code>ucCommande</code>.
+     * @param paramUcCommande la valeur à écrire dans <code>ucCommande</code>.
+     */
+    public void setUcCommande(IUcCommande paramUcCommande) {
+        ucCommande = paramUcCommande;
     }
 
     public PanierMb getPanierMb() {

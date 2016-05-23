@@ -43,7 +43,7 @@ public class ServiceLivraisonDaoImpl implements IServiceLivraisonDao {
      * La requête HQL pour récupérer les {@link ServiceLivraison} par {@link Ville}.
      */
     private static final String REQUETE_FIND_SERVICE_LIVRAISON_BY_VILLE = "SELECT DISTINCT s FROM ServiceLivraison s "
-            + "LEFT JOIN FETCH s.jourOuvertures WHERE s.adresseLocalisation.ville.id = :idVille";
+            + "LEFT JOIN FETCH s.jourOuvertures WHERE s.adresseLocalisation.ville.codePostal = :codePostal";
     /**
      * La requête HQL pour récupérer les {@link ServiceLivraison} par {@link TypeLivraison}.
      */
@@ -54,11 +54,11 @@ public class ServiceLivraisonDaoImpl implements IServiceLivraisonDao {
      * {@inheritDoc}
      */
     @Override
-    public List<ServiceLivraison> getServiceLivraisonByIdVille(final Integer paramIdVille) {
+    public List<ServiceLivraison> getServiceLivraisonByIdVille(final String paramCodePostal) {
         LOGGER.debug("Méthode dao getServiceLivraisonByIdVille");
         final TypedQuery<ServiceLivraison> queryFindServiceLivraisonByVille = entityManager
                 .createQuery(REQUETE_FIND_SERVICE_LIVRAISON_BY_VILLE, ServiceLivraison.class);
-        queryFindServiceLivraisonByVille.setParameter("idVille", paramIdVille);
+        queryFindServiceLivraisonByVille.setParameter("codePostal", paramCodePostal);
         return queryFindServiceLivraisonByVille.getResultList();
     }
 

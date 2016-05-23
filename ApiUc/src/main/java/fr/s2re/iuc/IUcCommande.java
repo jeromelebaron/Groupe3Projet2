@@ -18,9 +18,9 @@ public interface IUcCommande {
 
     /**
      * Pour récupérer tous les services de livraisons par {@link VilleDto}.
-     * @param paramIdVille l'id de la {@link VilleDto}.
+     * @param paramCodePostal le code postal de la {@link VilleDto}.
      * @return une liste de {@link ServiceLivraisonDto}.
      */
-    List<ServiceLivraisonDto> getServiceLivraisonByIdVille(Integer idVille);
+    List<ServiceLivraisonDto> getServiceLivraisonByIdVille(String paramCodePostal);
 
 }

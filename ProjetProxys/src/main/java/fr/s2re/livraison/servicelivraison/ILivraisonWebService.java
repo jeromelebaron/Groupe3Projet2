@@ -26,20 +26,6 @@ public interface ILivraisonWebService {
 
     /**
      * 
-     * @param paramIdVille
-     * @return
-     *     returns java.util.List<fr.s2re.livraison.servicelivraison.ServiceLivraisonDto>
-     */
-    @WebMethod
-    @WebResult(name = "listeResultatServiceLivraisonByIdVille", targetNamespace = "")
-    @RequestWrapper(localName = "getServiceLivraisonByIdVille", targetNamespace = "http://servicelivraison.livraison.s2re.fr", className = "fr.s2re.livraison.servicelivraison.GetServiceLivraisonByIdVille")
-    @ResponseWrapper(localName = "getServiceLivraisonByIdVilleResponse", targetNamespace = "http://servicelivraison.livraison.s2re.fr", className = "fr.s2re.livraison.servicelivraison.GetServiceLivraisonByIdVilleResponse")
-    public List<ServiceLivraisonDto> getServiceLivraisonByIdVille(
-        @WebParam(name = "paramIdVille", targetNamespace = "")
-        Integer paramIdVille);
-
-    /**
-     * 
      * @param paramCommande
      * @return
      *     returns fr.s2re.livraison.servicelivraison.CommandeDto
@@ -65,5 +51,19 @@ public interface ILivraisonWebService {
     public List<ServiceLivraisonDto> getServiceLivraisonByIdTypeLivraison(
         @WebParam(name = "paramIdTypeLivraison", targetNamespace = "")
         Integer paramIdTypeLivraison);
+
+    /**
+     * 
+     * @param paramCpVille
+     * @return
+     *     returns java.util.List<fr.s2re.livraison.servicelivraison.ServiceLivraisonDto>
+     */
+    @WebMethod
+    @WebResult(name = "listeResultatServiceLivraisoncodePostalVille", targetNamespace = "")
+    @RequestWrapper(localName = "getServiceLivraisonByCodePostalVille", targetNamespace = "http://servicelivraison.livraison.s2re.fr", className = "fr.s2re.livraison.servicelivraison.GetServiceLivraisonByCodePostalVille")
+    @ResponseWrapper(localName = "getServiceLivraisonByCodePostalVilleResponse", targetNamespace = "http://servicelivraison.livraison.s2re.fr", className = "fr.s2re.livraison.servicelivraison.GetServiceLivraisonByCodePostalVilleResponse")
+    public List<ServiceLivraisonDto> getServiceLivraisonByCodePostalVille(
+        @WebParam(name = "paramCpVille", targetNamespace = "")
+        String paramCpVille);
 
 }
