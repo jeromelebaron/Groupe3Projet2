@@ -31,7 +31,7 @@ public class UcPanierImpl implements IUcPanier {
      * {@inheritDoc}
      */
     @Override
-    public Map<LigneDeCommandeDto, Integer> validerPanier(
+    public Map<Integer, Integer> validerPanier(
             List<LigneDeCommandeDto> paramListeLigneCommande) {
         return businessPanier.verifierPanier(paramListeLigneCommande);
     }

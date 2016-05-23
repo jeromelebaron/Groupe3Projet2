@@ -41,20 +41,20 @@ public class BusinessPanierImpl implements IBusinessPanier {
      * {@inheritDoc}
      */
     @Override
-    public Map<LigneDeCommandeDto, Integer> verifierPanier(
-            List<LigneDeCommandeDto> paramLesLignesDeCommande) {
+    public Map<Integer, Integer> verifierPanier(List<LigneDeCommandeDto> paramLesLignesDeCommande) {
         BindingProvider bp = (BindingProvider) proxy;
         // Si le service généré par Tomcat ne fonctionne plus
         bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY,
                 "http://localhost:8080/ode/processes/StockBPEL?wsdl");
-        Map<LigneDeCommandeDto, Integer> mapProduitStockInsuffisant = new HashMap<>();
+        Map<Integer, Integer> mapProduitStockInsuffisant = new HashMap<>();
         for (LigneDeCommandeDto localLigneDeCommandeDto : paramLesLignesDeCommande) {
             final StockBPELRequest payload = new StockBPELRequest();
             payload.setReferenceProduit(localLigneDeCommandeDto.getProduit().getReference());
             payload.setQuantiteProduit(localLigneDeCommandeDto.getQuantite());
             final StockBPELResponse stockBPELResponse = proxy.process(payload);
             if ("StockInsuffisant".equals(stockBPELResponse.getMessageSortie())) {
-                mapProduitStockInsuffisant.put(localLigneDeCommandeDto, stockBPELResponse.getQuantiteProduitSortie());
+                mapProduitStockInsuffisant.put(localLigneDeCommandeDto.getProduit().getId(),
+                        stockBPELResponse.getQuantiteProduitSortie());
             }
         }
         return mapProduitStockInsuffisant;

@@ -55,6 +55,17 @@
 												Prix :
 												<h:outputLabel value="#{ligne.produit.prix} €" />
 											</p></li>
+										<li>
+											<p>
+												<h:panelGroup
+													rendered="#{commandeMb.mapLigneCommandeStockInsuffisant.get(ligne.produit.id) != null}">
+													<b>Stock insuffisant, il ne reste que <h:outputText
+															value="#{commandeMb.mapLigneCommandeStockInsuffisant.get(ligne.produit.id)}" />
+														article(s).
+													</b>
+												</h:panelGroup>
+											</p>
+										</li>
 									</ul>
 									<div class="delivery">
 										<span>Total : <h:outputLabel
@@ -75,8 +86,8 @@
 					<h3>Details</h3>
 					<span>Total</span> <span class="total1"><h:outputLabel
 							value="#{panierMb.totalPanier}" /></span> <span>Frais de port
-						estimés</span> <span class="total1"><h:outputLabel
-							value="5.5" /> </span>
+						estimés</span> <span class="total1"><h:outputLabel value="5.5" />
+					</span>
 					<div class="clearfix"></div>
 				</div>
 				<ul class="total_price">

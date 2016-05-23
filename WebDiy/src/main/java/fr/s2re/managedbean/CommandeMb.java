@@ -52,9 +52,10 @@ public class CommandeMb {
 
     private List<LigneDeCommandeDto> listLigneDeCommande;
     /**
-     * La map en cas de problème de stock.
+     * La map en cas de problème de stock vace l'id produit en clé et en valeur la quantité restante
+     * en stock.
      */
-    private Map<LigneDeCommandeDto, Integer> mapLigneCommandeStockInsuffisant = new HashMap<>();
+    private Map<Integer, Integer> mapLigneCommandeStockInsuffisant = new HashMap<>();
 
     @EJB
     private IUcClient ucClient;
@@ -80,6 +81,9 @@ public class CommandeMb {
     public String commander() {
         listLigneDeCommande = panierMb.getListLigneDeCommande();
         mapLigneCommandeStockInsuffisant = ucPanier.validerPanier(listLigneDeCommande);
+        if (!mapLigneCommandeStockInsuffisant.isEmpty()) {
+            return "";
+        }
         commande.setLignesDeCommande(listLigneDeCommande);
         montantPanier = panierMb.getTotalPanier();
         montantTotalCommande = montantPanier + fraisLivraison;
@@ -231,21 +235,21 @@ public class CommandeMb {
     }
 
     /**
-     * Accesseur en lecture du champ <code>ligneCommandeStockInsuffisant</code>.
-     * @return le champ <code>ligneCommandeStockInsuffisant</code>.
+     * Accesseur en lecture du champ <code>mapLigneCommandeStockInsuffisant</code>.
+     * @return le champ <code>mapLigneCommandeStockInsuffisant</code>.
      */
-    public Map<LigneDeCommandeDto, Integer> getLigneCommandeStockInsuffisant() {
+    public Map<Integer, Integer> getMapLigneCommandeStockInsuffisant() {
         return mapLigneCommandeStockInsuffisant;
     }
 
     /**
-     * Accesseur en écriture du champ <code>ligneCommandeStockInsuffisant</code>.
-     * @param paramLigneCommandeStockInsuffisant la valeur à écrire dans
-     *            <code>ligneCommandeStockInsuffisant</code>.
+     * Accesseur en écriture du champ <code>mapLigneCommandeStockInsuffisant</code>.
+     * @param paramMapLigneCommandeStockInsuffisant la valeur à écrire dans
+     *            <code>mapLigneCommandeStockInsuffisant</code>.
      */
-    public void setLigneCommandeStockInsuffisant(
-            Map<LigneDeCommandeDto, Integer> paramLigneCommandeStockInsuffisant) {
-        mapLigneCommandeStockInsuffisant = paramLigneCommandeStockInsuffisant;
+    public void setMapLigneCommandeStockInsuffisant(
+            Map<Integer, Integer> paramMapLigneCommandeStockInsuffisant) {
+        mapLigneCommandeStockInsuffisant = paramMapLigneCommandeStockInsuffisant;
     }
 
     public IUcClient getUcClient() {
