@@ -18,4 +18,11 @@ public interface IUcTransactionBancaire {
      * @return <code>true</code> si la commande est validée <code>false</code> sinon.
      */
     boolean validerPaiement(CartePaiementDto paramCartePaiementDto, double paramMontantTransaction);
+    /**
+     * pour verifier le solde dans le compte bancaire du client avant de payer
+     * @param nomClient
+     * @param montantCommande
+     * @return
+     */
+    boolean verifierSolde(String nomClient, double montantCommande);
 }

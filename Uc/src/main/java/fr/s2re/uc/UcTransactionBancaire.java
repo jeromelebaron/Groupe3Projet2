@@ -1,15 +1,19 @@
 package fr.s2re.uc;
 
+import javax.ejb.EJB;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
 import fr.s2re.dto.CartePaiementDto;
+import fr.s2re.ibusiness.IBusinessServicePaiement;
 import fr.s2re.iuc.IUcTransactionBancaire;
 
 @Remote(IUcTransactionBancaire.class)
 @Stateless
 public class UcTransactionBancaire implements IUcTransactionBancaire {
 
+	@EJB
+	IBusinessServicePaiement servicePaiement;
     // Appel du webservice de paiement
 
     @Override
@@ -17,5 +21,10 @@ public class UcTransactionBancaire implements IUcTransactionBancaire {
             double paramMontantTransaction) {
         return true;
     }
+
+	@Override
+	public boolean verifierSolde(String nomClient, double montantCommande) {
+		return servicePaiement.verifierSolde(nomClient, montantCommande);
+	}
 
 }
