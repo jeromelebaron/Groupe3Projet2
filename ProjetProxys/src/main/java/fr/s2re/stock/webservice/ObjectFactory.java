@@ -26,7 +26,9 @@ public class ObjectFactory {
 
     private final static QName _GetProduitByReferenceResponse_QNAME = new QName("http://webservice.stock.s2re.fr", "getProduitByReferenceResponse");
     private final static QName _ProduitDto_QNAME = new QName("http://webservice.stock.s2re.fr", "produitDto");
+    private final static QName _DecrementerStock_QNAME = new QName("http://webservice.stock.s2re.fr", "decrementerStock");
     private final static QName _GetProduitByReference_QNAME = new QName("http://webservice.stock.s2re.fr", "getProduitByReference");
+    private final static QName _DecrementerStockResponse_QNAME = new QName("http://webservice.stock.s2re.fr", "decrementerStockResponse");
     private final static QName _UpdateProduit_QNAME = new QName("http://webservice.stock.s2re.fr", "updateProduit");
     private final static QName _UpdateProduitResponse_QNAME = new QName("http://webservice.stock.s2re.fr", "updateProduitResponse");
 
@@ -35,6 +37,14 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link DecrementerStockResponse }
+     * 
+     */
+    public DecrementerStockResponse createDecrementerStockResponse() {
+        return new DecrementerStockResponse();
     }
 
     /**
@@ -78,6 +88,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DecrementerStock }
+     * 
+     */
+    public DecrementerStock createDecrementerStock() {
+        return new DecrementerStock();
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetProduitByReferenceResponse }{@code >}}
      * 
      */
@@ -96,12 +114,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DecrementerStock }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice.stock.s2re.fr", name = "decrementerStock")
+    public JAXBElement<DecrementerStock> createDecrementerStock(DecrementerStock value) {
+        return new JAXBElement<DecrementerStock>(_DecrementerStock_QNAME, DecrementerStock.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetProduitByReference }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://webservice.stock.s2re.fr", name = "getProduitByReference")
     public JAXBElement<GetProduitByReference> createGetProduitByReference(GetProduitByReference value) {
         return new JAXBElement<GetProduitByReference>(_GetProduitByReference_QNAME, GetProduitByReference.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DecrementerStockResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice.stock.s2re.fr", name = "decrementerStockResponse")
+    public JAXBElement<DecrementerStockResponse> createDecrementerStockResponse(DecrementerStockResponse value) {
+        return new JAXBElement<DecrementerStockResponse>(_DecrementerStockResponse_QNAME, DecrementerStockResponse.class, null, value);
     }
 
     /**
