@@ -21,6 +21,6 @@ public interface IUcCommande {
      * @param paramCodePostal le code postal de la {@link VilleDto}.
      * @return une liste de {@link ServiceLivraisonDto}.
      */
-    List<ServiceLivraisonDto> getServiceLivraisonByIdVille(String paramCodePostal);
+    List<ServiceLivraisonDto> getServiceLivraisonByCodePostalVille(String paramCodePostal);
 
 }

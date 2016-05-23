@@ -119,7 +119,7 @@ public class CommandeMb {
             }
             if (!clientMb.getAdressesLivraison().isEmpty()) {
                 clientMb.setAdresseDisplay(clientMb.getAdressesLivraison().get(0));
-                lesServicesDeLivraison = ucCommande.getServiceLivraisonByIdVille(clientMb
+                lesServicesDeLivraison = ucCommande.getServiceLivraisonByCodePostalVille(clientMb
                         .getAdressesLivraison().get(0).getVille().getCp());
             }
             typesCb = ucClient.retournerTypeCb();
