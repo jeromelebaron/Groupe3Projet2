@@ -45,7 +45,7 @@ public class BusinessPanierImpl implements IBusinessPanier {
         BindingProvider bp = (BindingProvider) proxy;
         // Si le service généré par Tomcat ne fonctionne plus
         bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY,
-                "http://localhost:8080/ode/processes/StockBPEL?wsdl");
+                "http://192.168.100.172:8080/ode/processes/StockBPEL?wsdl");
         Map<Integer, Integer> mapProduitStockInsuffisant = new HashMap<>();
         for (LigneDeCommandeDto localLigneDeCommandeDto : paramLesLignesDeCommande) {
             final StockBPELRequest payload = new StockBPELRequest();
