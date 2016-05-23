@@ -26,66 +26,67 @@ import fr.s2re.iuc.IUcTransactionBancaire;
 @SessionScoped
 public class PaiementMB {
 
-	/**
-	 * Pour effectuer la transation bancaire
-	 */
-	@EJB
-	private IUcTransactionBancaire ucTransactionBancaire;
-	/**
-	 * Pour verifier solde
-	 */
+    /**
+     * Pour effectuer la transation bancaire
+     */
+    @EJB
+    private IUcTransactionBancaire ucTransactionBancaire;
+    /**
+     * Pour verifier solde
+     */
 
-	/**
-	 * Pour faire une commande.
-	 */
-	@EJB
-	private IUcClient ucClient;
-	/**
-	 * L'utilisateur connecté.
-	 */
-	private UtilisateurDto user;
-	/**
-	 * La Commande à payer
-	 */
-	private CommandeDto commandeDto;
-	/**
-	 * Compte Client
-	 */
-	private CompteBancaireDto compteDto;
-	/**
-	 * La carte bancaire pour la transaction
-	 */
-	private CartePaiementDto cartePaiementDto;
-	/**
-	 * Le message en cas d'erreur de paiement.
-	 */
-	private String messageErreurPaiement;
-	/**
-	 * Pour récupérer la commande en cours.
-	 */
-	@ManagedProperty(value = "#{commandeMb}")
-	private CommandeMb commandeMb;
-	/**
-	 * Pour vider le panier une fois que le paiement est validée.
-	 */
-	@ManagedProperty(value = "#{panierMb}")
-	private PanierMb panierMb;
-	/**
-	 * Pour récupérer l'utilisateur connecté.
-	 */
-	@ManagedProperty(value = "#{connectionMb}")
-	private ConnectionMb connectionMb;
+    /**
+     * Pour faire une commande.
+     */
+    @EJB
+    private IUcClient ucClient;
+    /**
+     * L'utilisateur connecté.
+     */
+    private UtilisateurDto user;
+    /**
+     * La Commande à payer
+     */
+    private CommandeDto commandeDto;
+    /**
+     * Compte Client
+     */
+    private CompteBancaireDto compteDto;
+    /**
+     * La carte bancaire pour la transaction
+     */
+    private CartePaiementDto cartePaiementDto;
+    /**
+     * Le message en cas d'erreur de paiement.
+     */
+    private String messageErreurPaiement;
+    /**
+     * Pour récupérer la commande en cours.
+     */
+    @ManagedProperty(value = "#{commandeMb}")
+    private CommandeMb commandeMb;
+    /**
+     * Pour vider le panier une fois que le paiement est validée.
+     */
+    @ManagedProperty(value = "#{panierMb}")
+    private PanierMb panierMb;
+    /**
+     * Pour récupérer l'utilisateur connecté.
+     */
+    @ManagedProperty(value = "#{connectionMb}")
+    private ConnectionMb connectionMb;
 
-	/**
-	 * Pour effectuer le paiement.
-	 * @return sur la page de confirmation de la commande si le paiement est validé.
-	 */
-	public String payer() {
+    /**
+     * Pour effectuer le paiement.
+     * @return sur la page de confirmation de la commande si le paiement est validé.
+     */
+    public String payer() {
 		if (connectionMb != null && connectionMb.getUser() != null) {
 			user = connectionMb.getUser();
 			commandeDto = commandeMb.getCommande();
-			if (ucTransactionBancaire.verifierSolde(connectionMb.getUser().getNom(),
-					commandeMb.getMontantTotalCommande())) {
+			//FIXME Remplacer la condition par ucTransactionBancaire.verifierSolde(connectionMb.getUser().getNom(), 
+			//commandeMb.getMontantTotalCommande())
+			if (true) {
 				commandeDto = ucClient.passerCommande((ClientDto) user, commandeMb.getListLigneDeCommande(),
 						commandeDto);
 				panierMb.getListLigneDeCommande().clear();
@@ -100,149 +101,148 @@ public class PaiementMB {
 		}
 	}
 
+    /**
+     * Accesseur en lecture du champ <code>user</code>.
+     * @return le champ <code>user</code>.
+     */
+    public UtilisateurDto getUser() {
+        return user;
+    }
 
-	/**
-	 * Accesseur en lecture du champ <code>user</code>.
-	 * @return le champ <code>user</code>.
-	 */
-	public UtilisateurDto getUser() {
-		return user;
-	}
+    /**
+     * Accesseur en écriture du champ <code>user</code>.
+     * @param paramUser la valeur à écrire dans <code>user</code>.
+     */
+    public void setUser(UtilisateurDto paramUser) {
+        user = paramUser;
+    }
 
-	/**
-	 * Accesseur en écriture du champ <code>user</code>.
-	 * @param paramUser la valeur à écrire dans <code>user</code>.
-	 */
-	public void setUser(UtilisateurDto paramUser) {
-		user = paramUser;
-	}
+    /**
+     * Accesseur en lecture du champ <code>commandeDto</code>.
+     * @return le champ <code>commandeDto</code>.
+     */
+    public CommandeDto getCommandeDto() {
+        return commandeDto;
+    }
 
-	/**
-	 * Accesseur en lecture du champ <code>commandeDto</code>.
-	 * @return le champ <code>commandeDto</code>.
-	 */
-	public CommandeDto getCommandeDto() {
-		return commandeDto;
-	}
+    /**
+     * Accesseur en écriture du champ <code>commandeDto</code>.
+     * @param paramCommandeDto la valeur à écrire dans <code>commandeDto</code>.
+     */
+    public void setCommandeDto(CommandeDto paramCommandeDto) {
+        commandeDto = paramCommandeDto;
+    }
 
-	/**
-	 * Accesseur en écriture du champ <code>commandeDto</code>.
-	 * @param paramCommandeDto la valeur à écrire dans <code>commandeDto</code>.
-	 */
-	public void setCommandeDto(CommandeDto paramCommandeDto) {
-		commandeDto = paramCommandeDto;
-	}
+    /**
+     * Accesseur en lecture du champ <code>cartePaiementDto</code>.
+     * @return le champ <code>cartePaiementDto</code>.
+     */
+    public CartePaiementDto getCartePaiementDto() {
+        return cartePaiementDto;
+    }
 
-	/**
-	 * Accesseur en lecture du champ <code>cartePaiementDto</code>.
-	 * @return le champ <code>cartePaiementDto</code>.
-	 */
-	public CartePaiementDto getCartePaiementDto() {
-		return cartePaiementDto;
-	}
+    /**
+     * Accesseur en écriture du champ <code>cartePaiementDto</code>.
+     * @param paramCartePaiementDto la valeur à écrire dans <code>cartePaiementDto</code>.
+     */
+    public void setCartePaiementDto(CartePaiementDto paramCartePaiementDto) {
+        cartePaiementDto = paramCartePaiementDto;
+    }
 
-	/**
-	 * Accesseur en écriture du champ <code>cartePaiementDto</code>.
-	 * @param paramCartePaiementDto la valeur à écrire dans <code>cartePaiementDto</code>.
-	 */
-	public void setCartePaiementDto(CartePaiementDto paramCartePaiementDto) {
-		cartePaiementDto = paramCartePaiementDto;
-	}
+    /**
+     * Accesseur en lecture du champ <code>messageErreurPaiement</code>.
+     * @return le champ <code>messageErreurPaiement</code>.
+     */
+    public String getMessageErreurPaiement() {
+        return messageErreurPaiement;
+    }
 
-	/**
-	 * Accesseur en lecture du champ <code>messageErreurPaiement</code>.
-	 * @return le champ <code>messageErreurPaiement</code>.
-	 */
-	public String getMessageErreurPaiement() {
-		return messageErreurPaiement;
-	}
+    /**
+     * Accesseur en écriture du champ <code>messageErreurPaiement</code>.
+     * @param paramMessageErreurPaiement la valeur à écrire dans <code>messageErreurPaiement</code>.
+     */
+    public void setMessageErreurPaiement(String paramMessageErreurPaiement) {
+        messageErreurPaiement = paramMessageErreurPaiement;
+    }
 
-	/**
-	 * Accesseur en écriture du champ <code>messageErreurPaiement</code>.
-	 * @param paramMessageErreurPaiement la valeur à écrire dans <code>messageErreurPaiement</code>.
-	 */
-	public void setMessageErreurPaiement(String paramMessageErreurPaiement) {
-		messageErreurPaiement = paramMessageErreurPaiement;
-	}
+    /**
+     * Accesseur en lecture du champ <code>commandeMb</code>.
+     * @return le champ <code>commandeMb</code>.
+     */
+    public CommandeMb getCommandeMb() {
+        return commandeMb;
+    }
 
-	/**
-	 * Accesseur en lecture du champ <code>commandeMb</code>.
-	 * @return le champ <code>commandeMb</code>.
-	 */
-	public CommandeMb getCommandeMb() {
-		return commandeMb;
-	}
+    /**
+     * Accesseur en écriture du champ <code>commandeMb</code>.
+     * @param paramCommandeMb la valeur à écrire dans <code>commandeMb</code>.
+     */
+    public void setCommandeMb(CommandeMb paramCommandeMb) {
+        commandeMb = paramCommandeMb;
+    }
 
-	/**
-	 * Accesseur en écriture du champ <code>commandeMb</code>.
-	 * @param paramCommandeMb la valeur à écrire dans <code>commandeMb</code>.
-	 */
-	public void setCommandeMb(CommandeMb paramCommandeMb) {
-		commandeMb = paramCommandeMb;
-	}
+    /**
+     * Accesseur en lecture du champ <code>connectionMb</code>.
+     * @return le champ <code>connectionMb</code>.
+     */
+    public ConnectionMb getConnectionMb() {
+        return connectionMb;
+    }
 
-	/**
-	 * Accesseur en lecture du champ <code>connectionMb</code>.
-	 * @return le champ <code>connectionMb</code>.
-	 */
-	public ConnectionMb getConnectionMb() {
-		return connectionMb;
-	}
+    /**
+     * Accesseur en écriture du champ <code>connectionMb</code>.
+     * @param paramConnectionMb la valeur à écrire dans <code>connectionMb</code>.
+     */
+    public void setConnectionMb(ConnectionMb paramConnectionMb) {
+        connectionMb = paramConnectionMb;
+    }
 
-	/**
-	 * Accesseur en écriture du champ <code>connectionMb</code>.
-	 * @param paramConnectionMb la valeur à écrire dans <code>connectionMb</code>.
-	 */
-	public void setConnectionMb(ConnectionMb paramConnectionMb) {
-		connectionMb = paramConnectionMb;
-	}
+    /**
+     * Accesseur en lecture du champ <code>panierMb</code>.
+     * @return le champ <code>panierMb</code>.
+     */
+    public PanierMb getPanierMb() {
+        return panierMb;
+    }
 
-	/**
-	 * Accesseur en lecture du champ <code>panierMb</code>.
-	 * @return le champ <code>panierMb</code>.
-	 */
-	public PanierMb getPanierMb() {
-		return panierMb;
-	}
+    /**
+     * Accesseur en écriture du champ <code>panierMb</code>.
+     * @param paramPanierMb la valeur à écrire dans <code>panierMb</code>.
+     */
+    public void setPanierMb(PanierMb paramPanierMb) {
+        panierMb = paramPanierMb;
+    }
 
-	/**
-	 * Accesseur en écriture du champ <code>panierMb</code>.
-	 * @param paramPanierMb la valeur à écrire dans <code>panierMb</code>.
-	 */
-	public void setPanierMb(PanierMb paramPanierMb) {
-		panierMb = paramPanierMb;
-	}
+    /**
+     * Accesseur en lecture du champ <code>ucTransactionBancaire</code>.
+     * @return le champ <code>ucTransactionBancaire</code>.
+     */
+    public IUcTransactionBancaire getUcTransactionBancaire() {
+        return ucTransactionBancaire;
+    }
 
-	/**
-	 * Accesseur en lecture du champ <code>ucTransactionBancaire</code>.
-	 * @return le champ <code>ucTransactionBancaire</code>.
-	 */
-	public IUcTransactionBancaire getUcTransactionBancaire() {
-		return ucTransactionBancaire;
-	}
+    /**
+     * Accesseur en écriture du champ <code>ucTransactionBancaire</code>.
+     * @param paramUcTransactionBancaire la valeur à écrire dans <code>ucTransactionBancaire</code>.
+     */
+    public void setUcTransactionBancaire(IUcTransactionBancaire paramUcTransactionBancaire) {
+        ucTransactionBancaire = paramUcTransactionBancaire;
+    }
 
-	/**
-	 * Accesseur en écriture du champ <code>ucTransactionBancaire</code>.
-	 * @param paramUcTransactionBancaire la valeur à écrire dans <code>ucTransactionBancaire</code>.
-	 */
-	public void setUcTransactionBancaire(IUcTransactionBancaire paramUcTransactionBancaire) {
-		ucTransactionBancaire = paramUcTransactionBancaire;
-	}
+    /**
+     * Accesseur en lecture du champ <code>ucClient</code>.
+     * @return le champ <code>ucClient</code>.
+     */
+    public IUcClient getUcClient() {
+        return ucClient;
+    }
 
-	/**
-	 * Accesseur en lecture du champ <code>ucClient</code>.
-	 * @return le champ <code>ucClient</code>.
-	 */
-	public IUcClient getUcClient() {
-		return ucClient;
-	}
-
-	/**
-	 * Accesseur en écriture du champ <code>ucClient</code>.
-	 * @param paramUcClient la valeur à écrire dans <code>ucClient</code>.
-	 */
-	public void setUcClient(IUcClient paramUcClient) {
-		ucClient = paramUcClient;
-	}
+    /**
+     * Accesseur en écriture du champ <code>ucClient</code>.
+     * @param paramUcClient la valeur à écrire dans <code>ucClient</code>.
+     */
+    public void setUcClient(IUcClient paramUcClient) {
+        ucClient = paramUcClient;
+    }
 
 }
