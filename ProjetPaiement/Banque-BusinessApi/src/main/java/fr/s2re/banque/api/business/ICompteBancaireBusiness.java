@@ -6,6 +6,6 @@ import fr.s2re.banque.dto.ClientDto;
 import fr.s2re.banque.dto.CompteBancaireDto;
 
 public interface ICompteBancaireBusiness {
-	boolean verifierSolde(int idCompte, double montantCommande);
+	boolean verifierSolde(String nomClient, double montantCommande);
 	List<CompteBancaireDto> getCompteByClient(Integer idClient);
 }

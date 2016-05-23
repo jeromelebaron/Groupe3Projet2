@@ -19,11 +19,17 @@ public class CarteBancaireDao implements ICarteBancaireDao {
 	EntityManager em;
 	@Override
 	public List<Cartebancaire> getCarteByClient(Integer idClient) {
-		javax.persistence.Query req = em.createQuery("Select distinct c FROM Cartebancaire c WHERE c.comptebancaire().client().idClient() = :idClient");
+		javax.persistence.Query req = em.createQuery("Select distinct c FROM Cartebancaire c WHERE c.comptebancaire.client.idClient = :idClient");
 		req.setParameter("idClient", idClient);
 		return req.getResultList();
 		
 		
+	}
+	@Override
+	public List<Cartebancaire> getCarteByCompte(Integer idCompte) {
+		javax.persistence.Query req = em.createQuery("Select distinct c FROM Cartebancaire c WHERE c.comptebancaire.idCompte = :idCompte");
+		req.setParameter("idCompte", idCompte);
+		return req.getResultList();
 	}
 
 }
