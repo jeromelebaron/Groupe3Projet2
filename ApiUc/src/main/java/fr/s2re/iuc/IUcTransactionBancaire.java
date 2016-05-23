@@ -1,5 +1,6 @@
 package fr.s2re.iuc;
 
+import fr.s2re.banque.servicebanque.CarteBancaireDto;
 import fr.s2re.dto.CartePaiementDto;
 import fr.s2re.dto.CommandeDto;
 
@@ -24,5 +25,5 @@ public interface IUcTransactionBancaire {
      * @param montantCommande
      * @return
      */
-    boolean verifierSolde(String nomClient, double montantCommande);
+    boolean verifierSolde(String nomClient, double montantCommande, CarteBancaireDto carteDto);
 }

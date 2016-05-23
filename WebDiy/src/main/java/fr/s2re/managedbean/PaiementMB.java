@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
+import fr.s2re.banque.servicebanque.CarteBancaireDto;
 import fr.s2re.banque.servicebanque.CompteBancaireDto;
 import fr.s2re.dto.CartePaiementDto;
 import fr.s2re.dto.ClientDto;
@@ -45,13 +46,18 @@ public class PaiementMB {
      */
     private UtilisateurDto user;
     /**
+     * nom titulaire carte 
+     */
+    private String nomTitulaire;
+   
+	/**
      * La Commande à payer
      */
     private CommandeDto commandeDto;
     /**
-     * Compte Client
+     * carteBancaireClient
      */
-    private CompteBancaireDto compteDto;
+    private CarteBancaireDto carteDto = new CarteBancaireDto();
     /**
      * La carte bancaire pour la transaction
      */
@@ -84,9 +90,7 @@ public class PaiementMB {
 		if (connectionMb != null && connectionMb.getUser() != null) {
 			user = connectionMb.getUser();
 			commandeDto = commandeMb.getCommande();
-			//FIXME Remplacer la condition par ucTransactionBancaire.verifierSolde(connectionMb.getUser().getNom(), 
-			//commandeMb.getMontantTotalCommande())
-			if (true) {
+			if (ucTransactionBancaire.verifierSolde(nomTitulaire,commandeDto.getTotal(), carteDto )) {
 				commandeDto = ucClient.passerCommande((ClientDto) user, commandeMb.getListLigneDeCommande(),
 						commandeDto);
 				panierMb.getListLigneDeCommande().clear();
@@ -245,4 +249,18 @@ public class PaiementMB {
         ucClient = paramUcClient;
     }
 
+	public CarteBancaireDto getCarteDto() {
+		return carteDto;
+	}
+
+	public void setCarteDto(CarteBancaireDto carteDto) {
+		this.carteDto = carteDto;
+	}
+	 public String getNomTitulaire() {
+			return nomTitulaire;
+		}
+
+		public void setNomTitulaire(String nomTitulaire) {
+			this.nomTitulaire = nomTitulaire;
+		}
 }

@@ -4,6 +4,7 @@ import javax.ejb.EJB;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
+import fr.s2re.banque.servicebanque.CarteBancaireDto;
 import fr.s2re.dto.CartePaiementDto;
 import fr.s2re.ibusiness.IBusinessServicePaiement;
 import fr.s2re.iuc.IUcTransactionBancaire;
@@ -23,8 +24,8 @@ public class UcTransactionBancaire implements IUcTransactionBancaire {
     }
 
 	@Override
-	public boolean verifierSolde(String nomClient, double montantCommande) {
-		return servicePaiement.verifierSolde(nomClient, montantCommande);
+	public boolean verifierSolde(String nomClient, double montantCommande, CarteBancaireDto carteDto) {
+		return servicePaiement.verifierSolde(nomClient, montantCommande, carteDto);
 	}
 
 }

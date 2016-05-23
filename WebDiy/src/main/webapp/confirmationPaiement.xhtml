@@ -48,19 +48,19 @@
 								<legend>Données carte bancaire</legend>
 								<div>
                                     <h:outputLabel value="Nom du titulaire de la carte" class="text_align_add" />
-                                    <h:inputText value="#{paiementMB.user.nom}" /> />
+                                    <h:inputText value="#{paiementMB.nomTitulaire}" /> 
                                 </div>
 								<div>
-									<h:outputLabel value="#{}Numero de la carte" class="text_align_add" />
-									<h:inputText value="" /> />
+									<h:outputLabel value="Numero de la carte" class="text_align_add" />
+									<h:inputText value="#{paiementMB.carteDto.numeroCarte}" /> 
 								</div>
 								<div>
 									<h:outputLabel value="Date d'expiration" class="text_align_add" />
-									<h:inputText value="" />/<input type="text" />
+									<input type="text" />
 								</div>
 								<div>
 									<h:outputLabel value="Cryptogramme visuel" class="text_align_add" />
-									<input type="text" />
+									<h:inputText value="#{paiementMB.carteDto.cryptogramme}" /> 
 								</div>
 							</fieldset>
 							<div class="row">
