@@ -37,6 +37,12 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<includeInApplicationXml>true</includeInApplicationXml>
+					<archive>
+						<manifestEntries>
+							<Dependencies>org.apache.xerces, org.dom4j</Dependencies>
+						</manifestEntries>
+					</archive>
 				</configuration>
 			</plugin>
 		</plugins>

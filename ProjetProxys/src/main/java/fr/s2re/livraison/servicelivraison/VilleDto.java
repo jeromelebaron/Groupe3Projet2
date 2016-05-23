@@ -1,8 +1,10 @@
 
 package fr.s2re.livraison.servicelivraison;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -40,8 +42,12 @@ import javax.xml.bind.annotation.XmlType;
     "id",
     "nom"
 })
-public class VilleDto {
+public class VilleDto implements Serializable {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     @XmlElement(nillable = true)
     protected List<AdresseDto> adresses;
     protected String codePostal;
