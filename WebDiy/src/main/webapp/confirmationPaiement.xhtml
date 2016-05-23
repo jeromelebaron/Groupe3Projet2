@@ -35,24 +35,37 @@
 							</ui:repeat>
 						</div>
 					</div>
-					<div class="quick_desc">
-						<fieldset>
-							<legend>Données de la carte bancaire</legend>
+					<div>
+						<div class="quick_desc">
+							<fieldset>
+								<legend>Cartes de paiement</legend>
+								<div>
+									<img src="images/payment.png" class="img-responsive" alt="" />
+									<span>DIY Decor Home accepte la plupart des cartes de
+										crédit et de débit</span>
+								</div>
+								<legend> </legend>
+								<legend>Données carte bancaire</legend>
+								<div>
+                                    <h:outputLabel value="Nom du titulaire de la carte" class="text_align_add" />
+                                    <input type="text" />
+                                </div>
+								<div>
+									<h:outputLabel value="Numero de la carte" class="text_align_add" />
+									<input type="text" />
+								</div>
+								<div>
+									<h:outputLabel value="Date d'expiration" class="text_align_add" />
+									<input type="text" />/<input type="text" />
+								</div>
+								<div>
+									<h:outputLabel value="Cryptogramme visuel" class="text_align_add" />
+									<input type="text" />
+								</div>
+							</fieldset>
 							<div class="row">
-								<h:outputLabel value="Numero" styleClass="col-md-3" />
-								<input type="text" class="col-md-3" />
-							</div>
-							<div class="row">
-								<h:outputLabel value="Date d'expiration" styleClass="col-md-3" />
-								<input type="text" size="3" /> / <input type="text" size="3" />
-							</div>
-							<div class="row">
-								<h:outputLabel value="Cryptogramme" styleClass="col-md-3" />
-								<input type="text" size="3" />
-							</div>
-						</fieldset>
-						<div class="row">
 							<h:outputLabel value="#{paiementMB.messageErreurPaiement}" />
+							</div>
 						</div>
 					</div>
 				</div>
