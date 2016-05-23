@@ -21,9 +21,10 @@ public class CompteBancaireDao implements ICompteBancaireDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Comptebancaire> getCompteByClient(Integer idClient) {
-		javax.persistence.Query req = em.createQuery("Select distinct c FROM Comptebancaire c WHERE c.client.idClient = :idClient");
+		javax.persistence.Query req = em.createQuery("Select distinct c FROM Comptebancaire c inner join fetch c.operationbancaires WHERE c.client.idClient = :idClient");
 		req.setParameter("idClient", idClient);
-		return req.getResultList();
+		List<Comptebancaire> comptes = req.getResultList();
+		return comptes;
 	}
 
 

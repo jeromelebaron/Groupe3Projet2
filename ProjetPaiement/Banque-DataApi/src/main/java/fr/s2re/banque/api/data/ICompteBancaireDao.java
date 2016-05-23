@@ -9,4 +9,5 @@ public interface ICompteBancaireDao {
 
 	List<Comptebancaire> getCompteByClient(Integer idClient);
 	Comptebancaire getCompteById(Integer idCompte);
+	
 }

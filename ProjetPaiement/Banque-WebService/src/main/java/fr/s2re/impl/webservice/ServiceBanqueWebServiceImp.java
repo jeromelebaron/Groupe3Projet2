@@ -38,15 +38,9 @@ public class ServiceBanqueWebServiceImp implements IServiceBanqueWebService {
 
 
 	@Override
-	public boolean verifierSolde(int idCompte, double montantCommande) {
+	public boolean verifierSolde(String nomClient, double montantCommande) {
 		logger.debug("verification du solde dans le compte client");
-		return compteBancaireBusiness.verifierSolde(idCompte, montantCommande);
-	}
-
-	@Override
-	public List<CompteBancaireDto> getCompteByClient(Integer idClient) {
-		logger.debug("verification du solde dans le compte client");
-		return compteBancaireBusiness.getCompteByClient(idClient);
+		return compteBancaireBusiness.verifierSolde(nomClient, montantCommande);
 	}
 
 	@Override

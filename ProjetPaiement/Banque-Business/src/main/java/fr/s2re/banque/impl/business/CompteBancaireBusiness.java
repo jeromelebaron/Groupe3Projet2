@@ -8,10 +8,13 @@ import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
 import fr.s2re.banque.api.business.ICompteBancaireBusiness;
+import fr.s2re.banque.api.data.ICarteBancaireDao;
+import fr.s2re.banque.api.data.IClientDao;
 import fr.s2re.banque.api.data.ICompteBancaireDao;
 import fr.s2re.banque.api.data.IOperationBancaireDao;
 import fr.s2re.banque.assembleur.DtoToEntity;
 import fr.s2re.banque.assembleur.EntityToDto;
+import fr.s2re.banque.dto.CarteBancaireDto;
 import fr.s2re.banque.dto.ClientDto;
 import fr.s2re.banque.dto.CompteBancaireDto;
 import fr.s2re.banque.dto.CreditDto;
@@ -25,28 +28,54 @@ import fr.s2re.banque.entity.Debit;
 public class CompteBancaireBusiness implements ICompteBancaireBusiness{
 	@EJB
 	ICompteBancaireDao compteBancaireDao;
+	@EJB
 	IOperationBancaireDao operationBancaireDao;
+	@EJB
+	IClientDao clientDao;
+	@EJB
+	ICarteBancaireDao carteBancaireDao;
+
+	private Double calculSoldeActuel(Double soldeInitial, Integer idCompteBancaire){
+		Double soldeActuel = null;
+		List<OperationBancaireDto> operationsBancaireDto = EntityToDto.fromListeOperationsEntityToListeOperationsDto(operationBancaireDao.getOperationByCompte(idCompteBancaire));
+		for(OperationBancaireDto operation : operationsBancaireDto){
+			if(operation.getClass() == DebitDto.class){
+				soldeActuel = soldeInitial + operation.getMontant();
+			}
+			if(operation.getClass() == CreditDto.class){
+				soldeActuel = soldeInitial - operation.getMontant();	
+			}
+		}
+		return soldeActuel;
+	}
 
 
 	@Override
-	public boolean verifierSolde(int idCompte, double montantCommande) {
-		CompteBancaireDto compte = EntityToDto.fromCompteBancaireEntityToCompteBancaireDto(compteBancaireDao.getCompteById(idCompte));	
-		List<OperationBancaireDto> operationsBancaireDto = EntityToDto.fromListeOperationsEntityToListeOperationsDto(operationBancaireDao.getOperationByCompte(idCompte));
-		for(OperationBancaireDto operation : operationsBancaireDto){
-			Double montantOperation = operation.getMontant();
-			if(operation.getClass() == DebitDto.class){
-				montantOperation =  (operation.getMontant())+ montantCommande;
+	public boolean verifierSolde(String nomClient, double montantCommande) {
+		ClientDto client = EntityToDto.fromClientEntityToClientDto(clientDao.getCLientByNom(nomClient));
+		List<CompteBancaireDto> comptes = new ArrayList<>();
+		List<CarteBancaireDto> cartesBancaire = new ArrayList<>();
+		Double soldeActuel;
+		if(client !=null){
+			comptes = EntityToDto.fromListeComptesEntityToListeComptesDto(compteBancaireDao.getCompteByClient(client.getIdClient()));
+		}
+		if(!comptes.isEmpty()){
+			for(CompteBancaireDto compte : comptes){
+				cartesBancaire = EntityToDto.fromListeCartesEntityToListeCartesDto(carteBancaireDao.getCarteByCompte(compte.getIdCompte()));
 			}
-			if(operation.getClass() == CreditDto.class){
-				montantOperation =  (operation.getMontant())- montantCommande;
-			}
-			if(compte.getSolde() <=montantOperation){
+		}
+
+		for(CarteBancaireDto carte : cartesBancaire){
+			soldeActuel = 	calculSoldeActuel(carte.getComptebancaire().getSolde(), carte.getComptebancaire().getIdCompte());
+			if(soldeActuel <= montantCommande){
 				return false;
 			}
-			if(compte.getSolde() >montantOperation){
+			if(soldeActuel > montantCommande){
 				return true;
 			}
 		}
+
+
 
 		return false;
 	}
