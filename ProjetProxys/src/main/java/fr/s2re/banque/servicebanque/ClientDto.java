@@ -1,8 +1,10 @@
 
 package fr.s2re.banque.servicebanque;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -42,7 +44,7 @@ import javax.xml.bind.annotation.XmlType;
     "nomClient",
     "prenomClient"
 })
-public class ClientDto {
+public class ClientDto implements Serializable {
 
     protected String adresseClient;
     protected BanqueDto banque;

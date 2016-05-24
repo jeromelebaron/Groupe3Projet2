@@ -1,8 +1,10 @@
 
 package fr.s2re.banque.servicebanque;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -44,7 +46,7 @@ import javax.xml.bind.annotation.XmlType;
     "operationbancaires",
     "solde"
 })
-public class CompteBancaireDto {
+public class CompteBancaireDto implements Serializable {
 
     @XmlElement(nillable = true)
     protected List<CarteBancaireDto> cartebancaires;
