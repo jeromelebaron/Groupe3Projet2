@@ -1,6 +1,7 @@
 package fr.s2re.banque.impl.business;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -8,6 +9,7 @@ import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
 import fr.s2re.banque.api.business.ICompteBancaireBusiness;
+import fr.s2re.banque.api.business.IOperationBancaireBusiness;
 import fr.s2re.banque.api.data.ICarteBancaireDao;
 import fr.s2re.banque.api.data.IClientDao;
 import fr.s2re.banque.api.data.ICompteBancaireDao;
@@ -35,6 +37,9 @@ public class CompteBancaireBusiness implements ICompteBancaireBusiness{
 	IClientDao clientDao;
 	@EJB
 	ICarteBancaireDao carteBancaireDao;
+
+	@EJB 
+	IOperationBancaireDao operationBancairedao;
 
 	private Double calculSoldeActuel(Double soldeInitial, Integer idCompteBancaire){
 		Double soldeActuel = null;
@@ -65,7 +70,7 @@ public class CompteBancaireBusiness implements ICompteBancaireBusiness{
 				cartesBancaire = EntityToDto.fromListeCartesEntityToListeCartesDto(carteBancaireDao.getCarteByCompte(compte.getIdCompte()));
 			}
 		}
-		
+
 		for(CarteBancaireDto carte : cartesBancaire){
 			if(verifierCarte(carte,carteDto)){
 				soldeActuel = 	calculSoldeActuel(carte.getComptebancaire().getSolde(), carte.getComptebancaire().getIdCompte());
@@ -74,6 +79,9 @@ public class CompteBancaireBusiness implements ICompteBancaireBusiness{
 						return false;
 					}
 					if(soldeActuel > montantCommande){
+						operationBancairedao.insertDebit(new Debit(new Date(), montantCommande,
+								DtoToEntity.fromCompteBancaireDtoToCompteBancaireEntity
+								(carte.getComptebancaire())));
 						return true;
 					}
 				}
@@ -87,10 +95,10 @@ public class CompteBancaireBusiness implements ICompteBancaireBusiness{
 	private boolean verifierCarte(CarteBancaireDto carte,
 			CarteBancaireDto carteDto) {
 		if(carte.getCryptogramme() == carteDto.getCryptogramme()){
-				if(carte.getNumeroCarte().equals(carteDto.getNumeroCarte())){
-					return true;
-				}
-			
+			if(carte.getNumeroCarte().equals(carteDto.getNumeroCarte())){
+				return true;
+			}
+
 		}
 		else{
 			return false;
