@@ -29,7 +29,10 @@ public class EntityToDto {
 	}
 	public static DeviseDto fromDeviseEntityToDeviseDto(Devise devise) {
 		DeviseDto deviseDto = new DeviseDto();
-		dbm.map(devise, deviseDto);
+		deviseDto.setChange(devise.getChange());
+		deviseDto.setCode(devise.getCode());
+		deviseDto.setIdDevise(devise.getIdDevise());
+		deviseDto.setMonnaie(devise.getMonnaie());
 		return deviseDto;
 	}
 

@@ -16,6 +16,9 @@ import fr.s2re.banque.entity.Devise;
 @Remote(IDeviseDao.class)
 @Stateless
 public class DeviseDao implements IDeviseDao {
+	
+private static DeviseDao uniqueInstance = null;
+	
 	@PersistenceContext(unitName="Banque-Data")
 	EntityManager em;
 
@@ -30,7 +33,7 @@ public class DeviseDao implements IDeviseDao {
 
 	@Override
 	public List<Devise> getAllDevises() {
-		Query req = em.createQuery("select * from Devise ");
+		Query req = em.createQuery("select d from Devise d");
 		return req.getResultList();
 	}
 
