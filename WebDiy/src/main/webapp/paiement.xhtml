@@ -123,7 +123,7 @@
 								<div class="col-md-5">
 									<label>Adresse</label>
 								</div>
-								<div class="col-md-1">
+								<div class="col-md-2 center-enfants">
 									<label>Choisir</label>
 								</div>
 							</div>
@@ -150,15 +150,17 @@
 										<h:outputText
 											value="#{serviceLivraison.adresseLocalisation.ville.codePostal}" />
 									</div>
-									<div class="col-md-1">
+									<div class="col-md-2 center-enfants">
 										<input type="radio" name="choixLivraison" />
 									</div>
 								</div>
 							</ui:repeat>
 						</div>
+						<div id="google-map">
 						<iframe
 							src="https://www.google.com/maps/d/embed?mid=1CoByS1VRqiALAYdkjTKBOlpQL7c"
-							width="700" height="400"></iframe>
+							width="750" height="400"></iframe>
+							</div>
 					</div>
 				</div>
 			</div>

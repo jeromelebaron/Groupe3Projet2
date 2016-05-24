@@ -29,7 +29,7 @@ import fr.s2re.livraison.servicelivraison.ServiceLivraisonDto;
 public class CommandeMb {
     private int methodeLivraisonChoisi = 2;
 
-    private int typeCbChoisi;
+    private int typeCbChoisi = 1;
 
     private UtilisateurDto user;
     /**
