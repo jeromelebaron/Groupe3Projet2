@@ -11,16 +11,18 @@ import fr.s2re.iuc.IUcGerant;
 @Remote(IUcGerant.class)
 @Stateless
 public class UcGerant implements IUcGerant {
-	@Override
-	public ProduitDto addProduit(ProduitDto paramProduitDto) {
-		return null;
-	}
-	@Override
-	public List<ProduitDto> consulterStock() {
-		return null;
-	}
-	@Override
-	public ProduitDto deleteProduitCatalog(ProduitDto paramProduitDto) {
-		return null;
-	}
+    @Override
+    public ProduitDto addProduit(ProduitDto paramProduitDto) {
+        throw new UnsupportedOperationException("Non implémenté");
+    }
+
+    @Override
+    public List<ProduitDto> consulterStock() {
+        throw new UnsupportedOperationException("Non implémenté");
+    }
+
+    @Override
+    public ProduitDto deleteProduitCatalog(ProduitDto paramProduitDto) {
+        throw new UnsupportedOperationException("Non implémenté");
+    }
 }

@@ -9,39 +9,47 @@ import fr.s2re.entity.Rubrique;
 import fr.s2re.entity.Sujet;
 import fr.s2re.entity.TypeSujet;
 import fr.s2re.idao.IDaoSujet;
+
 @Remote(IDaoSujet.class)
 @Stateless
-public class DaoSujet implements IDaoSujet{
-	@Override
-	public Sujet addSujet(Sujet paramSujet) {
-		return null;
-	}
-	@Override
-	public Sujet updateSujet(Sujet paramSujet) {
-		return null;
-	}
-	@Override
-	public Sujet closeSujet(Sujet paramSujet) {
-		return null;
-	}
-	@Override
-	public Sujet getById(Integer paramId) {
-		return null;
-	}
-	@Override
-	public List<Sujet> getAll() {
-		return null;
-	}
-	@Override
-	public List<Sujet> getByType(TypeSujet paramTypeSujet) {
-		return null;
-	}
-	@Override
-	public List<Sujet> getByRubrique(Rubrique paramRubrique) {
-		return null;
-	}
-	@Override
-	public List<Sujet> getByPublication(Boolean paramBoolean) {
-		return null;
-	}
+public class DaoSujet implements IDaoSujet {
+    @Override
+    public Sujet addSujet(Sujet paramSujet) {
+        throw new UnsupportedOperationException("Non implémenté");
+    }
+
+    @Override
+    public Sujet updateSujet(Sujet paramSujet) {
+        throw new UnsupportedOperationException("Non implémenté");
+    }
+
+    @Override
+    public Sujet closeSujet(Sujet paramSujet) {
+        throw new UnsupportedOperationException("Non implémenté");
+    }
+
+    @Override
+    public Sujet getById(Integer paramId) {
+        throw new UnsupportedOperationException("Non implémenté");
+    }
+
+    @Override
+    public List<Sujet> getAll() {
+        throw new UnsupportedOperationException("Non implémenté");
+    }
+
+    @Override
+    public List<Sujet> getByType(TypeSujet paramTypeSujet) {
+        throw new UnsupportedOperationException("Non implémenté");
+    }
+
+    @Override
+    public List<Sujet> getByRubrique(Rubrique paramRubrique) {
+        throw new UnsupportedOperationException("Non implémenté");
+    }
+
+    @Override
+    public List<Sujet> getByPublication(Boolean paramBoolean) {
+        throw new UnsupportedOperationException("Non implémenté");
+    }
 }

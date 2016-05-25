@@ -189,7 +189,7 @@ body a {
 	margin-top: 10px;
 }
 
-.decal_com{
+.decal_com {
 	margin-left: 25px;
 }
 
@@ -3527,4 +3527,25 @@ a.cpns {
 	.login-right span {
 		font-size: 0.9em;
 	}
+}
+
+.center-enfants {
+	display: flex;
+	justify-content: center;
+}
+
+#google-map{
+	margin-top: 30px;
+}
+
+.align-vertical{
+	align-items: center;
+}
+
+#images-cartes{
+	margin-top: 10px;
+}
+
+.marge-bottom{
+	margin-bottom: 40px;
 }

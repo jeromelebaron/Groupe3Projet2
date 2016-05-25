@@ -14,42 +14,48 @@ import fr.s2re.entity.NoteClient;
 import fr.s2re.entity.NoteProduit;
 import fr.s2re.entity.Produit;
 import fr.s2re.idao.IDaoNote;
+
 @Remote(IDaoNote.class)
 @Stateless
-public class DaoNote implements IDaoNote{
-	@PersistenceContext
-	private EntityManager em;
-	@Override
-	public Note addNote(Note paramNote) {
-		em.persist(paramNote);
-		em.flush();
-		return paramNote;
-	}
-	
-	@Override
-	public Note updateNote(Note paramNote) {
-		return null;
-	}
-	@Override
-	public List<Note> getByClient(Client paramClient) {
-		return null;
-	}
-	@Override
-	public List<Note> getByAlerte(AlerteCommentaire paramAlerte) {
-		return null;
-	}
-	@Override
-	public List<NoteProduit> getByProduit(Produit paramProduit) {
-		return em.createQuery("Select n From NoteProduit n where n.produit.id = :paramId", NoteProduit.class)
-				.setParameter("paramId", paramProduit.getId())
-				.getResultList();
-	}
-	@Override
-	public List<NoteClient> getByVendeur(Client paramVendeur) {
-		return null;
-	}
-	@Override
-	public List<AlerteCommentaire> getAlerte(Note paramNote) {
-		return null;
-	}
+public class DaoNote implements IDaoNote {
+    @PersistenceContext
+    private EntityManager em;
+
+    @Override
+    public Note addNote(Note paramNote) {
+        em.persist(paramNote);
+        em.flush();
+        return paramNote;
+    }
+
+    @Override
+    public Note updateNote(Note paramNote) {
+        throw new UnsupportedOperationException("Non implémenté");
+    }
+
+    @Override
+    public List<Note> getByClient(Client paramClient) {
+        throw new UnsupportedOperationException("Non implémenté");
+    }
+
+    @Override
+    public List<Note> getByAlerte(AlerteCommentaire paramAlerte) {
+        throw new UnsupportedOperationException("Non implémenté");
+    }
+
+    @Override
+    public List<NoteProduit> getByProduit(Produit paramProduit) {
+        return em.createQuery("Select n From NoteProduit n where n.produit.id = :paramId", NoteProduit.class)
+                .setParameter("paramId", paramProduit.getId()).getResultList();
+    }
+
+    @Override
+    public List<NoteClient> getByVendeur(Client paramVendeur) {
+        throw new UnsupportedOperationException("Non implémenté");
+    }
+
+    @Override
+    public List<AlerteCommentaire> getAlerte(Note paramNote) {
+        throw new UnsupportedOperationException("Non implémenté");
+    }
 }

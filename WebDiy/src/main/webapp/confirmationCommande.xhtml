@@ -3,7 +3,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <ui:composition template="/WEB-INF/template/templateSansMenu.xhtml">
-	<ui:define name="titre">Liste d'envie</ui:define>
+	<ui:define name="titre">Récapitulatif</ui:define>
 	<ui:define name="mainPage">
 		<div class="check_box">
 			<div class="col-md-9 cart-items">
@@ -26,46 +26,13 @@
 				</div>
 				<div class="tab_commande">
 					<h3 class="quick">Transaction</h3>
-					<h:outputLabel value="Paiement reussi !" />
+					<label>Votre paiement a bien été pris en compte.</label>
 				</div>
-				<div class="tab_commande">
+				<div class="tab_commande marge-bottom">
 					<h3 class="quick">Votre commande</h3>
-					<h:panelGroup
-						rendered="#{panierMb.listLigneDeCommande.size() != 0}">
-						<table class="table table_col">
-							<ui:repeat var="ligne" value="#{panierMb.listLigneDeCommande}">
-								<tr>
-									<th><div class="image_tab">
-											<img src="#{ligne.produit.images.get(0).url}"
-												class="img-responsive" />
-										</div></th>
-									<th>
-										<div class="size_result_paiement">
-											<h:outputLabel value="#{ligne.produit.libelle}" />
-										</div> Reference
-										<div class="size_result_paiement">
-											<h:outputLabel value="#{ligne.produit.reference}" />
-										</div>
-									</th>
-									<th>Prix
-										<div class="size_result_paiement">
-											<h:outputLabel value="#{ligne.produit.prix} €" />
-										</div>
-									</th>
-									<th>Quantité
-										<div class="size_result_paiement">
-											<h:outputLabel value="#{ligne.quantite}" />
-										</div>
-									</th>
-									<th><div class="total_paiement">
-											<span>Total : <h:outputLabel
-													value="#{panierMb.mapLigneCmd.get(ligne)} €" /></span>
-											<div class="clearfix"></div>
-										</div></th>
-								</tr>
-							</ui:repeat>
-						</table>
-					</h:panelGroup>
+					La commande portant la référence <h:outputLabel
+							value="#{paiementMB.commandeDto.numero}" /> est bien enregistrée
+						et sera prise en charge par nos services.
 				</div>
 			</div>
 			<div class="col-md-3 cart-total">
@@ -73,7 +40,8 @@
 				<div class="price-details">
 					<h3>Details</h3>
 					<span>Total</span> <span class="total1"><h:outputLabel
-							value="#{panierMb.totalPanier}" /></span> <span>Frais de port</span> <span class="total1"><h:outputLabel
+							value="#{commandeMb.montantPanier}" /></span> <span>Frais de
+						port</span> <span class="total1"><h:outputLabel
 							value="#{commandeMb.fraisLivraison}" /> </span>
 					<div class="clearfix"></div>
 				</div>
@@ -82,10 +50,8 @@
 						<h4>TOTAL</h4>
 					</li>
 					<li class="last_price"><span><h:outputLabel
-								value="#{commandeMb.commande.total}€" /></span></li>
+								value="#{commandeMb.montantTotalCommande}€" /></span></li>
 					<div class="clearfix"></div>
-					<h:commandLink styleClass="order" value="OK"
-					action="#{panierMb.viderPanier()}" />
 				</ul>
 				<div class="clearfix"></div>
 			</div>

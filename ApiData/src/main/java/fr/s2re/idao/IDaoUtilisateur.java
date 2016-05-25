@@ -8,13 +8,21 @@ import fr.s2re.entity.NoteClient;
 import fr.s2re.entity.Utilisateur;
 
 public interface IDaoUtilisateur {
-	Utilisateur addUser(Utilisateur paramUtilisateur);
-	Utilisateur updateUser(Utilisateur paramUtilisateur);
-	List<Utilisateur> getAll();
-	Utilisateur getById(Integer paramId);
-	Utilisateur getByNom(String paramNom);
-	Utilisateur getByIdentifiant(String paramMail, String paramMdp);
-	List<NoteClient> getNote(Client paramClient);
-	Client getVendeurByIdPdt(Integer paramIdProduit);
-	List<Note> getNotesByNoteur(Client paramClient, Client paramVendeur);
+    Utilisateur addUser(Utilisateur paramUtilisateur);
+
+    Utilisateur updateUser(Utilisateur paramUtilisateur);
+
+    List<Utilisateur> getAll();
+
+    Utilisateur getById(Integer paramId);
+
+    Utilisateur getByNom(String paramNom);
+
+    Utilisateur getByIdentifiant(String paramMail, String paramMdp);
+
+    List<NoteClient> getNote(Client paramClient);
+
+    Client getVendeurByIdPdt(Integer paramIdProduit);
+
+    List<Note> getNotesByNoteur(Client paramClient, Client paramVendeur);
 }

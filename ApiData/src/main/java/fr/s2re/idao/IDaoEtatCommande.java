@@ -5,7 +5,9 @@ import java.util.List;
 import fr.s2re.entity.EtatCommande;
 
 public interface IDaoEtatCommande {
-	List<EtatCommande> getAll();
-	EtatCommande getById(Integer paramId);
-	List<EtatCommande> getByLibelle(String paramLibelle);
+    List<EtatCommande> getAll();
+
+    EtatCommande getById(Integer paramId);
+
+    List<EtatCommande> getByLibelle(String paramLibelle);
 }

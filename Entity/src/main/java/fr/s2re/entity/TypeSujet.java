@@ -9,39 +9,48 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+
 @Entity
-@Table(name="type_sujet",
-uniqueConstraints=@UniqueConstraint(columnNames={"libelle"}))
-public class TypeSujet implements Serializable{
-	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
+@Table(name = "type_sujet", uniqueConstraints = @UniqueConstraint(columnNames = { "libelle" }) )
+public class TypeSujet implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
-	@Column(name="libelle", length=50, nullable=false)
+
+    @Column(name = "libelle", length = 50, nullable = false)
     private String libelle;
-	public TypeSujet() {
-		super();
-	}
-	public TypeSujet(Integer paramId, String paramLibelle) {
-		super();
-		id = paramId;
-		libelle = paramLibelle;
-	}
-	public TypeSujet(String paramLibelle) {
-		super();
-		libelle = paramLibelle;
-	}
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer paramId) {
-		id = paramId;
-	}
-	public String getLibelle() {
-		return libelle;
-	}
-	public void setLibelle(String paramLibelle) {
-		libelle = paramLibelle;
-	}
+
+    public TypeSujet() {
+        super();
+    }
+
+    public TypeSujet(Integer paramId, String paramLibelle) {
+        super();
+        id = paramId;
+        libelle = paramLibelle;
+    }
+
+    public TypeSujet(String paramLibelle) {
+        super();
+        libelle = paramLibelle;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer paramId) {
+        id = paramId;
+    }
+
+    public String getLibelle() {
+        return libelle;
+    }
+
+    public void setLibelle(String paramLibelle) {
+        libelle = paramLibelle;
+    }
 }

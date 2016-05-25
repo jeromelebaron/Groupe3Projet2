@@ -3,7 +3,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <ui:composition template="/WEB-INF/template/templateSansMenu.xhtml">
-	<ui:define name="titre">Liste d'envie</ui:define>
+	<ui:define name="titre">Livraison</ui:define>
 	<ui:define name="mainPage">
 		<div class="check_box">
 			<div class="col-md-9 cart-items">
@@ -34,7 +34,7 @@
 									<th>
 										<div class="size_result_paiement">
 											<h:outputLabel value="#{ligne.produit.libelle}" />
-										</div> Reference
+										</div> Réference
 										<div class="size_result_paiement">
 											<h:outputLabel value="#{ligne.produit.reference}" />
 										</div>
@@ -49,11 +49,13 @@
 											<h:outputLabel value="#{ligne.quantite}" />
 										</div>
 									</th>
-									<th><div class="total_paiement">
+									<th>
+										<div class="total_paiement">
 											<span>Total : <h:outputLabel
 													value="#{panierMb.mapLigneCmd.get(ligne)} €" /></span>
 											<div class="clearfix"></div>
-										</div></th>
+										</div>
+									</th>
 								</tr>
 							</ui:repeat>
 						</table>
@@ -63,9 +65,11 @@
 					<div class="choix_paiment">
 						<h3 class="quick_output">Méthode de livraison</h3>
 						<div class="espace_radio">
-							<h:selectOneRadio value="#{commandeMb.methodeLivraisonChoisi}" >
+							<h:selectOneRadio value="#{commandeMb.methodeLivraisonChoisi}">
 								<f:selectItems value="#{commandeMb.methodesLivraison}" var="m"
 									itemLabel="#{m.libelle} (#{m.prix}€)" itemValue="#{m.id}" />
+								<f:ajax event="click" render="panneauMontant"
+									listener="#{commandeMb.mettreAJourRecapitulatifCommande()}" />
 							</h:selectOneRadio>
 						</div>
 					</div>
@@ -81,56 +85,10 @@
 												var="adresse" itemLabel="#{adresse.libelle}"
 												itemValue="#{adresse.id}" />
 										</h:selectOneMenu>
-										
+										<button class="btn_add">Ajouter</button>
 										<h:commandButton value="Supprimer"
 											action="#{clientMb.supprimerAdresseL()}" class="btn_add" />
 									</div>
-								</div>
-								<!--  <h:panelGrid id="tutu">
-									<fieldset>
-										<legend>Sélectionnée</legend>
-										<div>
-											<h:outputText value="#{clientMb.adresseDisplay.numero}" />
-										</div>
-										<div>
-											<h:outputText value="#{clientMb.adresseDisplay.rue}" />
-										</div>
-										<div>
-											<h:outputText value="#{clientMb.adresseDisplay.ville.cp}" />
-										</div>
-										<div>
-											<h:outputText value="#{clientMb.adresseDisplay.ville.nom}" />
-										</div>
-									</fieldset>
-								</h:panelGrid>-->
-								<div class="quick_add_livraison">
-									<fieldset>
-										<legend>Nouvelle</legend>
-										<div>
-											<h:outputLabel value="Nom adresse" class="text_align_add" />
-											<h:inputText value="#{clientMb.adresseLCusto.libelle}" />
-										</div>
-										<div>
-											<h:outputLabel value="N°" class="text_align_add" />
-											<h:inputText value="#{clientMb.adresseLCusto.numero}" />
-										</div>
-										<div>
-											<h:outputLabel value="Rue" class="text_align_add" />
-											<h:inputText value="#{clientMb.adresseLCusto.rue}" />
-										</div>
-										<div>
-											<h:outputLabel value="Code Postal" class="text_align_add" />
-											<h:inputText value="#{clientMb.cpL}" />
-										</div>
-										<div>
-											<h:outputLabel value="Ville" class="text_align_add" />
-											<h:inputText value="#{clientMb.villeL}" />
-										</div>
-										<div>
-											<h:commandButton value="Ajouter aux favoris"
-												action="#{clientMb.ajouterAdresseL()}" class="btn_add" />
-										</div>
-									</fieldset>
 								</div>
 							</div>
 							<div class="col-md-6 add_div">
@@ -142,59 +100,93 @@
 												var="adresse" itemLabel="#{adresse.libelle}"
 												itemValue="#{adresse.id}" />
 										</h:selectOneMenu>
-
+										<button class="btn_add">Ajouter</button>
 										<h:commandButton value="Supprimer"
 											action="#{clientMb.supprimerAdresseF()}" class="btn_add" />
 									</div>
 								</div>
-								<div class="quick_desc">
-									<fieldset>
-										<legend>Nouvelle</legend>
-										<div>
-											<h:outputLabel value="Nom adresse" class="text_align_add" />
-											<h:inputText value="#{clientMb.adresseFCusto.libelle}" />
-										</div>
-										<div>
-											<h:outputLabel value="N°" class="text_align_add" />
-											<h:inputText value="#{clientMb.adresseFCusto.numero}" />
-										</div>
-										<div>
-											<h:outputLabel value="Rue" class="text_align_add" />
-											<h:inputText value="#{clientMb.adresseFCusto.rue}" />
-										</div>
-										<div>
-											<h:outputLabel value="Code Postal" class="text_align_add" />
-											<h:inputText value="#{clientMb.cpF}" />
-										</div>
-										<div>
-											<h:outputLabel value="Ville" class="text_align_add" />
-											<h:inputText value="#{clientMb.villeF}" />
-										</div>
-										<div>
-											<h:commandButton value="Ajouter aux favoris"
-												action="#{clientMb.ajouterAdresseF()}" class="btn_add" />
-										</div>
-									</fieldset>
-								</div>
 							</div>
 						</div>
+
+						<div>
+							<div class="row">
+								<h3 class="quick_output">Services de livraison disponible
+									pour cette adresse</h3>
+							</div>
+							<div class="row">
+								<div class="col-md-2">
+									<label>Nom</label>
+								</div>
+								<div class="col-md-3">
+									<label>Type de livraison</label>
+								</div>
+								<div class="col-md-5">
+									<label>Adresse</label>
+								</div>
+								<div class="col-md-2 center-enfants">
+									<label>Choisir</label>
+								</div>
+							</div>
+							<ui:repeat var="serviceLivraison"
+								value="#{commandeMb.lesServicesDeLivraison}">
+								<div class="row">
+									<div class="col-md-2">
+										<h:outputText value="#{serviceLivraison.nom}" />
+									</div>
+									<div class="col-md-3">
+										<h:outputText
+											value="#{serviceLivraison.typeLivraison.libelle}" />
+									</div>
+									<div class="col-md-5">
+										<h:outputText
+											value="#{serviceLivraison.adresseLocalisation.numero}" />
+										&#160;
+										<h:outputText
+											value="#{serviceLivraison.adresseLocalisation.nomRue}" />
+										&#160;
+										<h:outputText
+											value="#{serviceLivraison.adresseLocalisation.ville.nom}" />
+										&#160;
+										<h:outputText
+											value="#{serviceLivraison.adresseLocalisation.ville.codePostal}" />
+									</div>
+									<div class="col-md-2 center-enfants">
+										<input type="radio" name="choixLivraison" />
+									</div>
+								</div>
+							</ui:repeat>
+						</div>
+						<div id="google-map">
+						<iframe
+							src="https://www.google.com/maps/d/embed?mid=1CoByS1VRqiALAYdkjTKBOlpQL7c"
+							width="750" height="400"></iframe>
+							</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-3 cart-total">
 				<a class="continue" href="#">Continuer mes achats</a>
-
-				<ul class="total_price">
-					<li class="last_price">
-						<h4>TOTAL</h4>
-					</li>
-					<li class="last_price"><span><h:outputLabel
-								value="#{panierMb.panierFraisLivraison}€" /></span></li>
+				<h:panelGroup id="panneauMontant">
+					<div class="price-details">
+						<h3>Details</h3>
+						<span>Total</span> <span class="total1"><h:outputLabel
+								value="#{commandeMb.montantPanier}" /></span> <span>Frais de
+							port</span> <span class="total1"><h:outputLabel
+								value="#{commandeMb.fraisLivraison}" /> </span>
+						<div class="clearfix"></div>
+					</div>
+					<ul class="total_price">
+						<li class="last_price">
+							<h4>TOTAL</h4>
+						</li>
+						<li class="last_price"><span><h:outputLabel
+									value="#{commandeMb.montantTotalCommande}€" /></span></li>
+						<div class="clearfix"></div>
+					</ul>
 					<div class="clearfix"></div>
-				</ul>
-				<div class="clearfix"></div>
+				</h:panelGroup>
 				<h:commandLink styleClass="order" value="Payer la commande"
-					action="#{commandeMb.payer()}" />
+					action="#{commandeMb.allerPayer()}" />
 				<div class="total-item">
 					<h3>OPTIONS</h3>
 					<h4>COUPONS</h4>

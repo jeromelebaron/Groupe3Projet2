@@ -7,15 +7,17 @@ import javax.ejb.Stateless;
 
 import fr.s2re.dto.TypeRetourDto;
 import fr.s2re.ibusiness.IBusinessTypeRetour;
+
 @Remote(IBusinessTypeRetour.class)
 @Stateless
-public class BusinessTypeRetour implements IBusinessTypeRetour{
-	@Override
-	public List<TypeRetourDto> getAll() {
-		return null;
-	}
-	@Override
-	public TypeRetourDto getByLibelle(String paramLibelle) {
-		return null;
-	}
+public class BusinessTypeRetour implements IBusinessTypeRetour {
+    @Override
+    public List<TypeRetourDto> getAll() {
+        throw new UnsupportedOperationException("Non implémenté");
+    }
+
+    @Override
+    public TypeRetourDto getByLibelle(String paramLibelle) {
+        throw new UnsupportedOperationException("Non implémenté");
+    }
 }

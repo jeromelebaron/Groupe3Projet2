@@ -7,10 +7,15 @@ import fr.s2re.entity.Adresse;
 import fr.s2re.entity.Utilisateur;
 
 public interface IDaoAdresse {
-	Adresse addAdresse(Adresse paramAdresse);
-	Adresse updateAdresse(Adresse paramAdresse);
-	Adresse getById(Integer paramId);
-	List<Adresse> getAll();
-	List<Adresse> getByUser(Utilisateur paramUtilisateur);
-	Adresse getByCoordonnees(BigDecimal paramLongitude, BigDecimal paramLatitude);
+    Adresse addAdresse(Adresse paramAdresse);
+
+    Adresse updateAdresse(Adresse paramAdresse);
+
+    Adresse getById(Integer paramId);
+
+    List<Adresse> getAll();
+
+    List<Adresse> getByUser(Utilisateur paramUtilisateur);
+
+    Adresse getByCoordonnees(BigDecimal paramLongitude, BigDecimal paramLatitude);
 }

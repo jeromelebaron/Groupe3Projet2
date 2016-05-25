@@ -6,5 +6,5 @@ import fr.s2re.dto.AssociationDto;
 import fr.s2re.dto.EnvieDto;
 
 public interface IUcAssociation {
-	List<EnvieDto> consulterSaListeDeSouhaits(AssociationDto paramAssociationDto );
+    List<EnvieDto> consulterSaListeDeSouhaits(AssociationDto paramAssociationDto);
 }

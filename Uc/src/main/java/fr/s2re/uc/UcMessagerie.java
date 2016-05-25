@@ -14,22 +14,23 @@ import fr.s2re.iuc.IUcMessagerie;
 @Remote(IUcMessagerie.class)
 @Stateless
 public class UcMessagerie implements IUcMessagerie {
-	@Override
-	public MessagerieDto envoyerMessage(ClientDto paramClientDto,
-			ProduitDto paramProduitDto) {
-		return null;
-	}
-	@Override
-	public MessagerieDto deleteMessage(MessageInboxDto paramMessageInboxDto) {
-		return null;
-	}
-	@Override
-	public List<MessagerieDto> consuleterListeMessagerie(ClientDto paramClientDto) {
-		return null;
-	}
-	@Override
-	public List<MessageInboxDto> consulterMessagerie(
-			MessagerieDto paramMessagerieDto) {
-		return null;
-	}
+    @Override
+    public MessagerieDto envoyerMessage(ClientDto paramClientDto, ProduitDto paramProduitDto) {
+        throw new UnsupportedOperationException("Non implémenté");
+    }
+
+    @Override
+    public MessagerieDto deleteMessage(MessageInboxDto paramMessageInboxDto) {
+        throw new UnsupportedOperationException("Non implémenté");
+    }
+
+    @Override
+    public List<MessagerieDto> consuleterListeMessagerie(ClientDto paramClientDto) {
+        throw new UnsupportedOperationException("Non implémenté");
+    }
+
+    @Override
+    public List<MessageInboxDto> consulterMessagerie(MessagerieDto paramMessagerieDto) {
+        throw new UnsupportedOperationException("Non implémenté");
+    }
 }

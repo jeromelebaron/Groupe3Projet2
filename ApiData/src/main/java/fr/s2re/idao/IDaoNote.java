@@ -10,11 +10,17 @@ import fr.s2re.entity.NoteProduit;
 import fr.s2re.entity.Produit;
 
 public interface IDaoNote {
-	Note addNote(Note paramNote);
-	Note updateNote(Note paramNote);
-	List<Note> getByClient(Client paramClient);
-	List<Note> getByAlerte (AlerteCommentaire paramAlerte);
-	List<NoteProduit> getByProduit (Produit paramProduit);
-	List<NoteClient> getByVendeur(Client paramVendeur);
-	List<AlerteCommentaire> getAlerte(Note paramNote);
+    Note addNote(Note paramNote);
+
+    Note updateNote(Note paramNote);
+
+    List<Note> getByClient(Client paramClient);
+
+    List<Note> getByAlerte(AlerteCommentaire paramAlerte);
+
+    List<NoteProduit> getByProduit(Produit paramProduit);
+
+    List<NoteClient> getByVendeur(Client paramVendeur);
+
+    List<AlerteCommentaire> getAlerte(Note paramNote);
 }

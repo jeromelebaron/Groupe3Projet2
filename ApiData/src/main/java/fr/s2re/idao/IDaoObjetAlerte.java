@@ -5,6 +5,7 @@ import java.util.List;
 import fr.s2re.entity.ObjetAlerte;
 
 public interface IDaoObjetAlerte {
-	List<ObjetAlerte> getAll();
-	ObjetAlerte getByLibelle(String paramLibelle);
+    List<ObjetAlerte> getAll();
+
+    ObjetAlerte getByLibelle(String paramLibelle);
 }
